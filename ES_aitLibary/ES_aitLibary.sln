@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31005.135
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ES_aitLibary", "ES_aitLibary\ES_aitLibary.csproj", "{E68DDDF0-43AA-41AE-B838-3DF81D0BDDFC}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E68DDDF0-43AA-41AE-B838-3DF81D0BDDFC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E68DDDF0-43AA-41AE-B838-3DF81D0BDDFC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E68DDDF0-43AA-41AE-B838-3DF81D0BDDFC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E68DDDF0-43AA-41AE-B838-3DF81D0BDDFC}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {386B3AB9-E7C6-4C46-A8F9-16BAA4E59EB6}
+	EndGlobalSection
+EndGlobal
