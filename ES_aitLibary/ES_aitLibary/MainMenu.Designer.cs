@@ -47,23 +47,45 @@ namespace ES_aitLibary
             this.labelStudentNumber = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
+            this.panelBaseMediaLibary = new System.Windows.Forms.Panel();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.panelAdminMediaLibary = new System.Windows.Forms.Panel();
+            this.btnAdminEditMedia = new System.Windows.Forms.Button();
+            this.btnAdminDeleteMedia = new System.Windows.Forms.Button();
+            this.btnAdminAddNewMedia = new System.Windows.Forms.Button();
+            this.btnReserve = new System.Windows.Forms.Button();
+            this.btnCheckOut = new System.Windows.Forms.Button();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.radioButton4 = new System.Windows.Forms.RadioButton();
+            this.radioButton3 = new System.Windows.Forms.RadioButton();
+            this.radioButton2 = new System.Windows.Forms.RadioButton();
+            this.radioButton1 = new System.Windows.Forms.RadioButton();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.btnSearchByCriteria = new System.Windows.Forms.Button();
+            this.label6 = new System.Windows.Forms.Label();
+            this.listBoxMediaLibary = new System.Windows.Forms.ListBox();
             this.panelHeader.SuspendLayout();
             this.panelStudentDataRow.SuspendLayout();
             this.panelFillStudentBtns.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panelAdminStudentData.SuspendLayout();
             this.panelStudentData.SuspendLayout();
+            this.panelBaseMediaLibary.SuspendLayout();
+            this.panel3.SuspendLayout();
+            this.panelAdminMediaLibary.SuspendLayout();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelHeader
             // 
+            this.panelHeader.BackColor = System.Drawing.SystemColors.Control;
             this.panelHeader.Controls.Add(this.labelUserHeaderData);
             this.panelHeader.Controls.Add(this.btnBack);
             this.panelHeader.Controls.Add(this.label1);
             this.panelHeader.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelHeader.Location = new System.Drawing.Point(0, 0);
             this.panelHeader.Name = "panelHeader";
-            this.panelHeader.Size = new System.Drawing.Size(1795, 150);
+            this.panelHeader.Size = new System.Drawing.Size(1974, 150);
             this.panelHeader.TabIndex = 0;
             // 
             // labelUserHeaderData
@@ -71,7 +93,7 @@ namespace ES_aitLibary
             this.labelUserHeaderData.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.labelUserHeaderData.AutoSize = true;
             this.labelUserHeaderData.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.labelUserHeaderData.Location = new System.Drawing.Point(1425, 52);
+            this.labelUserHeaderData.Location = new System.Drawing.Point(1604, 52);
             this.labelUserHeaderData.Name = "labelUserHeaderData";
             this.labelUserHeaderData.Size = new System.Drawing.Size(340, 45);
             this.labelUserHeaderData.TabIndex = 2;
@@ -93,7 +115,7 @@ namespace ES_aitLibary
             this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(807, 52);
+            this.label1.Location = new System.Drawing.Point(897, 52);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(182, 45);
             this.label1.TabIndex = 0;
@@ -101,13 +123,14 @@ namespace ES_aitLibary
             // 
             // panelStudentDataRow
             // 
+            this.panelStudentDataRow.BackColor = System.Drawing.SystemColors.ControlLight;
             this.panelStudentDataRow.Controls.Add(this.panelFillStudentBtns);
             this.panelStudentDataRow.Controls.Add(this.panelAdminStudentData);
             this.panelStudentDataRow.Controls.Add(this.panelStudentData);
             this.panelStudentDataRow.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelStudentDataRow.Location = new System.Drawing.Point(0, 150);
             this.panelStudentDataRow.Name = "panelStudentDataRow";
-            this.panelStudentDataRow.Size = new System.Drawing.Size(1795, 277);
+            this.panelStudentDataRow.Size = new System.Drawing.Size(1974, 277);
             this.panelStudentDataRow.TabIndex = 1;
             // 
             // panelFillStudentBtns
@@ -116,16 +139,17 @@ namespace ES_aitLibary
             this.panelFillStudentBtns.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelFillStudentBtns.Location = new System.Drawing.Point(1266, 0);
             this.panelFillStudentBtns.Name = "panelFillStudentBtns";
-            this.panelFillStudentBtns.Size = new System.Drawing.Size(529, 277);
+            this.panelFillStudentBtns.Size = new System.Drawing.Size(708, 277);
             this.panelFillStudentBtns.TabIndex = 9;
             // 
             // panel1
             // 
             this.panel1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.panel1.BackColor = System.Drawing.SystemColors.Control;
             this.panel1.Controls.Add(this.btnStudentActivity);
             this.panel1.Controls.Add(this.btnStudentSettings);
             this.panel1.Controls.Add(this.btnStudentRecords);
-            this.panel1.Location = new System.Drawing.Point(-39, 38);
+            this.panel1.Location = new System.Drawing.Point(51, 38);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(635, 203);
             this.panel1.TabIndex = 3;
@@ -239,12 +263,220 @@ namespace ES_aitLibary
             this.label5.TabIndex = 4;
             this.label5.Text = "Student Data";
             // 
+            // panelBaseMediaLibary
+            // 
+            this.panelBaseMediaLibary.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.panelBaseMediaLibary.Controls.Add(this.panel3);
+            this.panelBaseMediaLibary.Controls.Add(this.panel2);
+            this.panelBaseMediaLibary.Controls.Add(this.label6);
+            this.panelBaseMediaLibary.Controls.Add(this.listBoxMediaLibary);
+            this.panelBaseMediaLibary.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelBaseMediaLibary.Location = new System.Drawing.Point(0, 427);
+            this.panelBaseMediaLibary.Name = "panelBaseMediaLibary";
+            this.panelBaseMediaLibary.Size = new System.Drawing.Size(1974, 802);
+            this.panelBaseMediaLibary.TabIndex = 2;
+            // 
+            // panel3
+            // 
+            this.panel3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel3.BackColor = System.Drawing.SystemColors.Control;
+            this.panel3.Controls.Add(this.panelAdminMediaLibary);
+            this.panel3.Controls.Add(this.btnReserve);
+            this.panel3.Controls.Add(this.btnCheckOut);
+            this.panel3.Location = new System.Drawing.Point(1359, 167);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(592, 595);
+            this.panel3.TabIndex = 16;
+            // 
+            // panelAdminMediaLibary
+            // 
+            this.panelAdminMediaLibary.Controls.Add(this.btnAdminEditMedia);
+            this.panelAdminMediaLibary.Controls.Add(this.btnAdminDeleteMedia);
+            this.panelAdminMediaLibary.Controls.Add(this.btnAdminAddNewMedia);
+            this.panelAdminMediaLibary.Location = new System.Drawing.Point(32, 190);
+            this.panelAdminMediaLibary.Name = "panelAdminMediaLibary";
+            this.panelAdminMediaLibary.Size = new System.Drawing.Size(528, 387);
+            this.panelAdminMediaLibary.TabIndex = 15;
+            // 
+            // btnAdminEditMedia
+            // 
+            this.btnAdminEditMedia.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnAdminEditMedia.Location = new System.Drawing.Point(33, 243);
+            this.btnAdminEditMedia.Name = "btnAdminEditMedia";
+            this.btnAdminEditMedia.Size = new System.Drawing.Size(454, 126);
+            this.btnAdminEditMedia.TabIndex = 18;
+            this.btnAdminEditMedia.Text = "Edit";
+            this.btnAdminEditMedia.UseVisualStyleBackColor = true;
+            // 
+            // btnAdminDeleteMedia
+            // 
+            this.btnAdminDeleteMedia.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnAdminDeleteMedia.Location = new System.Drawing.Point(301, 56);
+            this.btnAdminDeleteMedia.Name = "btnAdminDeleteMedia";
+            this.btnAdminDeleteMedia.Size = new System.Drawing.Size(186, 126);
+            this.btnAdminDeleteMedia.TabIndex = 17;
+            this.btnAdminDeleteMedia.Text = "Delete";
+            this.btnAdminDeleteMedia.UseVisualStyleBackColor = true;
+            // 
+            // btnAdminAddNewMedia
+            // 
+            this.btnAdminAddNewMedia.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnAdminAddNewMedia.Location = new System.Drawing.Point(33, 56);
+            this.btnAdminAddNewMedia.Name = "btnAdminAddNewMedia";
+            this.btnAdminAddNewMedia.Size = new System.Drawing.Size(186, 126);
+            this.btnAdminAddNewMedia.TabIndex = 16;
+            this.btnAdminAddNewMedia.Text = "+";
+            this.btnAdminAddNewMedia.UseVisualStyleBackColor = true;
+            // 
+            // btnReserve
+            // 
+            this.btnReserve.Location = new System.Drawing.Point(333, 23);
+            this.btnReserve.Name = "btnReserve";
+            this.btnReserve.Size = new System.Drawing.Size(186, 126);
+            this.btnReserve.TabIndex = 14;
+            this.btnReserve.Text = "Reserve";
+            this.btnReserve.UseVisualStyleBackColor = true;
+            // 
+            // btnCheckOut
+            // 
+            this.btnCheckOut.Location = new System.Drawing.Point(65, 23);
+            this.btnCheckOut.Name = "btnCheckOut";
+            this.btnCheckOut.Size = new System.Drawing.Size(186, 126);
+            this.btnCheckOut.TabIndex = 13;
+            this.btnCheckOut.Text = "check out";
+            this.btnCheckOut.UseVisualStyleBackColor = true;
+            // 
+            // panel2
+            // 
+            this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.panel2.BackColor = System.Drawing.SystemColors.Control;
+            this.panel2.Controls.Add(this.radioButton4);
+            this.panel2.Controls.Add(this.radioButton3);
+            this.panel2.Controls.Add(this.radioButton2);
+            this.panel2.Controls.Add(this.radioButton1);
+            this.panel2.Controls.Add(this.textBox2);
+            this.panel2.Controls.Add(this.btnSearchByCriteria);
+            this.panel2.Location = new System.Drawing.Point(66, 167);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(563, 596);
+            this.panel2.TabIndex = 12;
+            // 
+            // radioButton4
+            // 
+            this.radioButton4.AutoSize = true;
+            this.radioButton4.Location = new System.Drawing.Point(186, 289);
+            this.radioButton4.Name = "radioButton4";
+            this.radioButton4.Size = new System.Drawing.Size(184, 36);
+            this.radioButton4.TabIndex = 17;
+            this.radioButton4.TabStop = true;
+            this.radioButton4.Text = "radioButton4";
+            this.radioButton4.UseVisualStyleBackColor = true;
+            // 
+            // radioButton3
+            // 
+            this.radioButton3.AutoSize = true;
+            this.radioButton3.Location = new System.Drawing.Point(186, 98);
+            this.radioButton3.Name = "radioButton3";
+            this.radioButton3.Size = new System.Drawing.Size(86, 36);
+            this.radioButton3.TabIndex = 16;
+            this.radioButton3.TabStop = true;
+            this.radioButton3.Text = "title";
+            this.radioButton3.UseVisualStyleBackColor = true;
+            // 
+            // radioButton2
+            // 
+            this.radioButton2.AutoSize = true;
+            this.radioButton2.Location = new System.Drawing.Point(186, 218);
+            this.radioButton2.Name = "radioButton2";
+            this.radioButton2.Size = new System.Drawing.Size(107, 36);
+            this.radioButton2.TabIndex = 15;
+            this.radioButton2.TabStop = true;
+            this.radioButton2.Text = "genre";
+            this.radioButton2.UseVisualStyleBackColor = true;
+            // 
+            // radioButton1
+            // 
+            this.radioButton1.AutoSize = true;
+            this.radioButton1.Location = new System.Drawing.Point(186, 157);
+            this.radioButton1.Name = "radioButton1";
+            this.radioButton1.Size = new System.Drawing.Size(90, 36);
+            this.radioButton1.TabIndex = 14;
+            this.radioButton1.TabStop = true;
+            this.radioButton1.Text = "year";
+            this.radioButton1.UseVisualStyleBackColor = true;
+            // 
+            // textBox2
+            // 
+            this.textBox2.Location = new System.Drawing.Point(70, 380);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(416, 39);
+            this.textBox2.TabIndex = 13;
+            // 
+            // btnSearchByCriteria
+            // 
+            this.btnSearchByCriteria.Location = new System.Drawing.Point(165, 462);
+            this.btnSearchByCriteria.Name = "btnSearchByCriteria";
+            this.btnSearchByCriteria.Size = new System.Drawing.Size(189, 62);
+            this.btnSearchByCriteria.TabIndex = 12;
+            this.btnSearchByCriteria.Text = "Search";
+            this.btnSearchByCriteria.UseVisualStyleBackColor = true;
+            // 
+            // label6
+            // 
+            this.label6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label6.Location = new System.Drawing.Point(888, 70);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(202, 45);
+            this.label6.TabIndex = 7;
+            this.label6.Text = "Media Libary";
+            // 
+            // listBoxMediaLibary
+            // 
+            this.listBoxMediaLibary.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.listBoxMediaLibary.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.listBoxMediaLibary.FormattingEnabled = true;
+            this.listBoxMediaLibary.ItemHeight = 37;
+            this.listBoxMediaLibary.Items.AddRange(new object[] {
+            "my media one",
+            "intro to space games",
+            "down to earth mechanics",
+            "Digital breakdown",
+            "Markdown101",
+            "Intro to Engineering",
+            "Makers Mark",
+            "Jack Daniels ",
+            "Crafting Spirits in review",
+            "A long Journey to Pluto",
+            "Power and Territory",
+            "Objective-C why and how",
+            "Csharp made easy ",
+            "Develop with Sammy",
+            "Creating Greatness part 1 of 6",
+            "Raycasting for lighting",
+            "3d models with fusion 360",
+            "polygonal modeling vs modeling for CAD",
+            "I am running out of ideas of what to type",
+            "This is somthing else",
+            "Here is another thing",
+            "fundermentals of C#",
+            "intro to enterprise systems"});
+            this.listBoxMediaLibary.Location = new System.Drawing.Point(695, 167);
+            this.listBoxMediaLibary.Name = "listBoxMediaLibary";
+            this.listBoxMediaLibary.Size = new System.Drawing.Size(600, 596);
+            this.listBoxMediaLibary.TabIndex = 1;
+            // 
             // MainMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(13F, 32F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
-            this.ClientSize = new System.Drawing.Size(1795, 1185);
+            this.ClientSize = new System.Drawing.Size(1974, 1229);
+            this.Controls.Add(this.panelBaseMediaLibary);
             this.Controls.Add(this.panelStudentDataRow);
             this.Controls.Add(this.panelHeader);
             this.Name = "MainMenu";
@@ -258,6 +490,12 @@ namespace ES_aitLibary
             this.panelAdminStudentData.PerformLayout();
             this.panelStudentData.ResumeLayout(false);
             this.panelStudentData.PerformLayout();
+            this.panelBaseMediaLibary.ResumeLayout(false);
+            this.panelBaseMediaLibary.PerformLayout();
+            this.panel3.ResumeLayout(false);
+            this.panelAdminMediaLibary.ResumeLayout(false);
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -282,5 +520,22 @@ namespace ES_aitLibary
         private System.Windows.Forms.Button btnStudentRecords;
         private System.Windows.Forms.Panel panelFillStudentBtns;
         private System.Windows.Forms.Label labelUserHeaderData;
+        private System.Windows.Forms.Panel panelBaseMediaLibary;
+        private System.Windows.Forms.ListBox listBoxMediaLibary;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Button btnReserve;
+        private System.Windows.Forms.Button btnCheckOut;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.RadioButton radioButton4;
+        private System.Windows.Forms.RadioButton radioButton3;
+        private System.Windows.Forms.RadioButton radioButton2;
+        private System.Windows.Forms.RadioButton radioButton1;
+        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.Button btnSearchByCriteria;
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Panel panelAdminMediaLibary;
+        private System.Windows.Forms.Button btnAdminEditMedia;
+        private System.Windows.Forms.Button btnAdminDeleteMedia;
+        private System.Windows.Forms.Button btnAdminAddNewMedia;
     }
 }

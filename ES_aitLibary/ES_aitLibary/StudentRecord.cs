@@ -33,5 +33,10 @@ namespace ES_aitLibary
             mainform.Show();
             this.Close();
         }
+
+        private void StudentRecord_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

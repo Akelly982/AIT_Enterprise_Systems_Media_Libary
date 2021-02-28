@@ -12,12 +12,21 @@ namespace ES_aitLibary
     {
 
         public static String studentNum;
+        public static bool isAdmin;
 
         public StudentSettings()
         {
             InitializeComponent();
 
             labelStudentNumber.Text = studentNum;
+
+
+            // hide admin panel if accessed by student
+            if (!isAdmin)
+            {
+                panelAdminStudentSettings.Visible = false;
+            }
+
 
         }
 
@@ -40,6 +49,17 @@ namespace ES_aitLibary
             Form mainform = Application.OpenForms["MainMenu"];
             mainform.Show();
             this.Close();
+
+        }
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnAdminResetPassword_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -31,6 +31,7 @@ namespace ES_aitLibary
             {
                 //hide admin panels
                 panelAdminStudentData.Visible = false;
+                panelAdminMediaLibary.Visible = false;
             }
 
             
@@ -74,6 +75,7 @@ namespace ES_aitLibary
             {
                 //set data 
                 StudentSettings.studentNum = result[1];
+                StudentSettings.isAdmin = isAdmin;
 
 
                 //move between forms
@@ -196,6 +198,5 @@ namespace ES_aitLibary
         }
 
         
-
     }
 }
