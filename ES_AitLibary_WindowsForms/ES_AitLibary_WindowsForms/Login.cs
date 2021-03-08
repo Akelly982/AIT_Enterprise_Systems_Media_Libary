@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using BusinessLogicLayer;
 
 namespace ES_AitLibary_WindowsForms
 {
@@ -31,29 +32,21 @@ namespace ES_AitLibary_WindowsForms
                 //run as if admin user
                 MainMenu.isAdmin = true;
                 MainMenu.username = "Admin Jimmy";
-                //move to next screen
-                MainMenu m = new MainMenu();
-                m.Show();
-                this.Hide();
-
-                //Login login = this;
-                //login.Hide();
+                
             }
             else
             {
                 //run as if student 
                 MainMenu.isAdmin = false;
                 MainMenu.username = "Jimmy";
-                //move to next screen
-                MainMenu m = new MainMenu();
-                m.Show();
-                this.Close();
+                
+                
 
             }
 
-
+            //System.Threading.Thread.Sleep(3000);
             //MoveToMainMenuWithClose();
-
+            moveToMainMenuWithHide();
 
         }
 
@@ -61,6 +54,32 @@ namespace ES_AitLibary_WindowsForms
 
         private void BtnLoggin_Click(object sender, EventArgs e)
         {
+            //get data 
+            string username = TextBoxUsername.Text;
+            string password = TextBoxPassword.Text;
+
+            //check if text is empty
+            if (username.Length > 0 || password.Length > 0)
+            {
+                //send to business
+                UserLogic ul = new UserLogic();
+                User user = ul.UserLogin(username, password);
+
+                //check for errors
+                if (user.getId() == -1)
+                {
+                    MessageBox.Show("get user error UID == -1 ");
+                }
+                else
+                {
+
+                    moveToMainMenuWithData(user.getUserLevel(),user.getUsername());
+
+                }
+            }
+
+
+            
 
         }
 
@@ -79,15 +98,41 @@ namespace ES_AitLibary_WindowsForms
         }
 
 
+        //my functions---------------------------------------------------
 
-        
+        public void moveToMainMenuWithData(int isAdminInt, string username)
+        {
+            bool isAdmin = false;
 
-        public void MoveToMainMenuWithClose()
+            // 1 == student
+            // 2 == admin
+
+            if(isAdminInt != 1)
+            {
+                isAdmin = false;
+            }
+            
+
+            MainMenu.isAdmin = isAdmin;
+            MainMenu.username = username;
+            moveToMainMenuWithHide();
+        }
+
+
+        public void moveToMainMenuWithClose()
         {
             //move to next screen
             MainMenu m = new MainMenu();
             m.Show();
             this.Close();
+        }
+
+        public void moveToMainMenuWithHide()
+        {
+            //move to next screen
+            MainMenu m = new MainMenu();
+            m.Show();
+            this.Hide();
         }
 
 
