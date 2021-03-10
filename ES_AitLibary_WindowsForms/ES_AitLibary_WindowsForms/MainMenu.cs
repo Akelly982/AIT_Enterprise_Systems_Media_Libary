@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using BusinessLogicLayer;
 
 namespace ES_AitLibary_WindowsForms
 {
@@ -16,6 +17,7 @@ namespace ES_AitLibary_WindowsForms
 
         public static bool isAdmin;
         public static string username;
+        public MediaLogic mediaLogic;
 
         public MainMenu()
         {
@@ -37,7 +39,18 @@ namespace ES_AitLibary_WindowsForms
                 PanelStudentRowShowStudentContent.Visible = false;
             }
 
-            
+
+
+            //init media libary to show all media
+            mediaLogic = new MediaLogic();
+
+
+            DataGridViewMediaLibary.DataSource = mediaLogic.getAllMedia();
+
+            //set data source for data grid view
+            //mediaDataGridView.DataSource = mediaLogic.ListMedia();
+
+
 
 
         }
@@ -195,6 +208,8 @@ namespace ES_AitLibary_WindowsForms
             return tempArray;
 
         }
+
+
 
 
 

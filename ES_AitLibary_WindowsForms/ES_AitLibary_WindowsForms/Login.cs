@@ -109,7 +109,7 @@ namespace ES_AitLibary_WindowsForms
 
             if(isAdminInt != 1)
             {
-                isAdmin = false;
+                isAdmin = true;
             }
             
 

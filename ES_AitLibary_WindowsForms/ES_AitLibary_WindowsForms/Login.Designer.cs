@@ -29,7 +29,7 @@ namespace ES_AitLibary_WindowsForms
         /// </summary>
         private void InitializeComponent()
         {
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.PanelBase = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.BtnSignUp = new System.Windows.Forms.Button();
             this.BtnForgotPassword = new System.Windows.Forms.Button();
@@ -42,29 +42,28 @@ namespace ES_AitLibary_WindowsForms
             this.ChkBoxIsAdminCheat = new System.Windows.Forms.CheckBox();
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.panel1.SuspendLayout();
+            this.PanelBase.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
-            // panel1
+            // PanelBase
             // 
-            this.panel1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.panel1.Controls.Add(this.panel2);
-            this.panel1.Controls.Add(this.TextBoxPassword);
-            this.panel1.Controls.Add(this.TextBoxUsername);
-            this.panel1.Controls.Add(this.label3);
-            this.panel1.Controls.Add(this.label2);
-            this.panel1.Controls.Add(this.BtnCheatLoggin);
-            this.panel1.Controls.Add(this.ChkBoxIsAdminCheat);
-            this.panel1.Controls.Add(this.label1);
-            this.panel1.Controls.Add(this.pictureBox1);
-            this.panel1.Location = new System.Drawing.Point(594, 264);
-            this.panel1.MaximumSize = new System.Drawing.Size(800, 650);
-            this.panel1.MinimumSize = new System.Drawing.Size(800, 650);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(800, 650);
-            this.panel1.TabIndex = 0;
+            this.PanelBase.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.PanelBase.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.PanelBase.Controls.Add(this.pictureBox1);
+            this.PanelBase.Controls.Add(this.panel2);
+            this.PanelBase.Controls.Add(this.TextBoxPassword);
+            this.PanelBase.Controls.Add(this.TextBoxUsername);
+            this.PanelBase.Controls.Add(this.label3);
+            this.PanelBase.Controls.Add(this.label2);
+            this.PanelBase.Controls.Add(this.BtnCheatLoggin);
+            this.PanelBase.Controls.Add(this.ChkBoxIsAdminCheat);
+            this.PanelBase.Controls.Add(this.label1);
+            this.PanelBase.Location = new System.Drawing.Point(620, 300);
+            this.PanelBase.Name = "PanelBase";
+            this.PanelBase.Size = new System.Drawing.Size(800, 650);
+            this.PanelBase.TabIndex = 0;
             // 
             // panel2
             // 
@@ -173,14 +172,15 @@ namespace ES_AitLibary_WindowsForms
             // 
             // pictureBox1
             // 
-            this.pictureBox1.BackColor = System.Drawing.Color.White;
             this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.pictureBox1.Cursor = System.Windows.Forms.Cursors.No;
             this.pictureBox1.Image = global::ES_AitLibary_WindowsForms.Properties.Resources.ait;
-            this.pictureBox1.Location = new System.Drawing.Point(29, 27);
+            this.pictureBox1.Location = new System.Drawing.Point(32, 30);
+            this.pictureBox1.MaximumSize = new System.Drawing.Size(180, 135);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(188, 138);
+            this.pictureBox1.Size = new System.Drawing.Size(180, 134);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabIndex = 9;
             this.pictureBox1.TabStop = false;
             // 
             // Login
@@ -188,11 +188,12 @@ namespace ES_AitLibary_WindowsForms
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1974, 1229);
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.PanelBase);
+            this.MinimumSize = new System.Drawing.Size(2000, 1300);
             this.Name = "Login";
             this.Text = "Login";
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
+            this.PanelBase.ResumeLayout(false);
+            this.PanelBase.PerformLayout();
             this.panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
@@ -201,7 +202,7 @@ namespace ES_AitLibary_WindowsForms
 
         #endregion
 
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel PanelBase;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Button BtnSignUp;
         private System.Windows.Forms.Button BtnForgotPassword;
