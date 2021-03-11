@@ -30,7 +30,7 @@ namespace ES_AitLibary_WindowsForms
         private void InitializeComponent()
         {
             this.panelNav = new System.Windows.Forms.Panel();
-            this.LabelStudentUsername = new System.Windows.Forms.Label();
+            this.LabelUsername = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.BtnBack = new System.Windows.Forms.Button();
             this.PanelBase = new System.Windows.Forms.Panel();
@@ -46,6 +46,7 @@ namespace ES_AitLibary_WindowsForms
             this.listBox1 = new System.Windows.Forms.ListBox();
             this.label2 = new System.Windows.Forms.Label();
             this.BtnPayFees = new System.Windows.Forms.Button();
+            this.LabelUserId = new System.Windows.Forms.Label();
             this.panelNav.SuspendLayout();
             this.PanelBase.SuspendLayout();
             this.PanelActiveBookings.SuspendLayout();
@@ -56,7 +57,8 @@ namespace ES_AitLibary_WindowsForms
             // panelNav
             // 
             this.panelNav.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.panelNav.Controls.Add(this.LabelStudentUsername);
+            this.panelNav.Controls.Add(this.LabelUserId);
+            this.panelNav.Controls.Add(this.LabelUsername);
             this.panelNav.Controls.Add(this.label1);
             this.panelNav.Controls.Add(this.BtnBack);
             this.panelNav.Dock = System.Windows.Forms.DockStyle.Top;
@@ -65,14 +67,14 @@ namespace ES_AitLibary_WindowsForms
             this.panelNav.Size = new System.Drawing.Size(1674, 164);
             this.panelNav.TabIndex = 1;
             // 
-            // LabelStudentUsername
+            // LabelUsername
             // 
-            this.LabelStudentUsername.AutoSize = true;
-            this.LabelStudentUsername.Location = new System.Drawing.Point(784, 110);
-            this.LabelStudentUsername.Name = "LabelStudentUsername";
-            this.LabelStudentUsername.Size = new System.Drawing.Size(107, 25);
-            this.LabelStudentUsername.TabIndex = 4;
-            this.LabelStudentUsername.Text = "undefined";
+            this.LabelUsername.AutoSize = true;
+            this.LabelUsername.Location = new System.Drawing.Point(847, 101);
+            this.LabelUsername.Name = "LabelUsername";
+            this.LabelUsername.Size = new System.Drawing.Size(107, 25);
+            this.LabelUsername.TabIndex = 4;
+            this.LabelUsername.Text = "undefined";
             // 
             // label1
             // 
@@ -229,6 +231,15 @@ namespace ES_AitLibary_WindowsForms
             this.BtnPayFees.Text = "Pay";
             this.BtnPayFees.UseVisualStyleBackColor = true;
             // 
+            // LabelUserId
+            // 
+            this.LabelUserId.AutoSize = true;
+            this.LabelUserId.Location = new System.Drawing.Point(720, 101);
+            this.LabelUserId.Name = "LabelUserId";
+            this.LabelUserId.Size = new System.Drawing.Size(107, 25);
+            this.LabelUserId.TabIndex = 6;
+            this.LabelUserId.Text = "undefined";
+            // 
             // StudentActivity
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
@@ -256,7 +267,7 @@ namespace ES_AitLibary_WindowsForms
         private System.Windows.Forms.Panel panelNav;
         private System.Windows.Forms.Button BtnBack;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label LabelStudentUsername;
+        private System.Windows.Forms.Label LabelUsername;
         private System.Windows.Forms.Panel PanelBase;
         private System.Windows.Forms.Panel PanelActiveBookings;
         private System.Windows.Forms.ListBox listBox3;
@@ -270,5 +281,6 @@ namespace ES_AitLibary_WindowsForms
         private System.Windows.Forms.ListBox listBox1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button BtnPayFees;
+        private System.Windows.Forms.Label LabelUserId;
     }
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BusinessLogicLayer;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -13,14 +14,16 @@ namespace ES_AitLibary_WindowsForms
     public partial class StudentActivity : Form
     {
 
-        public static String studentUsername;
+        
         public static bool isAdmin;
+        public static User user;
 
         public StudentActivity()
         {
             InitializeComponent();
 
-            LabelStudentUsername.Text = studentUsername;
+            LabelUsername.Text = user.getUsername();
+            LabelUserId.Text = user.getId().ToString();
 
 
             // hide admin panel / content

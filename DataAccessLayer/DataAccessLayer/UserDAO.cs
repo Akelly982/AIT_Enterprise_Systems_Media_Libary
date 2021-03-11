@@ -57,6 +57,21 @@ namespace DataAccessLayer
         }
 
 
+        public UserDS.TabUserDataTable GetUserById(int id)
+        {
+            try
+            {
+                tabUserAdapter.FillByUserId(userDataSet.TabUser, id);
+                return userDataSet.TabUser;
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+
+        }
+
+
 
     }
 }

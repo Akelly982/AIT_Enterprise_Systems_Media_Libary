@@ -56,6 +56,7 @@ namespace ES_AitLibary_WindowsForms
             this.BtnDeleteMedia = new System.Windows.Forms.Button();
             this.BtnAddMedia = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.BtnResetMediaLibary = new System.Windows.Forms.Button();
             this.BtnMediaLibarySearch = new System.Windows.Forms.Button();
             this.TextBoxMediaLibarySearchField = new System.Windows.Forms.TextBox();
             this.radioButton4 = new System.Windows.Forms.RadioButton();
@@ -63,7 +64,8 @@ namespace ES_AitLibary_WindowsForms
             this.RadioBtnYear = new System.Windows.Forms.RadioButton();
             this.RadioBtnTitle = new System.Windows.Forms.RadioButton();
             this.PanelSpacer1 = new System.Windows.Forms.Panel();
-            this.BtnResetMediaLibary = new System.Windows.Forms.Button();
+            this.label5 = new System.Windows.Forms.Label();
+            this.LabelStudentId = new System.Windows.Forms.Label();
             this.panelNav.SuspendLayout();
             this.panelStudentDataRow.SuspendLayout();
             this.PanelStudentBtnsHolder.SuspendLayout();
@@ -86,7 +88,7 @@ namespace ES_AitLibary_WindowsForms
             this.panelNav.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelNav.Location = new System.Drawing.Point(0, 0);
             this.panelNav.Name = "panelNav";
-            this.panelNav.Size = new System.Drawing.Size(1900, 164);
+            this.panelNav.Size = new System.Drawing.Size(1934, 164);
             this.panelNav.TabIndex = 0;
             // 
             // LabelAdminUsername
@@ -127,7 +129,7 @@ namespace ES_AitLibary_WindowsForms
             this.panelStudentDataRow.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelStudentDataRow.Location = new System.Drawing.Point(0, 164);
             this.panelStudentDataRow.Name = "panelStudentDataRow";
-            this.panelStudentDataRow.Size = new System.Drawing.Size(1900, 283);
+            this.panelStudentDataRow.Size = new System.Drawing.Size(1934, 283);
             this.panelStudentDataRow.TabIndex = 1;
             // 
             // PanelStudentBtnsHolder
@@ -193,7 +195,7 @@ namespace ES_AitLibary_WindowsForms
             // 
             // TextBoxAdminStudentNumber
             // 
-            this.TextBoxAdminStudentNumber.Location = new System.Drawing.Point(353, 129);
+            this.TextBoxAdminStudentNumber.Location = new System.Drawing.Point(318, 132);
             this.TextBoxAdminStudentNumber.Name = "TextBoxAdminStudentNumber";
             this.TextBoxAdminStudentNumber.Size = new System.Drawing.Size(252, 31);
             this.TextBoxAdminStudentNumber.TabIndex = 3;
@@ -201,14 +203,16 @@ namespace ES_AitLibary_WindowsForms
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(136, 132);
+            this.label4.Location = new System.Drawing.Point(180, 135);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(196, 25);
+            this.label4.Size = new System.Drawing.Size(115, 25);
             this.label4.TabIndex = 2;
-            this.label4.Text = "Student Username:";
+            this.label4.Text = "Student Id:";
             // 
             // PanelStudentRowShowStudentContent
             // 
+            this.PanelStudentRowShowStudentContent.Controls.Add(this.LabelStudentId);
+            this.PanelStudentRowShowStudentContent.Controls.Add(this.label5);
             this.PanelStudentRowShowStudentContent.Controls.Add(this.LabelStudentUsername);
             this.PanelStudentRowShowStudentContent.Controls.Add(this.label3);
             this.PanelStudentRowShowStudentContent.Dock = System.Windows.Forms.DockStyle.Left;
@@ -220,7 +224,7 @@ namespace ES_AitLibary_WindowsForms
             // LabelStudentUsername
             // 
             this.LabelStudentUsername.AutoSize = true;
-            this.LabelStudentUsername.Location = new System.Drawing.Point(354, 129);
+            this.LabelStudentUsername.Location = new System.Drawing.Point(345, 150);
             this.LabelStudentUsername.Name = "LabelStudentUsername";
             this.LabelStudentUsername.Size = new System.Drawing.Size(184, 25);
             this.LabelStudentUsername.TabIndex = 1;
@@ -229,7 +233,7 @@ namespace ES_AitLibary_WindowsForms
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(136, 129);
+            this.label3.Location = new System.Drawing.Point(125, 150);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(196, 25);
             this.label3.TabIndex = 0;
@@ -255,7 +259,7 @@ namespace ES_AitLibary_WindowsForms
             this.PanelMediaLibary.Dock = System.Windows.Forms.DockStyle.Top;
             this.PanelMediaLibary.Location = new System.Drawing.Point(0, 447);
             this.PanelMediaLibary.Name = "PanelMediaLibary";
-            this.PanelMediaLibary.Size = new System.Drawing.Size(1900, 1442);
+            this.PanelMediaLibary.Size = new System.Drawing.Size(1934, 1442);
             this.PanelMediaLibary.TabIndex = 3;
             // 
             // DataGridViewMediaLibary
@@ -319,6 +323,7 @@ namespace ES_AitLibary_WindowsForms
             this.BtnEditMedia.TabIndex = 5;
             this.BtnEditMedia.Text = "Edit";
             this.BtnEditMedia.UseVisualStyleBackColor = true;
+            this.BtnEditMedia.Click += new System.EventHandler(this.BtnEditMedia_Click);
             // 
             // BtnDeleteMedia
             // 
@@ -328,6 +333,7 @@ namespace ES_AitLibary_WindowsForms
             this.BtnDeleteMedia.TabIndex = 4;
             this.BtnDeleteMedia.Text = "Delete";
             this.BtnDeleteMedia.UseVisualStyleBackColor = true;
+            this.BtnDeleteMedia.Click += new System.EventHandler(this.BtnDeleteMedia_Click);
             // 
             // BtnAddMedia
             // 
@@ -338,6 +344,7 @@ namespace ES_AitLibary_WindowsForms
             this.BtnAddMedia.TabIndex = 3;
             this.BtnAddMedia.Text = "+";
             this.BtnAddMedia.UseVisualStyleBackColor = true;
+            this.BtnAddMedia.Click += new System.EventHandler(this.BtnAddMedia_Click);
             // 
             // panel1
             // 
@@ -353,6 +360,16 @@ namespace ES_AitLibary_WindowsForms
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(420, 600);
             this.panel1.TabIndex = 3;
+            // 
+            // BtnResetMediaLibary
+            // 
+            this.BtnResetMediaLibary.Location = new System.Drawing.Point(106, 516);
+            this.BtnResetMediaLibary.Name = "BtnResetMediaLibary";
+            this.BtnResetMediaLibary.Size = new System.Drawing.Size(173, 66);
+            this.BtnResetMediaLibary.TabIndex = 6;
+            this.BtnResetMediaLibary.Text = "Reset";
+            this.BtnResetMediaLibary.UseVisualStyleBackColor = true;
+            this.BtnResetMediaLibary.Click += new System.EventHandler(this.BtnResetMediaLibary_Click);
             // 
             // BtnMediaLibarySearch
             // 
@@ -422,25 +439,33 @@ namespace ES_AitLibary_WindowsForms
             this.PanelSpacer1.Dock = System.Windows.Forms.DockStyle.Top;
             this.PanelSpacer1.Location = new System.Drawing.Point(0, 1889);
             this.PanelSpacer1.Name = "PanelSpacer1";
-            this.PanelSpacer1.Size = new System.Drawing.Size(1900, 194);
+            this.PanelSpacer1.Size = new System.Drawing.Size(1934, 194);
             this.PanelSpacer1.TabIndex = 4;
             // 
-            // BtnResetMediaLibary
+            // label5
             // 
-            this.BtnResetMediaLibary.Location = new System.Drawing.Point(106, 516);
-            this.BtnResetMediaLibary.Name = "BtnResetMediaLibary";
-            this.BtnResetMediaLibary.Size = new System.Drawing.Size(173, 66);
-            this.BtnResetMediaLibary.TabIndex = 6;
-            this.BtnResetMediaLibary.Text = "Reset";
-            this.BtnResetMediaLibary.UseVisualStyleBackColor = true;
-            this.BtnResetMediaLibary.Click += new System.EventHandler(this.BtnResetMediaLibary_Click);
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(125, 108);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(115, 25);
+            this.label5.TabIndex = 2;
+            this.label5.Text = "Student Id:";
+            // 
+            // LabelStudentId
+            // 
+            this.LabelStudentId.AutoSize = true;
+            this.LabelStudentId.Location = new System.Drawing.Point(345, 108);
+            this.LabelStudentId.Name = "LabelStudentId";
+            this.LabelStudentId.Size = new System.Drawing.Size(56, 25);
+            this.LabelStudentId.TabIndex = 3;
+            this.LabelStudentId.Text = "xxxx";
             // 
             // MainMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
-            this.ClientSize = new System.Drawing.Size(1934, 1129);
+            this.ClientSize = new System.Drawing.Size(1968, 1129);
             this.Controls.Add(this.PanelSpacer1);
             this.Controls.Add(this.PanelMediaLibary);
             this.Controls.Add(this.panelStudentDataRow);
@@ -504,5 +529,7 @@ namespace ES_AitLibary_WindowsForms
         private System.Windows.Forms.Panel PanelSpacer1;
         private System.Windows.Forms.DataGridView DataGridViewMediaLibary;
         private System.Windows.Forms.Button BtnResetMediaLibary;
+        private System.Windows.Forms.Label LabelStudentId;
+        private System.Windows.Forms.Label label5;
     }
 }

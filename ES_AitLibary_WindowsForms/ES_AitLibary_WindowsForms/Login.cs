@@ -63,7 +63,7 @@ namespace ES_AitLibary_WindowsForms
             {
                 //send to business
                 UserLogic ul = new UserLogic();
-                User user = ul.UserLogin(username, password);
+                User user = ul.userLogin(username, password);
 
                 //check for errors
                 if (user.getId() == -1)
@@ -73,7 +73,7 @@ namespace ES_AitLibary_WindowsForms
                 else
                 {
 
-                    moveToMainMenuWithData(user.getUserLevel(),user.getUsername());
+                    moveToMainMenuWithData(user);
 
                 }
             }
@@ -100,21 +100,10 @@ namespace ES_AitLibary_WindowsForms
 
         //my functions---------------------------------------------------
 
-        public void moveToMainMenuWithData(int isAdminInt, string username)
+        public void moveToMainMenuWithData(User user)
         {
-            bool isAdmin = false;
-
-            // 1 == student
-            // 2 == admin
-
-            if(isAdminInt != 1)
-            {
-                isAdmin = true;
-            }
-            
-
-            MainMenu.isAdmin = isAdmin;
-            MainMenu.username = username;
+            // pass user to next screen
+            MainMenu.currentUser = user;
             moveToMainMenuWithHide();
         }
 

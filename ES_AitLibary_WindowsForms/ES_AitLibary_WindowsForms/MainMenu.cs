@@ -15,18 +15,23 @@ namespace ES_AitLibary_WindowsForms
     {
 
 
-        public static bool isAdmin;
-        public static string username;
+        private bool isAdmin = false;
         public MediaLogic mediaLogic;
+        public UserLogic userLogic;
+        public static User currentUser;
 
         public MainMenu()
         {
             InitializeComponent();
 
+            if(currentUser.getUserLevel() != 1)
+            {
+                isAdmin = true;
+            }
 
             if (!isAdmin)
             {
-                LabelStudentUsername.Text = username;
+                LabelStudentUsername.Text = currentUser.getUsername();
                 LabelAdminUsername.Visible = false;
 
                 PanelMediaLibaryAdminBtns.Visible = false;
@@ -35,14 +40,15 @@ namespace ES_AitLibary_WindowsForms
             }
             else
             {
-                LabelAdminUsername.Text = "Admin " + username;
+                LabelAdminUsername.Text = "Admin " + currentUser.getUsername();
                 PanelStudentRowShowStudentContent.Visible = false;
             }
 
 
 
-            //init media libary to show all media
+            //init mediaLogic and userLogic
             mediaLogic = new MediaLogic();
+            userLogic = new UserLogic();
 
 
             //show all media
@@ -121,47 +127,101 @@ namespace ES_AitLibary_WindowsForms
 
 
 
+
+
         private void BtnStudentSettings_Click(object sender, EventArgs e)
         {
-            //index 0 == true / false 
-            //index 1 == studentNum
-            String[] result = getStudentUsername();
 
-            if (result[0].ToLower() == "true")
+            //check if i am a student or not using admin
+            //if student pass my data to next screen 
+
+            if (isAdmin)
+            {
+                //index 0 == true=1 / false=0        (binary - true / false)
+                //index 1 == studentNum             (string converted to int)
+ 
+                int[] result = getStudentById();
+
+                if(result[0] == 1) 
+                {
+                    User studentUser = userLogic.getUserById(result[1]);
+                    if (studentUser.getId() != -1) 
+                    {
+                        //set retrieved data
+                        StudentSettings.isAdmin = isAdmin;
+                        StudentSettings.user = studentUser;
+
+                        //move between forms
+                        StudentSettings ss = new StudentSettings();
+                        ss.Show();
+                        this.Hide();
+                    }
+                    else
+                    {
+                        MessageBox.Show("error retrieving user from db");
+                    }
+                }
+
+            }
+            else
             {
                 //set data 
-                StudentSettings.studentUsername = result[1];
                 StudentSettings.isAdmin = isAdmin;
-
+                StudentSettings.user = currentUser;
 
                 //move between forms
                 StudentSettings ss = new StudentSettings();
                 ss.Show();
                 this.Hide();
-
             }
+
         }
 
 
 
         private void BtnStudentRecords_Click(object sender, EventArgs e)
         {
-            //index 0 == true / false 
-            //index 1 == studentNum
-            String[] result = getStudentUsername();
+            //check if i am a student or not using admin
+            //if student pass my data to next screen 
 
-            if (result[0].ToLower() == "true")
+            if (isAdmin)
+            {
+                //index 0 == true=1 / false=0        (binary - true / false)
+                //index 1 == studentNum             (string converted to int)
+
+                int[] result = getStudentById();
+
+                if (result[0] == 1)
+                {
+                    User studentUser = userLogic.getUserById(result[1]);
+                    if (studentUser.getId() != -1)
+                    {
+                        //set retrieved data
+                        StudentSettings.isAdmin = isAdmin;
+                        StudentSettings.user = studentUser;
+
+                        //move between forms
+                        StudentSettings ss = new StudentSettings();
+                        ss.Show();
+                        this.Hide();
+                    }
+                    else
+                    {
+                        MessageBox.Show("error retrieving user from db");
+                    }
+                }
+
+            }
+            else
             {
                 //set data 
-                StudentSettings.studentUsername = result[1];
-                StudentSettings.isAdmin = isAdmin;
-
+                StudentRecord.isAdmin = isAdmin;
+                StudentRecord.user = currentUser;
 
                 //move between forms
                 StudentRecord sr = new StudentRecord();
                 sr.Show();
                 this.Hide();
-
             }
         }
 
@@ -169,27 +229,53 @@ namespace ES_AitLibary_WindowsForms
 
         private void BtnStudentActivity_Click(object sender, EventArgs e)
         {
-            //index 0 == true / false        
-            //index 1 == studentNum
-            String[] result = getStudentUsername();
+            //check if i am a student or not using admin
+            //if student pass my data to next screen 
 
-            if (result[0].ToLower() == "true")
+            if (isAdmin)
+            {
+                //index 0 == true=1 / false=0        (binary - true / false)
+                //index 1 == studentNum             (string converted to int)
+
+                int[] result = getStudentById();
+
+                if (result[0] == 1)
+                {
+                    User studentUser = userLogic.getUserById(result[1]);
+                    if (studentUser.getId() != -1)
+                    {
+                        //set retrieved data
+                        StudentSettings.isAdmin = isAdmin;
+                        StudentSettings.user = studentUser;
+
+                        //move between forms
+                        StudentSettings ss = new StudentSettings();
+                        ss.Show();
+                        this.Hide();
+                    }
+                    else
+                    {
+                        MessageBox.Show("error retrieving user from db");
+                    }
+                }
+
+            }
+            else
             {
                 //set data 
-                StudentSettings.studentUsername = result[1];
-                StudentSettings.isAdmin = isAdmin;
-
+                StudentActivity.isAdmin = isAdmin;
+                StudentActivity.user = currentUser;
 
                 //move between forms
                 StudentActivity sa = new StudentActivity();
                 sa.Show();
                 this.Hide();
-
             }
         }
 
 
 
+        //media menu student
         private void BtnCheckOut_Click(object sender, EventArgs e)
         {
 
@@ -200,6 +286,26 @@ namespace ES_AitLibary_WindowsForms
 
         }
 
+
+        //media menu admin
+        private void BtnAddMedia_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void BtnDeleteMedia_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void BtnEditMedia_Click(object sender, EventArgs e)
+        {
+
+        }
+
+
+
+
         private void BtnBack_Click(object sender, EventArgs e)
         {
             returnToLogin();
@@ -208,6 +314,8 @@ namespace ES_AitLibary_WindowsForms
 
 
 
+
+        // functions ---
 
 
         private void returnToLogin()
@@ -223,42 +331,43 @@ namespace ES_AitLibary_WindowsForms
         }
 
 
-        private String[] getStudentUsername()
+        private int[] getStudentById()
         {
-            string result = "true";
-            string studentNum = "undefined";
+            // 0 == false 
+            // 1 == true
+            int result = 1;    // bool to catch errors along the way 
+            string studentNumStr = "undefined";   // init student number
+            
 
             //get data (studentNum / ID)
-            if (isAdmin)
+            //get from admin student data text box 
+            //ensure text box is not empty first
+            if (TextBoxAdminStudentNumber.Text.Length != 0)
             {
-                //get from admin student data text box 
-                //ensure text box is not empty first
-                if (TextBoxAdminStudentNumber.Text.Length == 0)
+                //ensure string can be converted to int 
+                studentNumStr = TextBoxAdminStudentNumber.Text;
+                bool parseResult = int.TryParse(studentNumStr, out int studentNum);
+                if (parseResult == true)
                 {
-                    MessageBox.Show("please insert student username");
-                    result = "false";
+                    int[] tempArray2 = { result, studentNum};
+                    return tempArray2;
+
                 }
                 else
                 {
-                    studentNum = TextBoxAdminStudentNumber.Text;
+                    result = 0; //false
                 }
-
-                //TODO ensure student Username enter by admin is an actural studentUsername 
-                //......
-                //........
 
             }
             else
             {
-                //get from student data label
-                studentNum = LabelStudentUsername.Text;
+
+                MessageBox.Show("please insert student username");
+                result = 0; // false
+
             }
 
-
-
-            String[] tempArray = { result, studentNum };
-
-
+            int[] tempArray = { result };
             return tempArray;
 
         }
@@ -286,6 +395,15 @@ namespace ES_AitLibary_WindowsForms
             return activeRadio;
         }
 
-        
+      
+
+
+
+
+
+
+
+
+
     }
 }

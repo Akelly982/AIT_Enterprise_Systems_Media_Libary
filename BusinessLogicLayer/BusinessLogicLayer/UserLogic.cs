@@ -29,7 +29,7 @@ namespace BusinessLogicLayer
 
 
         // gets singular user
-        public User UserLogin(string username,string password)
+        public User userLogin(string username,string password)
         {
 
 
@@ -54,11 +54,56 @@ namespace BusinessLogicLayer
             }
 
 
-            //User will be either fully set or 
+            //User will be either fully set or have an id of -1
 
             return user;
 
         }
+
+
+
+
+
+
+        public User getUserById(int userId)
+        {
+
+            User user = new User();
+
+            // get our table data from our DAO
+            userTable = userDAO.GetUserById(userId);
+
+            //go through table data row by row
+            if (userTable.Count == 1) // their should only be one user 
+            {
+                //get data 
+                foreach (UserDS.TabUserRow userRow in userTable.Rows)
+                {
+                    user.setData(userRow.UID, userRow.UserName, userRow.UserLevel, userRow.UserEmail);
+                }
+            }
+            else
+            {
+                user.setId(-1);
+            }
+
+
+            //User will be either fully set or have an id of -1
+
+            return user;
+
+        }
+
+
+
+
+
+
+
+
+
+
+
 
 
 
