@@ -26,10 +26,10 @@ namespace BusinessLogicLayer
 
 
 
-        //getters and setters 
+        //getters and setters   
         public int Id
         {
-            set { id = value; /*extra code, whatever*/ }
+            set { id = value;  /*extra code, whatever*/ }
             get { return id; }
         }
         public string Title

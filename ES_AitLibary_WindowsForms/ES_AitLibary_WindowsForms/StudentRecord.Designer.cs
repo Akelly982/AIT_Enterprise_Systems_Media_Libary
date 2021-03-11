@@ -30,9 +30,9 @@ namespace ES_AitLibary_WindowsForms
         private void InitializeComponent()
         {
             this.panelNav = new System.Windows.Forms.Panel();
+            this.LabelStudentUsername = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.BtnBack = new System.Windows.Forms.Button();
-            this.LabelStudentUsername = new System.Windows.Forms.Label();
             this.PanelBase = new System.Windows.Forms.Panel();
             this.ListBoxStudentRecord = new System.Windows.Forms.ListBox();
             this.panelNav.SuspendLayout();
@@ -41,20 +41,30 @@ namespace ES_AitLibary_WindowsForms
             // 
             // panelNav
             // 
+            this.panelNav.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.panelNav.Controls.Add(this.LabelStudentUsername);
             this.panelNav.Controls.Add(this.label1);
             this.panelNav.Controls.Add(this.BtnBack);
             this.panelNav.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelNav.Location = new System.Drawing.Point(0, 0);
             this.panelNav.Name = "panelNav";
-            this.panelNav.Size = new System.Drawing.Size(1974, 164);
+            this.panelNav.Size = new System.Drawing.Size(1674, 164);
             this.panelNav.TabIndex = 1;
+            // 
+            // LabelStudentUsername
+            // 
+            this.LabelStudentUsername.AutoSize = true;
+            this.LabelStudentUsername.Location = new System.Drawing.Point(763, 99);
+            this.LabelStudentUsername.Name = "LabelStudentUsername";
+            this.LabelStudentUsername.Size = new System.Drawing.Size(107, 25);
+            this.LabelStudentUsername.TabIndex = 4;
+            this.LabelStudentUsername.Text = "undefined";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(887, 31);
+            this.label1.Location = new System.Drawing.Point(693, 31);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(238, 37);
             this.label1.TabIndex = 1;
@@ -71,21 +81,12 @@ namespace ES_AitLibary_WindowsForms
             this.BtnBack.UseVisualStyleBackColor = true;
             this.BtnBack.Click += new System.EventHandler(this.BtnBack_Click);
             // 
-            // LabelStudentUsername
-            // 
-            this.LabelStudentUsername.AutoSize = true;
-            this.LabelStudentUsername.Location = new System.Drawing.Point(957, 99);
-            this.LabelStudentUsername.Name = "LabelStudentUsername";
-            this.LabelStudentUsername.Size = new System.Drawing.Size(107, 25);
-            this.LabelStudentUsername.TabIndex = 4;
-            this.LabelStudentUsername.Text = "undefined";
-            // 
             // PanelBase
             // 
             this.PanelBase.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.PanelBase.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.PanelBase.Controls.Add(this.ListBoxStudentRecord);
-            this.PanelBase.Location = new System.Drawing.Point(583, 263);
+            this.PanelBase.Location = new System.Drawing.Point(395, 216);
             this.PanelBase.Name = "PanelBase";
             this.PanelBase.Size = new System.Drawing.Size(835, 831);
             this.PanelBase.TabIndex = 2;
@@ -117,7 +118,7 @@ namespace ES_AitLibary_WindowsForms
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1974, 1229);
+            this.ClientSize = new System.Drawing.Size(1674, 1129);
             this.Controls.Add(this.PanelBase);
             this.Controls.Add(this.panelNav);
             this.Name = "StudentRecord";

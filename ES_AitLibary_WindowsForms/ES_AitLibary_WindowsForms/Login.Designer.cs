@@ -29,41 +29,105 @@ namespace ES_AitLibary_WindowsForms
         /// </summary>
         private void InitializeComponent()
         {
-            this.PanelBase = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.BtnSignUp = new System.Windows.Forms.Button();
-            this.BtnForgotPassword = new System.Windows.Forms.Button();
-            this.BtnLoggin = new System.Windows.Forms.Button();
-            this.TextBoxPassword = new System.Windows.Forms.TextBox();
-            this.TextBoxUsername = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.BtnCheatLoggin = new System.Windows.Forms.Button();
-            this.ChkBoxIsAdminCheat = new System.Windows.Forms.CheckBox();
+            this.PanelBaseLogin = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
+            this.ChkBoxIsAdminCheat = new System.Windows.Forms.CheckBox();
+            this.BtnCheatLoggin = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.TextBoxUsername = new System.Windows.Forms.TextBox();
+            this.TextBoxPassword = new System.Windows.Forms.TextBox();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.BtnLoggin = new System.Windows.Forms.Button();
+            this.BtnForgotPassword = new System.Windows.Forms.Button();
+            this.BtnSignUp = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.PanelBase.SuspendLayout();
+            this.PanelBaseLogin.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
-            // PanelBase
+            // PanelBaseLogin
             // 
-            this.PanelBase.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.PanelBase.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.PanelBase.Controls.Add(this.pictureBox1);
-            this.PanelBase.Controls.Add(this.panel2);
-            this.PanelBase.Controls.Add(this.TextBoxPassword);
-            this.PanelBase.Controls.Add(this.TextBoxUsername);
-            this.PanelBase.Controls.Add(this.label3);
-            this.PanelBase.Controls.Add(this.label2);
-            this.PanelBase.Controls.Add(this.BtnCheatLoggin);
-            this.PanelBase.Controls.Add(this.ChkBoxIsAdminCheat);
-            this.PanelBase.Controls.Add(this.label1);
-            this.PanelBase.Location = new System.Drawing.Point(620, 300);
-            this.PanelBase.Name = "PanelBase";
-            this.PanelBase.Size = new System.Drawing.Size(800, 650);
-            this.PanelBase.TabIndex = 0;
+            this.PanelBaseLogin.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.PanelBaseLogin.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.PanelBaseLogin.Controls.Add(this.pictureBox1);
+            this.PanelBaseLogin.Controls.Add(this.panel2);
+            this.PanelBaseLogin.Controls.Add(this.TextBoxPassword);
+            this.PanelBaseLogin.Controls.Add(this.TextBoxUsername);
+            this.PanelBaseLogin.Controls.Add(this.label3);
+            this.PanelBaseLogin.Controls.Add(this.label2);
+            this.PanelBaseLogin.Controls.Add(this.BtnCheatLoggin);
+            this.PanelBaseLogin.Controls.Add(this.ChkBoxIsAdminCheat);
+            this.PanelBaseLogin.Controls.Add(this.label1);
+            this.PanelBaseLogin.Location = new System.Drawing.Point(407, 244);
+            this.PanelBaseLogin.Name = "PanelBaseLogin";
+            this.PanelBaseLogin.Size = new System.Drawing.Size(800, 650);
+            this.PanelBaseLogin.TabIndex = 0;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(279, 84);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(252, 55);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "AIT Libary";
+            // 
+            // ChkBoxIsAdminCheat
+            // 
+            this.ChkBoxIsAdminCheat.AutoSize = true;
+            this.ChkBoxIsAdminCheat.Location = new System.Drawing.Point(289, 39);
+            this.ChkBoxIsAdminCheat.Name = "ChkBoxIsAdminCheat";
+            this.ChkBoxIsAdminCheat.Size = new System.Drawing.Size(250, 29);
+            this.ChkBoxIsAdminCheat.TabIndex = 2;
+            this.ChkBoxIsAdminCheat.Text = "админ (administrada)";
+            this.ChkBoxIsAdminCheat.UseVisualStyleBackColor = true;
+            // 
+            // BtnCheatLoggin
+            // 
+            this.BtnCheatLoggin.Location = new System.Drawing.Point(586, 31);
+            this.BtnCheatLoggin.Name = "BtnCheatLoggin";
+            this.BtnCheatLoggin.Size = new System.Drawing.Size(188, 36);
+            this.BtnCheatLoggin.TabIndex = 3;
+            this.BtnCheatLoggin.Text = "Login Cheat";
+            this.BtnCheatLoggin.UseVisualStyleBackColor = true;
+            this.BtnCheatLoggin.Click += new System.EventHandler(this.BtnCheatLoggin_Click);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(106, 294);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(116, 25);
+            this.label2.TabIndex = 4;
+            this.label2.Text = "Username:";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(106, 349);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(112, 25);
+            this.label3.TabIndex = 5;
+            this.label3.Text = "Password:";
+            // 
+            // TextBoxUsername
+            // 
+            this.TextBoxUsername.Location = new System.Drawing.Point(261, 294);
+            this.TextBoxUsername.Name = "TextBoxUsername";
+            this.TextBoxUsername.Size = new System.Drawing.Size(375, 31);
+            this.TextBoxUsername.TabIndex = 6;
+            this.TextBoxUsername.TextChanged += new System.EventHandler(this.TextBoxUsername_TextChanged);
+            // 
+            // TextBoxPassword
+            // 
+            this.TextBoxPassword.Location = new System.Drawing.Point(261, 346);
+            this.TextBoxPassword.Name = "TextBoxPassword";
+            this.TextBoxPassword.Size = new System.Drawing.Size(375, 31);
+            this.TextBoxPassword.TabIndex = 7;
+            this.TextBoxPassword.TextChanged += new System.EventHandler(this.TextBoxPassword_TextChanged);
             // 
             // panel2
             // 
@@ -76,15 +140,15 @@ namespace ES_AitLibary_WindowsForms
             this.panel2.Size = new System.Drawing.Size(800, 179);
             this.panel2.TabIndex = 8;
             // 
-            // BtnSignUp
+            // BtnLoggin
             // 
-            this.BtnSignUp.Location = new System.Drawing.Point(419, 105);
-            this.BtnSignUp.Name = "BtnSignUp";
-            this.BtnSignUp.Size = new System.Drawing.Size(268, 50);
-            this.BtnSignUp.TabIndex = 2;
-            this.BtnSignUp.Text = "Sign Up";
-            this.BtnSignUp.UseVisualStyleBackColor = true;
-            this.BtnSignUp.Click += new System.EventHandler(this.BtnSignUp_Click);
+            this.BtnLoggin.Location = new System.Drawing.Point(111, 29);
+            this.BtnLoggin.Name = "BtnLoggin";
+            this.BtnLoggin.Size = new System.Drawing.Size(576, 50);
+            this.BtnLoggin.TabIndex = 0;
+            this.BtnLoggin.Text = "Login";
+            this.BtnLoggin.UseVisualStyleBackColor = true;
+            this.BtnLoggin.Click += new System.EventHandler(this.BtnLoggin_Click);
             // 
             // BtnForgotPassword
             // 
@@ -96,79 +160,15 @@ namespace ES_AitLibary_WindowsForms
             this.BtnForgotPassword.UseVisualStyleBackColor = true;
             this.BtnForgotPassword.Click += new System.EventHandler(this.BtnForgotPassword_Click);
             // 
-            // BtnLoggin
+            // BtnSignUp
             // 
-            this.BtnLoggin.Location = new System.Drawing.Point(111, 29);
-            this.BtnLoggin.Name = "BtnLoggin";
-            this.BtnLoggin.Size = new System.Drawing.Size(576, 50);
-            this.BtnLoggin.TabIndex = 0;
-            this.BtnLoggin.Text = "Login";
-            this.BtnLoggin.UseVisualStyleBackColor = true;
-            this.BtnLoggin.Click += new System.EventHandler(this.BtnLoggin_Click);
-            // 
-            // TextBoxPassword
-            // 
-            this.TextBoxPassword.Location = new System.Drawing.Point(261, 346);
-            this.TextBoxPassword.Name = "TextBoxPassword";
-            this.TextBoxPassword.Size = new System.Drawing.Size(375, 31);
-            this.TextBoxPassword.TabIndex = 7;
-            this.TextBoxPassword.TextChanged += new System.EventHandler(this.TextBoxPassword_TextChanged);
-            // 
-            // TextBoxUsername
-            // 
-            this.TextBoxUsername.Location = new System.Drawing.Point(261, 294);
-            this.TextBoxUsername.Name = "TextBoxUsername";
-            this.TextBoxUsername.Size = new System.Drawing.Size(375, 31);
-            this.TextBoxUsername.TabIndex = 6;
-            this.TextBoxUsername.TextChanged += new System.EventHandler(this.TextBoxUsername_TextChanged);
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(106, 349);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(112, 25);
-            this.label3.TabIndex = 5;
-            this.label3.Text = "Password:";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(106, 294);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(116, 25);
-            this.label2.TabIndex = 4;
-            this.label2.Text = "Username:";
-            // 
-            // BtnCheatLoggin
-            // 
-            this.BtnCheatLoggin.Location = new System.Drawing.Point(586, 31);
-            this.BtnCheatLoggin.Name = "BtnCheatLoggin";
-            this.BtnCheatLoggin.Size = new System.Drawing.Size(188, 36);
-            this.BtnCheatLoggin.TabIndex = 3;
-            this.BtnCheatLoggin.Text = "Login Cheat";
-            this.BtnCheatLoggin.UseVisualStyleBackColor = true;
-            this.BtnCheatLoggin.Click += new System.EventHandler(this.BtnCheatLoggin_Click);
-            // 
-            // ChkBoxIsAdminCheat
-            // 
-            this.ChkBoxIsAdminCheat.AutoSize = true;
-            this.ChkBoxIsAdminCheat.Location = new System.Drawing.Point(289, 39);
-            this.ChkBoxIsAdminCheat.Name = "ChkBoxIsAdminCheat";
-            this.ChkBoxIsAdminCheat.Size = new System.Drawing.Size(250, 29);
-            this.ChkBoxIsAdminCheat.TabIndex = 2;
-            this.ChkBoxIsAdminCheat.Text = "админ (administrada)";
-            this.ChkBoxIsAdminCheat.UseVisualStyleBackColor = true;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(279, 84);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(252, 55);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "AIT Libary";
+            this.BtnSignUp.Location = new System.Drawing.Point(419, 105);
+            this.BtnSignUp.Name = "BtnSignUp";
+            this.BtnSignUp.Size = new System.Drawing.Size(268, 50);
+            this.BtnSignUp.TabIndex = 2;
+            this.BtnSignUp.Text = "Sign Up";
+            this.BtnSignUp.UseVisualStyleBackColor = true;
+            this.BtnSignUp.Click += new System.EventHandler(this.BtnSignUp_Click);
             // 
             // pictureBox1
             // 
@@ -187,13 +187,13 @@ namespace ES_AitLibary_WindowsForms
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1974, 1229);
-            this.Controls.Add(this.PanelBase);
-            this.MinimumSize = new System.Drawing.Size(2000, 1300);
+            this.BackColor = System.Drawing.SystemColors.Control;
+            this.ClientSize = new System.Drawing.Size(1674, 1129);
+            this.Controls.Add(this.PanelBaseLogin);
             this.Name = "Login";
             this.Text = "Login";
-            this.PanelBase.ResumeLayout(false);
-            this.PanelBase.PerformLayout();
+            this.PanelBaseLogin.ResumeLayout(false);
+            this.PanelBaseLogin.PerformLayout();
             this.panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
@@ -202,7 +202,8 @@ namespace ES_AitLibary_WindowsForms
 
         #endregion
 
-        private System.Windows.Forms.Panel PanelBase;
+        private System.Windows.Forms.Panel PanelBaseLogin;
+        private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Button BtnSignUp;
         private System.Windows.Forms.Button BtnForgotPassword;
@@ -214,7 +215,6 @@ namespace ES_AitLibary_WindowsForms
         private System.Windows.Forms.Button BtnCheatLoggin;
         private System.Windows.Forms.CheckBox ChkBoxIsAdminCheat;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
 

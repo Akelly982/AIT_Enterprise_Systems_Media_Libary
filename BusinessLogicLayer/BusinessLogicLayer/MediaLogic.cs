@@ -38,6 +38,54 @@ namespace BusinessLogicLayer
 
         }
 
+        public List<Media> getMediaByTitle(String title)
+        {
+            List<Media> myList = new List<Media>();
+
+            MediaDS.ViewMediaDataTable myData = mediaDAO.getMediaByTitle(title);
+
+            //parse data from datatable rows to list elements
+            myList = parseDataTolistAll(myData);
+
+            return myList;
+
+        }
+
+        public List<Media> getMediaByYear(int year)
+        {
+            
+            List<Media> myList = new List<Media>();
+
+            MediaDS.ViewMediaDataTable myData = mediaDAO.getMediaByYear(year);
+
+            //parse data from datatable rows to list elements
+            myList = parseDataTolistAll(myData);
+
+
+            return myList;
+
+        }
+
+
+        public List<Media> getMediaByGenre(String genreName)
+        {
+            List<Media> myList = new List<Media>();
+
+            MediaDS.ViewMediaDataTable myData = mediaDAO.getMediaByGenreName(genreName);
+
+            //parse data from datatable rows to list elements
+            myList = parseDataTolistAll(myData);
+
+            return myList;
+
+        }
+
+
+
+
+
+
+
 
 
 

@@ -40,7 +40,7 @@ namespace DataAccessLayer
 
 
         // name of data table within the DS
-        public MediaDS.ViewMediaDataTable getMediaByYear(int genreId)
+        public MediaDS.ViewMediaDataTable getMediaByGenreId(int genreId)
         {
             try
             {
@@ -57,6 +57,53 @@ namespace DataAccessLayer
 
 
 
+        public MediaDS.ViewMediaDataTable getMediaByGenreName(string genreName)
+        {
+            try
+            {
+                viewMediaTableAdapter.FillByGenreName(mediaDataSet.ViewMedia, genreName);
+                return mediaDataSet.ViewMedia;
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
+
+
+
+        public MediaDS.ViewMediaDataTable getMediaByYear(int year)
+        {
+
+            try
+            {
+                viewMediaTableAdapter.FillByPublishYear(mediaDataSet.ViewMedia, year);
+                return mediaDataSet.ViewMedia;
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
+
+
+        public MediaDS.ViewMediaDataTable getMediaByTitle(string title)
+        {
+            try
+            {
+                viewMediaTableAdapter.FillByTitleName(mediaDataSet.ViewMedia, title);
+                return mediaDataSet.ViewMedia;
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
+
+
+
+
+        // Note this is media View not media Table
         public MediaDS.ViewMediaDataTable getAllMediaView()
         {
 

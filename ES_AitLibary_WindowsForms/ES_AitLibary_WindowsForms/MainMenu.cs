@@ -45,10 +45,12 @@ namespace ES_AitLibary_WindowsForms
             mediaLogic = new MediaLogic();
 
 
+            //show all media
+            // set data source for data grid view
+            // In this case a List<media>
             DataGridViewMediaLibary.DataSource = mediaLogic.getAllMedia();
 
-            //set data source for data grid view
-            //mediaDataGridView.DataSource = mediaLogic.ListMedia();
+ 
 
 
 
@@ -59,6 +61,62 @@ namespace ES_AitLibary_WindowsForms
         private void BtnMediaLibarySearch_Click(object sender, EventArgs e)
         {
 
+            //which radio btn are we seraching by
+            // should return string 
+            // title / year / genre / none
+            string activeRadio = getActiveRadioBtn();
+
+            //get text box data 
+            //ensure not empty
+
+            String userSearch = TextBoxMediaLibarySearchField.Text;
+            if(userSearch.Length <= 0)
+            {
+                MessageBox.Show("Please input your seach by text / num in the text box.");
+            }
+            else
+            {
+                switch (activeRadio)
+                {
+                    case "none":
+                        MessageBox.Show("Please select an active Category Radio Button");
+                        break;
+
+                    case "title":
+                        DataGridViewMediaLibary.DataSource = mediaLogic.getMediaByTitle(userSearch);
+                        break;
+
+                    case "year":
+                        int year = 0;
+                        bool result = int.TryParse(userSearch, out year);
+                        if (result)
+                        {
+                            DataGridViewMediaLibary.DataSource = mediaLogic.getMediaByYear(year);
+                        }
+                        else
+                        {
+                            MessageBox.Show("Could not convert your year to a number try again.");
+                        }
+                        break;
+
+                    case "genre":
+                         DataGridViewMediaLibary.DataSource = mediaLogic.getMediaByGenre(userSearch);
+                        break;
+
+                    default:
+                        MessageBox.Show("Somthing went wrong try again -- Switch Default");
+                        break;
+                }
+            }
+
+            
+
+        }
+
+
+        private void BtnResetMediaLibary_Click(object sender, EventArgs e)
+        {
+            DataGridViewMediaLibary.DataSource = mediaLogic.getAllMedia();
         }
 
 
@@ -67,7 +125,7 @@ namespace ES_AitLibary_WindowsForms
         {
             //index 0 == true / false 
             //index 1 == studentNum
-            String[] result = getStudentNumber();
+            String[] result = getStudentUsername();
 
             if (result[0].ToLower() == "true")
             {
@@ -90,7 +148,7 @@ namespace ES_AitLibary_WindowsForms
         {
             //index 0 == true / false 
             //index 1 == studentNum
-            String[] result = getStudentNumber();
+            String[] result = getStudentUsername();
 
             if (result[0].ToLower() == "true")
             {
@@ -113,7 +171,7 @@ namespace ES_AitLibary_WindowsForms
         {
             //index 0 == true / false        
             //index 1 == studentNum
-            String[] result = getStudentNumber();
+            String[] result = getStudentUsername();
 
             if (result[0].ToLower() == "true")
             {
@@ -165,7 +223,7 @@ namespace ES_AitLibary_WindowsForms
         }
 
 
-        private String[] getStudentNumber()
+        private String[] getStudentUsername()
         {
             string result = "true";
             string studentNum = "undefined";
@@ -177,7 +235,7 @@ namespace ES_AitLibary_WindowsForms
                 //ensure text box is not empty first
                 if (TextBoxAdminStudentNumber.Text.Length == 0)
                 {
-                    MessageBox.Show("please insert student number");
+                    MessageBox.Show("please insert student username");
                     result = "false";
                 }
                 else
@@ -185,7 +243,7 @@ namespace ES_AitLibary_WindowsForms
                     studentNum = TextBoxAdminStudentNumber.Text;
                 }
 
-                //TODO ensure studentNum is an actural student number 
+                //TODO ensure student Username enter by admin is an actural studentUsername 
                 //......
                 //........
 
@@ -197,10 +255,6 @@ namespace ES_AitLibary_WindowsForms
             }
 
 
-            //TODO ensure student number is an actural student number 
-            //.....
-            //.....
-
 
             String[] tempArray = { result, studentNum };
 
@@ -210,10 +264,28 @@ namespace ES_AitLibary_WindowsForms
         }
 
 
+        private string getActiveRadioBtn()
+        {
+            string activeRadio = "none";
 
+            // go through buttons and find one that is checked (should only be ONE)
+            if (RadioBtnTitle.Checked)
+            {
+                activeRadio = "title";
+            }
+            else if(RadioBtnYear.Checked)
+            {
+                activeRadio = "year";
+            }
+            else if (RadioBtnGenre.Checked)
+            {
+                activeRadio = "genre";
+            }
+            
 
+            return activeRadio;
+        }
 
-
-
+        
     }
 }
