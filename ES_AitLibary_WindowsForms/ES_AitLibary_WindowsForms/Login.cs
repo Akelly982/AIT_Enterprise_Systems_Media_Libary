@@ -11,6 +11,10 @@ using BusinessLogicLayer;
 
 namespace ES_AitLibary_WindowsForms
 {
+
+    //can be used to pause system for abit before continueing
+    //System.Threading.Thread.Sleep(3000);
+
     public partial class Login : Form
     {
         public Login()
@@ -25,28 +29,26 @@ namespace ES_AitLibary_WindowsForms
         private void BtnCheatLoggin_Click(object sender, EventArgs e)
         {
             bool adminCheat = ChkBoxIsAdminCheat.Checked;
+            string username;
+            string password;
 
             // check admin cheat chkbox
             if (adminCheat)
             {
-                //run as if admin user
-                MainMenu.isAdmin = true;
-                MainMenu.username = "Admin Jimmy";
-                
+                //get data 
+                username = "sup";
+                password = "Sup12345";
+
             }
             else
             {
                 //run as if student 
-                MainMenu.isAdmin = false;
-                MainMenu.username = "Jimmy";
-                
-                
+                username = "user";
+                password = "User1234";
 
             }
 
-            //System.Threading.Thread.Sleep(3000);
-            //MoveToMainMenuWithClose();
-            moveToMainMenuWithHide();
+            getUserAndMoveToMain(username, password);
 
         }
 
@@ -61,21 +63,7 @@ namespace ES_AitLibary_WindowsForms
             //check if text is empty
             if (username.Length > 0 || password.Length > 0)
             {
-                //send to business
-                UserLogic ul = new UserLogic();
-                User user = ul.userLogin(username, password);
-
-                //check for errors
-                if (user.getId() == -1)
-                {
-                    MessageBox.Show("get user error UID == -1 ");
-                }
-                else
-                {
-
-                    moveToMainMenuWithData(user);
-
-                }
+                getUserAndMoveToMain(username,password);
             }
 
 
@@ -99,6 +87,29 @@ namespace ES_AitLibary_WindowsForms
 
 
         //my functions---------------------------------------------------
+
+
+
+        public void getUserAndMoveToMain(string username, string password)
+        {
+            //send to business logic
+            UserLogic ul = new UserLogic();
+            User user = ul.userLogin(username, password);
+
+            //check for errors
+            if (user.getId() == -1)
+            {
+                MessageBox.Show("get user error UID == -1 ");
+            }
+            else
+            {
+
+                moveToMainMenuWithData(user);
+
+            }
+        }
+
+
 
         public void moveToMainMenuWithData(User user)
         {

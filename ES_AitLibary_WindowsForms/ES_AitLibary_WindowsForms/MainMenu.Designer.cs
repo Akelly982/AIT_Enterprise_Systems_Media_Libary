@@ -43,6 +43,8 @@ namespace ES_AitLibary_WindowsForms
             this.TextBoxAdminStudentNumber = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.PanelStudentRowShowStudentContent = new System.Windows.Forms.Panel();
+            this.LabelStudentId = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
             this.LabelStudentUsername = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -64,8 +66,6 @@ namespace ES_AitLibary_WindowsForms
             this.RadioBtnYear = new System.Windows.Forms.RadioButton();
             this.RadioBtnTitle = new System.Windows.Forms.RadioButton();
             this.PanelSpacer1 = new System.Windows.Forms.Panel();
-            this.label5 = new System.Windows.Forms.Label();
-            this.LabelStudentId = new System.Windows.Forms.Label();
             this.panelNav.SuspendLayout();
             this.panelStudentDataRow.SuspendLayout();
             this.PanelStudentBtnsHolder.SuspendLayout();
@@ -220,6 +220,24 @@ namespace ES_AitLibary_WindowsForms
             this.PanelStudentRowShowStudentContent.Name = "PanelStudentRowShowStudentContent";
             this.PanelStudentRowShowStudentContent.Size = new System.Drawing.Size(584, 283);
             this.PanelStudentRowShowStudentContent.TabIndex = 0;
+            // 
+            // LabelStudentId
+            // 
+            this.LabelStudentId.AutoSize = true;
+            this.LabelStudentId.Location = new System.Drawing.Point(345, 108);
+            this.LabelStudentId.Name = "LabelStudentId";
+            this.LabelStudentId.Size = new System.Drawing.Size(56, 25);
+            this.LabelStudentId.TabIndex = 3;
+            this.LabelStudentId.Text = "xxxx";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(125, 108);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(115, 25);
+            this.label5.TabIndex = 2;
+            this.label5.Text = "Student Id:";
             // 
             // LabelStudentUsername
             // 
@@ -441,24 +459,6 @@ namespace ES_AitLibary_WindowsForms
             this.PanelSpacer1.Name = "PanelSpacer1";
             this.PanelSpacer1.Size = new System.Drawing.Size(1934, 194);
             this.PanelSpacer1.TabIndex = 4;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(125, 108);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(115, 25);
-            this.label5.TabIndex = 2;
-            this.label5.Text = "Student Id:";
-            // 
-            // LabelStudentId
-            // 
-            this.LabelStudentId.AutoSize = true;
-            this.LabelStudentId.Location = new System.Drawing.Point(345, 108);
-            this.LabelStudentId.Name = "LabelStudentId";
-            this.LabelStudentId.Size = new System.Drawing.Size(56, 25);
-            this.LabelStudentId.TabIndex = 3;
-            this.LabelStudentId.Text = "xxxx";
             // 
             // MainMenu
             // 

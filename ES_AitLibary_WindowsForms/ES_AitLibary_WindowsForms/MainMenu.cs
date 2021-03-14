@@ -32,6 +32,7 @@ namespace ES_AitLibary_WindowsForms
             if (!isAdmin)
             {
                 LabelStudentUsername.Text = currentUser.getUsername();
+                LabelStudentId.Text = currentUser.getId().ToString();
                 LabelAdminUsername.Visible = false;
 
                 PanelMediaLibaryAdminBtns.Visible = false;
@@ -40,7 +41,7 @@ namespace ES_AitLibary_WindowsForms
             }
             else
             {
-                LabelAdminUsername.Text = "Admin " + currentUser.getUsername();
+                LabelAdminUsername.Text = "Admin: " + currentUser.getUsername();
                 PanelStudentRowShowStudentContent.Visible = false;
             }
 
