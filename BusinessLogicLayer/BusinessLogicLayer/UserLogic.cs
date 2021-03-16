@@ -50,7 +50,7 @@ namespace BusinessLogicLayer
             }
             else
             {
-                user.setId(-1);
+                user.Id = -1;
             }
 
 
@@ -84,7 +84,7 @@ namespace BusinessLogicLayer
             }
             else
             {
-                user.setId(-1);
+                user.Id = -1;
             }
 
 
@@ -95,6 +95,31 @@ namespace BusinessLogicLayer
         }
 
 
+
+
+
+
+        public List<User> getAllUsers()
+        {
+            List<User> users = new List<User>();
+
+            // get our table data from our DAO
+            userTable = userDAO.GetAllUserTab();
+
+            //go through table data row by row
+            //get data 
+            foreach (UserDS.TabUserRow userRow in userTable.Rows)
+            {
+                User user = new User();
+                user.setData(userRow.UID, userRow.UserName, userRow.UserLevel, userRow.UserEmail);
+
+                //add user to list
+                users.Add(user);
+            }
+
+
+            return users;
+        }
 
 
 

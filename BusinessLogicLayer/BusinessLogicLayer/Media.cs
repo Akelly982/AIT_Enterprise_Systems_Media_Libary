@@ -21,9 +21,9 @@ namespace BusinessLogicLayer
         private int genreId;
         private int directorId;
         private int languageId;
-     
 
 
+        
 
 
         //getters and setters   

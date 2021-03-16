@@ -66,6 +66,7 @@ namespace ES_AitLibary_WindowsForms
             this.RadioBtnYear = new System.Windows.Forms.RadioButton();
             this.RadioBtnTitle = new System.Windows.Forms.RadioButton();
             this.PanelSpacer1 = new System.Windows.Forms.Panel();
+            this.DataGridViewUsers = new System.Windows.Forms.DataGridView();
             this.panelNav.SuspendLayout();
             this.panelStudentDataRow.SuspendLayout();
             this.PanelStudentBtnsHolder.SuspendLayout();
@@ -77,6 +78,8 @@ namespace ES_AitLibary_WindowsForms
             this.panel2.SuspendLayout();
             this.PanelMediaLibaryAdminBtns.SuspendLayout();
             this.panel1.SuspendLayout();
+            this.PanelSpacer1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.DataGridViewUsers)).BeginInit();
             this.SuspendLayout();
             // 
             // panelNav
@@ -454,18 +457,29 @@ namespace ES_AitLibary_WindowsForms
             // PanelSpacer1
             // 
             this.PanelSpacer1.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.PanelSpacer1.Controls.Add(this.DataGridViewUsers);
             this.PanelSpacer1.Dock = System.Windows.Forms.DockStyle.Top;
             this.PanelSpacer1.Location = new System.Drawing.Point(0, 1889);
             this.PanelSpacer1.Name = "PanelSpacer1";
-            this.PanelSpacer1.Size = new System.Drawing.Size(1934, 194);
+            this.PanelSpacer1.Size = new System.Drawing.Size(1934, 883);
             this.PanelSpacer1.TabIndex = 4;
+            // 
+            // DataGridViewUsers
+            // 
+            this.DataGridViewUsers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DataGridViewUsers.Location = new System.Drawing.Point(142, 56);
+            this.DataGridViewUsers.Name = "DataGridViewUsers";
+            this.DataGridViewUsers.RowHeadersWidth = 82;
+            this.DataGridViewUsers.RowTemplate.Height = 33;
+            this.DataGridViewUsers.Size = new System.Drawing.Size(1619, 762);
+            this.DataGridViewUsers.TabIndex = 0;
             // 
             // MainMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
-            this.ClientSize = new System.Drawing.Size(1968, 1129);
+            this.ClientSize = new System.Drawing.Size(1968, 1931);
             this.Controls.Add(this.PanelSpacer1);
             this.Controls.Add(this.PanelMediaLibary);
             this.Controls.Add(this.panelStudentDataRow);
@@ -488,6 +502,8 @@ namespace ES_AitLibary_WindowsForms
             this.PanelMediaLibaryAdminBtns.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            this.PanelSpacer1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.DataGridViewUsers)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -531,5 +547,6 @@ namespace ES_AitLibary_WindowsForms
         private System.Windows.Forms.Button BtnResetMediaLibary;
         private System.Windows.Forms.Label LabelStudentId;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.DataGridView DataGridViewUsers;
     }
 }

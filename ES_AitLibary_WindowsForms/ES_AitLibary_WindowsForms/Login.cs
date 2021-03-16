@@ -97,7 +97,7 @@ namespace ES_AitLibary_WindowsForms
             User user = ul.userLogin(username, password);
 
             //check for errors
-            if (user.getId() == -1)
+            if (user.Id == -1)
             {
                 MessageBox.Show("get user error UID == -1 ");
             }

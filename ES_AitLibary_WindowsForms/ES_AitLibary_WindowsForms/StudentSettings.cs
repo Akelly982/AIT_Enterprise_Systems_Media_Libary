@@ -21,8 +21,8 @@ namespace ES_AitLibary_WindowsForms
         {
             InitializeComponent();
 
-            LabelUsername.Text = user.getUsername();
-            LabelUserId.Text = user.getId().ToString();
+            LabelUsername.Text = user.Username;
+            LabelUserId.Text = user.Id.ToString();
 
             // hide admin panel / content
             if (!isAdmin)

@@ -24,15 +24,15 @@ namespace ES_AitLibary_WindowsForms
         {
             InitializeComponent();
 
-            if(currentUser.getUserLevel() != 1)
+            if(currentUser.Userlevel != 1)
             {
                 isAdmin = true;
             }
 
             if (!isAdmin)
             {
-                LabelStudentUsername.Text = currentUser.getUsername();
-                LabelStudentId.Text = currentUser.getId().ToString();
+                LabelStudentUsername.Text = currentUser.Username;
+                LabelStudentId.Text = currentUser.Id.ToString();
                 LabelAdminUsername.Visible = false;
 
                 PanelMediaLibaryAdminBtns.Visible = false;
@@ -41,7 +41,7 @@ namespace ES_AitLibary_WindowsForms
             }
             else
             {
-                LabelAdminUsername.Text = "Admin: " + currentUser.getUsername();
+                LabelAdminUsername.Text = "Admin: " + currentUser.Username;
                 PanelStudentRowShowStudentContent.Visible = false;
             }
 
@@ -55,9 +55,24 @@ namespace ES_AitLibary_WindowsForms
             //show all media
             // set data source for data grid view
             // In this case a List<media>
-            DataGridViewMediaLibary.DataSource = mediaLogic.getAllMedia();
+            //DataGridViewMediaLibary.DataSource = mediaLogic.getAllMedia();
+            //DataGridViewMediaLibary.DataSource = userLogic.getAllUsers();
+        
 
- 
+
+            //taking it slow
+            //do some handeling before show checking data 
+            //media
+            List<Media> myMediaData = new List<Media>();
+            myMediaData = mediaLogic.getAllMedia();
+            DataGridViewMediaLibary.DataSource = myMediaData;
+
+            //users
+            List<User> myUserData = new List<User>();
+            myUserData = userLogic.getAllUsers();
+            DataGridViewUsers.DataSource = myUserData;
+
+
 
 
 
@@ -146,7 +161,7 @@ namespace ES_AitLibary_WindowsForms
                 if(result[0] == 1) 
                 {
                     User studentUser = userLogic.getUserById(result[1]);
-                    if (studentUser.getId() != -1) 
+                    if (studentUser.Id != -1) 
                     {
                         //set retrieved data
                         StudentSettings.isAdmin = isAdmin;
@@ -195,7 +210,7 @@ namespace ES_AitLibary_WindowsForms
                 if (result[0] == 1)
                 {
                     User studentUser = userLogic.getUserById(result[1]);
-                    if (studentUser.getId() != -1)
+                    if (studentUser.Id != -1)
                     {
                         //set retrieved data
                         StudentSettings.isAdmin = isAdmin;
@@ -243,7 +258,7 @@ namespace ES_AitLibary_WindowsForms
                 if (result[0] == 1)
                 {
                     User studentUser = userLogic.getUserById(result[1]);
-                    if (studentUser.getId() != -1)
+                    if (studentUser.Id != -1)
                     {
                         //set retrieved data
                         StudentSettings.isAdmin = isAdmin;
