@@ -15,7 +15,7 @@ namespace ES_AitLibary_WindowsForms
     {
 
 
-        private bool isAdmin = false;
+        private bool isAdmin = false;  //initialize as false
         public MediaLogic mediaLogic;
         public UserLogic userLogic;
         public static User currentUser;
@@ -24,12 +24,12 @@ namespace ES_AitLibary_WindowsForms
         {
             InitializeComponent();
 
-            if(currentUser.Userlevel != 1)
+            if(currentUser.Userlevel != 1)   // check if user is admin
             {
                 isAdmin = true;
             }
 
-            if (!isAdmin)
+            if (!isAdmin)    // depending on user level show different content
             {
                 LabelStudentUsername.Text = currentUser.Username;
                 LabelStudentId.Text = currentUser.Id.ToString();
