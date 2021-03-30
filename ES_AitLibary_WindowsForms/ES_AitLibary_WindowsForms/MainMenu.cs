@@ -55,17 +55,14 @@ namespace ES_AitLibary_WindowsForms
             //show all media
             // set data source for data grid view
             // In this case a List<media>
-            //DataGridViewMediaLibary.DataSource = mediaLogic.getAllMedia();
+            DataGridViewMediaLibary.DataSource = mediaLogic.getAllMedia();
             //DataGridViewMediaLibary.DataSource = userLogic.getAllUsers();
         
 
-
-            //taking it slow
-            //do some handeling before show checking data 
             //media
-            List<Media> myMediaData = new List<Media>();
-            myMediaData = mediaLogic.getAllMedia();
-            DataGridViewMediaLibary.DataSource = myMediaData;
+            //List<Media> myMediaData = new List<Media>();
+            //myMediaData = mediaLogic.getAllMedia();
+            //DataGridViewMediaLibary.DataSource = myMediaData;
 
 
         }
@@ -307,7 +304,10 @@ namespace ES_AitLibary_WindowsForms
 
         private void BtnEditMedia_Click(object sender, EventArgs e)
         {
-
+            //move between forms
+            EditMediaLibary eml = new EditMediaLibary();
+            eml.Show();
+            this.Hide();
         }
 
 

@@ -11,8 +11,13 @@ namespace DataAccessLayer
     {
 
         private MediaDS mediaDataSet;
-        private TabMediaTableAdapter tabMediaAdapter;
+        private TabMediaTableAdapter tabMediaAdapter;   
         private ViewMediaTableAdapter viewMediaTableAdapter;
+
+        //added access to the genre, director and language tables for CRUD
+        private TabGenreTableAdapter tabGenreTableAdapter;
+        private TabDirectorTableAdapter tabDirectorTableAdapter;
+        private TabLanguageTableAdapter tabLanguageTableAdapter;
 
 
         public MediaDAO()
@@ -20,6 +25,9 @@ namespace DataAccessLayer
             mediaDataSet = new MediaDS();
             tabMediaAdapter = new TabMediaTableAdapter();
             viewMediaTableAdapter = new ViewMediaTableAdapter();
+            tabGenreTableAdapter = new TabGenreTableAdapter();
+            tabLanguageTableAdapter = new TabLanguageTableAdapter();
+            tabDirectorTableAdapter = new TabDirectorTableAdapter();
         }
 
 
@@ -122,6 +130,239 @@ namespace DataAccessLayer
         }
 
 
+
+
+
+
+
+
+
+        //TabMedia create, update, delete ----------
+
+        public bool insertNewMedia(string title,int genreId, int directorId, int languageId, int publishYear, int budget)
+        {
+            try
+            {
+                tabMediaAdapter.InsertWithTitleGenreIdDirectorIdLanguageIdPublishYearBudget(title, genreId, directorId, languageId, publishYear, budget);
+                return true;
+            }
+            catch (Exception e)
+            {
+                throw e;
+                
+            }
+        }
+
+        public bool deleteMediaById(int mediaId)
+        {
+            try
+            {
+                tabMediaAdapter.DeleteByMediaId(mediaId);
+                return true;
+            }
+            catch (Exception e)
+            {
+                throw e;
+
+            }
+        }
+
+        public bool updateMedia(int mediaId, string title, int genreId, int directorId, int languageId, int publishYear, int budget)
+        {
+            try
+            {
+                tabMediaAdapter.UpdateByMediaIdForTitleGenreIdDirectorIdLanguageIdPublishYearBudget(title, genreId, directorId, languageId, publishYear, budget, mediaId);
+                return true;
+            }
+            catch (Exception e)
+            {
+                throw e;
+
+            }
+        }
+
+
+
+
+
+        //TabDirector CRUD ----------
+        public bool insertNewDirector(string directorName)
+        {
+            try
+            {
+                tabDirectorTableAdapter.InsertDirectorByName(directorName);
+                return true;
+            }
+            catch (Exception e)
+            {
+                throw e;
+
+            }
+        }
+
+        public bool deleteDirectorById(int id)
+        {
+            try
+            {
+                tabDirectorTableAdapter.DeleteByDirectorId(id);
+                return true;
+            }
+            catch (Exception e)
+            {
+                throw e;
+
+            }
+        }
+
+        public MediaDS.TabDirectorDataTable getDirectorByName(string directorName)
+        {
+            try
+            {
+                tabDirectorTableAdapter.FillByDirectorName(mediaDataSet.TabDirector, directorName); //use the fill method not the get metod becuse you are filling a data table 
+                return mediaDataSet.TabDirector;
+            }
+            catch (Exception e)
+            {
+                throw e;
+
+            }
+        }
+
+        public MediaDS.TabDirectorDataTable getAllDirectors()
+        {
+            try
+            {
+                tabDirectorTableAdapter.FillAll(mediaDataSet.TabDirector);
+                return mediaDataSet.TabDirector;
+            }
+            catch (Exception e)
+            {
+                throw e;
+
+            }
+        }
+
+
+
+
+
+        //TabGenre CRUD ----------
+        public bool insertNewGenre(string genreName)
+        {
+            try
+            {
+                tabGenreTableAdapter.InsertGenreByName(genreName);
+                return true;
+            }
+            catch (Exception e)
+            {
+                throw e;
+
+            }
+        }
+
+        public bool deleteGenreById(int id)
+        {
+            try
+            {
+                tabGenreTableAdapter.DeleteByGenreId(id);
+                return true;
+            }
+            catch (Exception e)
+            {
+                throw e;
+
+            }
+        }
+
+        public MediaDS.TabGenreDataTable getGenreByName(string genreName)
+        {
+            try
+            {
+                tabGenreTableAdapter.FillByGenreName(mediaDataSet.TabGenre, genreName);
+                return mediaDataSet.TabGenre;
+            }
+            catch (Exception e)
+            {
+                throw e;
+
+            }
+        }
+
+        public MediaDS.TabGenreDataTable getAllGenre()
+        {
+            try
+            {
+                tabGenreTableAdapter.FillAll(mediaDataSet.TabGenre);
+                return mediaDataSet.TabGenre;
+            }
+            catch (Exception e)
+            {
+                throw e;
+
+            }
+        }
+
+
+
+
+
+        //TabLanguage CRUD ----------
+        public bool insertNewLanguage(string languageName)
+        {
+            try
+            {
+                tabLanguageTableAdapter.InsertLanguageByName(languageName);
+                return true;
+            }
+            catch (Exception e)
+            {
+                throw e;
+
+            }
+        }
+
+        public bool deleteLanguageById(int id)
+        {
+            try
+            {
+                tabLanguageTableAdapter.DeleteByLanguageID(id);
+                return true;
+            }
+            catch (Exception e)
+            {
+                throw e;
+
+            }
+        }
+
+        public MediaDS.TabLanguageDataTable getLanguageByName(string languageName)
+        {
+            try
+            {
+                tabLanguageTableAdapter.FillByLanguageName(mediaDataSet.TabLanguage, languageName);
+                return mediaDataSet.TabLanguage;
+            }
+            catch (Exception e)
+            {
+                throw e;
+
+            }
+        }
+
+        public MediaDS.TabLanguageDataTable getAllLanguages()
+        {
+            try
+            {
+                tabLanguageTableAdapter.FillAll(mediaDataSet.TabLanguage);
+                return mediaDataSet.TabLanguage;
+            }
+            catch (Exception e)
+            {
+                throw e;
+
+            }
+        }
 
 
 

@@ -40,6 +40,7 @@ namespace ES_AitLibary_WindowsForms
             this.BtnStudentRecords = new System.Windows.Forms.Button();
             this.BtnStudentSettings = new System.Windows.Forms.Button();
             this.PanelStudentRowShowAdminContent = new System.Windows.Forms.Panel();
+            this.BtnAdminAddUser = new System.Windows.Forms.Button();
             this.TextBoxAdminStudentNumber = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.PanelStudentRowShowStudentContent = new System.Windows.Forms.Panel();
@@ -47,7 +48,6 @@ namespace ES_AitLibary_WindowsForms
             this.label5 = new System.Windows.Forms.Label();
             this.LabelStudentUsername = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
             this.PanelMediaLibary = new System.Windows.Forms.Panel();
             this.DataGridViewMediaLibary = new System.Windows.Forms.DataGridView();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -55,8 +55,6 @@ namespace ES_AitLibary_WindowsForms
             this.BtnCheckOut = new System.Windows.Forms.Button();
             this.PanelMediaLibaryAdminBtns = new System.Windows.Forms.Panel();
             this.BtnEditMedia = new System.Windows.Forms.Button();
-            this.BtnDeleteMedia = new System.Windows.Forms.Button();
-            this.BtnAddMedia = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.BtnResetMediaLibary = new System.Windows.Forms.Button();
             this.BtnMediaLibarySearch = new System.Windows.Forms.Button();
@@ -66,7 +64,7 @@ namespace ES_AitLibary_WindowsForms
             this.RadioBtnYear = new System.Windows.Forms.RadioButton();
             this.RadioBtnTitle = new System.Windows.Forms.RadioButton();
             this.PanelSpacer1 = new System.Windows.Forms.Panel();
-            this.BtnAdminAddUser = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
             this.panelNav.SuspendLayout();
             this.panelStudentDataRow.SuspendLayout();
             this.PanelStudentBtnsHolder.SuspendLayout();
@@ -195,6 +193,16 @@ namespace ES_AitLibary_WindowsForms
             this.PanelStudentRowShowAdminContent.Size = new System.Drawing.Size(627, 283);
             this.PanelStudentRowShowAdminContent.TabIndex = 1;
             // 
+            // BtnAdminAddUser
+            // 
+            this.BtnAdminAddUser.Location = new System.Drawing.Point(32, 78);
+            this.BtnAdminAddUser.Name = "BtnAdminAddUser";
+            this.BtnAdminAddUser.Size = new System.Drawing.Size(118, 131);
+            this.BtnAdminAddUser.TabIndex = 4;
+            this.BtnAdminAddUser.Text = "New User";
+            this.BtnAdminAddUser.UseVisualStyleBackColor = true;
+            this.BtnAdminAddUser.Click += new System.EventHandler(this.BtnAdminAddUser_Click);
+            // 
             // TextBoxAdminStudentNumber
             // 
             this.TextBoxAdminStudentNumber.Location = new System.Drawing.Point(318, 132);
@@ -259,16 +267,6 @@ namespace ES_AitLibary_WindowsForms
             this.label3.TabIndex = 0;
             this.label3.Text = "Student Username:";
             // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(715, 59);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(199, 37);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "Media Libary";
-            // 
             // PanelMediaLibary
             // 
             this.PanelMediaLibary.Controls.Add(this.DataGridViewMediaLibary);
@@ -328,43 +326,20 @@ namespace ES_AitLibary_WindowsForms
             // 
             this.PanelMediaLibaryAdminBtns.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.PanelMediaLibaryAdminBtns.Controls.Add(this.BtnEditMedia);
-            this.PanelMediaLibaryAdminBtns.Controls.Add(this.BtnDeleteMedia);
-            this.PanelMediaLibaryAdminBtns.Controls.Add(this.BtnAddMedia);
-            this.PanelMediaLibaryAdminBtns.Location = new System.Drawing.Point(48, 1018);
+            this.PanelMediaLibaryAdminBtns.Location = new System.Drawing.Point(48, 1006);
             this.PanelMediaLibaryAdminBtns.Name = "PanelMediaLibaryAdminBtns";
-            this.PanelMediaLibaryAdminBtns.Size = new System.Drawing.Size(420, 342);
+            this.PanelMediaLibaryAdminBtns.Size = new System.Drawing.Size(420, 354);
             this.PanelMediaLibaryAdminBtns.TabIndex = 0;
             // 
             // BtnEditMedia
             // 
-            this.BtnEditMedia.Location = new System.Drawing.Point(41, 203);
+            this.BtnEditMedia.Location = new System.Drawing.Point(31, 113);
             this.BtnEditMedia.Name = "BtnEditMedia";
-            this.BtnEditMedia.Size = new System.Drawing.Size(339, 115);
+            this.BtnEditMedia.Size = new System.Drawing.Size(349, 115);
             this.BtnEditMedia.TabIndex = 5;
-            this.BtnEditMedia.Text = "Edit";
+            this.BtnEditMedia.Text = "Edit Media";
             this.BtnEditMedia.UseVisualStyleBackColor = true;
             this.BtnEditMedia.Click += new System.EventHandler(this.BtnEditMedia_Click);
-            // 
-            // BtnDeleteMedia
-            // 
-            this.BtnDeleteMedia.Location = new System.Drawing.Point(225, 14);
-            this.BtnDeleteMedia.Name = "BtnDeleteMedia";
-            this.BtnDeleteMedia.Size = new System.Drawing.Size(155, 131);
-            this.BtnDeleteMedia.TabIndex = 4;
-            this.BtnDeleteMedia.Text = "Delete";
-            this.BtnDeleteMedia.UseVisualStyleBackColor = true;
-            this.BtnDeleteMedia.Click += new System.EventHandler(this.BtnDeleteMedia_Click);
-            // 
-            // BtnAddMedia
-            // 
-            this.BtnAddMedia.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnAddMedia.Location = new System.Drawing.Point(31, 14);
-            this.BtnAddMedia.Name = "BtnAddMedia";
-            this.BtnAddMedia.Size = new System.Drawing.Size(157, 131);
-            this.BtnAddMedia.TabIndex = 3;
-            this.BtnAddMedia.Text = "+";
-            this.BtnAddMedia.UseVisualStyleBackColor = true;
-            this.BtnAddMedia.Click += new System.EventHandler(this.BtnAddMedia_Click);
             // 
             // panel1
             // 
@@ -462,15 +437,15 @@ namespace ES_AitLibary_WindowsForms
             this.PanelSpacer1.Size = new System.Drawing.Size(1934, 150);
             this.PanelSpacer1.TabIndex = 4;
             // 
-            // BtnAdminAddUser
+            // label2
             // 
-            this.BtnAdminAddUser.Location = new System.Drawing.Point(32, 78);
-            this.BtnAdminAddUser.Name = "BtnAdminAddUser";
-            this.BtnAdminAddUser.Size = new System.Drawing.Size(118, 131);
-            this.BtnAdminAddUser.TabIndex = 4;
-            this.BtnAdminAddUser.Text = "New User";
-            this.BtnAdminAddUser.UseVisualStyleBackColor = true;
-            this.BtnAdminAddUser.Click += new System.EventHandler(this.BtnAdminAddUser_Click);
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(689, 74);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(199, 37);
+            this.label2.TabIndex = 2;
+            this.label2.Text = "Media Libary";
             // 
             // MainMenu
             // 
@@ -521,7 +496,6 @@ namespace ES_AitLibary_WindowsForms
         private System.Windows.Forms.Button BtnStudentActivity;
         private System.Windows.Forms.Button BtnStudentRecords;
         private System.Windows.Forms.Button BtnStudentSettings;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Panel PanelMediaLibary;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel PanelMediaLibaryAdminBtns;
@@ -535,8 +509,6 @@ namespace ES_AitLibary_WindowsForms
         private System.Windows.Forms.Button BtnReserve;
         private System.Windows.Forms.Button BtnCheckOut;
         private System.Windows.Forms.Button BtnEditMedia;
-        private System.Windows.Forms.Button BtnDeleteMedia;
-        private System.Windows.Forms.Button BtnAddMedia;
         private System.Windows.Forms.Label LabelAdminUsername;
         private System.Windows.Forms.Panel PanelSpacer1;
         private System.Windows.Forms.DataGridView DataGridViewMediaLibary;
@@ -544,5 +516,6 @@ namespace ES_AitLibary_WindowsForms
         private System.Windows.Forms.Label LabelStudentId;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button BtnAdminAddUser;
+        private System.Windows.Forms.Label label2;
     }
 }
