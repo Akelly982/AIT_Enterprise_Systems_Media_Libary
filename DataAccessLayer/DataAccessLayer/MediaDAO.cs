@@ -91,7 +91,7 @@ namespace DataAccessLayer
         {
             try
             {
-                viewMediaTableAdapter.FillByTitleName(mediaDataSet.ViewMedia, title);
+                viewMediaTableAdapter.FillByTitleNameLike(mediaDataSet.ViewMedia, title);
                 return mediaDataSet.ViewMedia;
             }
             catch (Exception e)

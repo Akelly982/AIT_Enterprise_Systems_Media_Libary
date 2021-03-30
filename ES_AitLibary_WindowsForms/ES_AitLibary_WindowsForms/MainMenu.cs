@@ -67,15 +67,6 @@ namespace ES_AitLibary_WindowsForms
             myMediaData = mediaLogic.getAllMedia();
             DataGridViewMediaLibary.DataSource = myMediaData;
 
-            //users
-            List<User> myUserData = new List<User>();
-            myUserData = userLogic.getAllUsers();
-            DataGridViewUsers.DataSource = myUserData;
-
-
-
-
-
 
         }
 
@@ -411,15 +402,15 @@ namespace ES_AitLibary_WindowsForms
             return activeRadio;
         }
 
-      
+        private void BtnAdminAddUser_Click(object sender, EventArgs e)
+        {
+            //set data 
+            SignUp.currentUser = currentUser;
 
-
-
-
-
-
-
-
-
+            //move between forms
+            SignUp su = new SignUp();
+            su.Show();
+            this.Hide();
+        }
     }
 }

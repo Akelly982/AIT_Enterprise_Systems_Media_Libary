@@ -17,6 +17,8 @@ namespace ES_AitLibary_WindowsForms
         public static bool isAdmin;
         public static User user;
 
+        private UserLogic userLogic;
+
         public StudentSettings()
         {
             InitializeComponent();
@@ -30,6 +32,7 @@ namespace ES_AitLibary_WindowsForms
                 PanelAdmin.Visible = false;
             }
 
+            userLogic = new UserLogic();
 
         }
 
@@ -46,6 +49,59 @@ namespace ES_AitLibary_WindowsForms
             Form mainform = Application.OpenForms["MainMenu"];
             mainform.Show();
             this.Close();
+        }
+
+
+
+
+        private void BtnAdminResetPassword_Click(object sender, EventArgs e)
+        {
+            string newPass = TextBoxAdminPasswordReset.Text;
+            
+            //check if empty
+            if (newPass.Length <= 0)
+            {
+                MessageBox.Show("please fill in the admin new password textbox ");
+                return;
+            }
+
+            bool result = userLogic.updateUserPassword(user.Id, newPass);
+
+            if (result)
+            {
+                MessageBox.Show("Password updated to: " + newPass);
+            }
+            else
+            {
+                MessageBox.Show("db returned false their was an error.");
+            }
+
+        }
+
+        private void BtnAdminDelete_Click(object sender, EventArgs e)
+        {
+            if (!ChkBoxDelete.Checked)
+            {
+                MessageBox.Show("please check the delete user check box.");
+            }
+            else
+            {
+                bool result = userLogic.deleteUser(user.Id);
+
+                if (result)
+                {
+                    MessageBox.Show("user deleted successfully");
+
+                    //return to main menu
+                    Form mainform = Application.OpenForms["MainMenu"];
+                    mainform.Show();
+                    this.Close();
+                }
+                else
+                {
+                    MessageBox.Show("db returned false their was an error.");
+                }
+            }
         }
     }
 }

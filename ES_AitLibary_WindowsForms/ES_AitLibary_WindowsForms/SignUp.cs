@@ -16,9 +16,8 @@ namespace ES_AitLibary_WindowsForms
 
 
         private bool isAdmin = false;
-        private int radioBtnValue = 1;
         public UserLogic userLogic;
-        public static User currentUser = null; //initialize as null
+        public static User currentUser = null;  //initialize as null
         
 
 
@@ -43,7 +42,6 @@ namespace ES_AitLibary_WindowsForms
                     // Todo 
                     // return user to main menu they should not be here once logged in
                 }
-
 
             }
 
@@ -74,7 +72,6 @@ namespace ES_AitLibary_WindowsForms
             }
 
 
-            
             //check fields valid
             if (username.Length == 0 || email.Length == 0 || password.Length == 0)
             {
@@ -82,11 +79,44 @@ namespace ES_AitLibary_WindowsForms
                 return;
             }
 
-            if(userLevel == 1 || userLevel == 2)
+
+            if(userLevel == 1 || userLevel == 2)  // has to be student or admin user
             {
-                MessageBox.Show("User level is out of range.");
+                //run update method
+                bool result = userLogic.insertNewUser(username, email, password, userLevel);
+
+                if (result)
+                {
+                    //reset signUp pg class vars
+                    resetSignUpPgAdminStatus();
+
+                    if (isAdmin)
+                    {
+                        //for more details go to STUDENT SETTINGS return btn method
+                        Form mainform = Application.OpenForms["MainMenu"];
+                        mainform.Show();
+                        this.Close();
+
+                       
+                    }
+                    //for more details go to STUDENT SETTINGS return btn method
+                    Form login = Application.OpenForms["Login"];
+                    login.Show();
+                    this.Close();
+
+                }
+                else
+                {
+                    MessageBox.Show("DB returned false");
+                }
+            }
+            else
+            {
+                MessageBox.Show("UserLevel out of range");
                 return;
             }
+
+            
 
 
 
@@ -124,10 +154,35 @@ namespace ES_AitLibary_WindowsForms
         {
             //for more details go to STUDENT SETTINGS return btn method
             Form mainform = Application.OpenForms["MainMenu"];
-            mainform.Show();
-            this.Close();
+
+            //reset signUp pg class vars
+            resetSignUpPgAdminStatus();
+
+            if(mainform != null)  //does not yet exist
+            {
+                mainform.Show();
+                this.Close();
+            }
+            else
+            {
+                //return to login
+                Form login = Application.OpenForms["login"];
+                login.Show();
+                this.Close();
+
+            }
+            
         }
 
+
+
+
+        // reset class variables to default on page leave
+        private void resetSignUpPgAdminStatus()
+        {
+            isAdmin = false;
+            currentUser = null;
+        }
 
         
 

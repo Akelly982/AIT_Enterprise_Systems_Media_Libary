@@ -66,7 +66,7 @@ namespace ES_AitLibary_WindowsForms
             this.RadioBtnYear = new System.Windows.Forms.RadioButton();
             this.RadioBtnTitle = new System.Windows.Forms.RadioButton();
             this.PanelSpacer1 = new System.Windows.Forms.Panel();
-            this.DataGridViewUsers = new System.Windows.Forms.DataGridView();
+            this.BtnAdminAddUser = new System.Windows.Forms.Button();
             this.panelNav.SuspendLayout();
             this.panelStudentDataRow.SuspendLayout();
             this.PanelStudentBtnsHolder.SuspendLayout();
@@ -78,8 +78,6 @@ namespace ES_AitLibary_WindowsForms
             this.panel2.SuspendLayout();
             this.PanelMediaLibaryAdminBtns.SuspendLayout();
             this.panel1.SuspendLayout();
-            this.PanelSpacer1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.DataGridViewUsers)).BeginInit();
             this.SuspendLayout();
             // 
             // panelNav
@@ -188,6 +186,7 @@ namespace ES_AitLibary_WindowsForms
             // 
             // PanelStudentRowShowAdminContent
             // 
+            this.PanelStudentRowShowAdminContent.Controls.Add(this.BtnAdminAddUser);
             this.PanelStudentRowShowAdminContent.Controls.Add(this.TextBoxAdminStudentNumber);
             this.PanelStudentRowShowAdminContent.Controls.Add(this.label4);
             this.PanelStudentRowShowAdminContent.Dock = System.Windows.Forms.DockStyle.Left;
@@ -457,22 +456,21 @@ namespace ES_AitLibary_WindowsForms
             // PanelSpacer1
             // 
             this.PanelSpacer1.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.PanelSpacer1.Controls.Add(this.DataGridViewUsers);
             this.PanelSpacer1.Dock = System.Windows.Forms.DockStyle.Top;
             this.PanelSpacer1.Location = new System.Drawing.Point(0, 1889);
             this.PanelSpacer1.Name = "PanelSpacer1";
-            this.PanelSpacer1.Size = new System.Drawing.Size(1934, 883);
+            this.PanelSpacer1.Size = new System.Drawing.Size(1934, 150);
             this.PanelSpacer1.TabIndex = 4;
             // 
-            // DataGridViewUsers
+            // BtnAdminAddUser
             // 
-            this.DataGridViewUsers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.DataGridViewUsers.Location = new System.Drawing.Point(142, 56);
-            this.DataGridViewUsers.Name = "DataGridViewUsers";
-            this.DataGridViewUsers.RowHeadersWidth = 82;
-            this.DataGridViewUsers.RowTemplate.Height = 33;
-            this.DataGridViewUsers.Size = new System.Drawing.Size(1619, 762);
-            this.DataGridViewUsers.TabIndex = 0;
+            this.BtnAdminAddUser.Location = new System.Drawing.Point(32, 78);
+            this.BtnAdminAddUser.Name = "BtnAdminAddUser";
+            this.BtnAdminAddUser.Size = new System.Drawing.Size(118, 131);
+            this.BtnAdminAddUser.TabIndex = 4;
+            this.BtnAdminAddUser.Text = "New User";
+            this.BtnAdminAddUser.UseVisualStyleBackColor = true;
+            this.BtnAdminAddUser.Click += new System.EventHandler(this.BtnAdminAddUser_Click);
             // 
             // MainMenu
             // 
@@ -502,8 +500,6 @@ namespace ES_AitLibary_WindowsForms
             this.PanelMediaLibaryAdminBtns.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            this.PanelSpacer1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.DataGridViewUsers)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -547,6 +543,6 @@ namespace ES_AitLibary_WindowsForms
         private System.Windows.Forms.Button BtnResetMediaLibary;
         private System.Windows.Forms.Label LabelStudentId;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.DataGridView DataGridViewUsers;
+        private System.Windows.Forms.Button BtnAdminAddUser;
     }
 }

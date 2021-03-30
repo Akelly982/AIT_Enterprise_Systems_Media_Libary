@@ -73,5 +73,68 @@ namespace DataAccessLayer
 
 
 
+        public bool insertNewUser(string username, string email, string password, int userlevel)
+        {
+
+            try
+            {
+                tabUserAdapter.InsertQueryWithUsernamePasswordUserlevelUserEmail(username,password,userlevel,email);
+                return true;
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+            
+        }
+
+        public bool deleteUser(int userId)
+        {
+
+            try
+            {
+                tabUserAdapter.DeleteQueryByUserId(userId);
+                return true;
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+
+        }
+
+
+        public bool updateUserPassword(int userId ,string newPassword)
+        {
+
+            try
+            {
+                tabUserAdapter.UpdateQueryByUserIdForPassword(newPassword, userId);
+                return true;
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+
+        }
+
+        public bool updateUser(int userId, string username, string password, string email, int userlevel)
+        {
+
+            try
+            {
+                tabUserAdapter.UpdateUserByUserIDForUsernamePasswordUserlevelUserEmail(username, password, userlevel, email, userId);
+                return true;
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+
+        }
+
+
+
     }
 }

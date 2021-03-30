@@ -4108,7 +4108,7 @@ WHERE (TabGenre.GID = @genreId)";
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[5];
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[6];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT MediaID, Title, GenreName, DirectorName, LanguageName, PublishYear, Budget" +
@@ -4138,6 +4138,13 @@ WHERE (TabGenre.GID = @genreId)";
                 ", Genre, Director, Language FROM dbo.ViewMedia\r\nWHERE (Title = @titleName)";
             this._commandCollection[4].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@titleName", global::System.Data.SqlDbType.VarChar, 100, global::System.Data.ParameterDirection.Input, 0, 0, "Title", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[5] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[5].Connection = this.Connection;
+            this._commandCollection[5].CommandText = "SELECT MediaID, Title, GenreName, DirectorName, LanguageName, PublishYear, Budget" +
+                ", Genre, Director, Language\r\nFROM  ViewMedia\r\nWHERE (Title LIKE \'%\' + @title + \'" +
+                "%\')";
+            this._commandCollection[5].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[5].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@title", global::System.Data.SqlDbType.VarChar, 100, global::System.Data.ParameterDirection.Input, 0, 0, "Title", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -4282,6 +4289,42 @@ WHERE (TabGenre.GID = @genreId)";
             }
             else {
                 this.Adapter.SelectCommand.Parameters[0].Value = ((string)(titleName));
+            }
+            MediaDS.ViewMediaDataTable dataTable = new MediaDS.ViewMediaDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int FillByTitleNameLike(MediaDS.ViewMediaDataTable dataTable, string title) {
+            this.Adapter.SelectCommand = this.CommandCollection[5];
+            if ((title == null)) {
+                throw new global::System.ArgumentNullException("title");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(title));
+            }
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual MediaDS.ViewMediaDataTable GetDataByTitleNameLike(string title) {
+            this.Adapter.SelectCommand = this.CommandCollection[5];
+            if ((title == null)) {
+                throw new global::System.ArgumentNullException("title");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(title));
             }
             MediaDS.ViewMediaDataTable dataTable = new MediaDS.ViewMediaDataTable();
             this.Adapter.Fill(dataTable);

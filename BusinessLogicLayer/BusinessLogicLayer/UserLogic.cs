@@ -62,9 +62,6 @@ namespace BusinessLogicLayer
 
 
 
-
-
-
         public User getUserById(int userId)
         {
 
@@ -95,10 +92,6 @@ namespace BusinessLogicLayer
         }
 
 
-
-
-
-
         public List<User> getAllUsers()
         {
             List<User> users = new List<User>();
@@ -124,10 +117,34 @@ namespace BusinessLogicLayer
 
 
 
+        // CRUD ------------------------------------------
+
+        public bool insertNewUser(string username, string email, string password, int userLevel)
+        {
+            bool checker = userDAO.insertNewUser(username, email, password, userLevel);
+            return checker;
+        }
 
 
+        public bool updateUserAll(string username, string email, string password, int userLevel)
+        {
+            bool checker = userDAO.insertNewUser(username, email, password, userLevel);
+            return checker;
+        }
 
+        public bool updateUserPassword(int userId, string newPassword)
+        {
+            bool checker = userDAO.updateUserPassword(userId, newPassword);
+            return checker;
+        }
 
+        public bool deleteUser(int userId)
+        {
+            bool checker = userDAO.deleteUser(userId);
+            return checker;
+        }
+
+        //----------------------------------------------------------------------
 
 
 

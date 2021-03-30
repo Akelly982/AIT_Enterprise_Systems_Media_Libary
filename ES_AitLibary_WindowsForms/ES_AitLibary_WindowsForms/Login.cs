@@ -82,7 +82,10 @@ namespace ES_AitLibary_WindowsForms
 
         private void BtnSignUp_Click(object sender, EventArgs e)
         {
-
+            //move to next screen
+            SignUp s = new SignUp();
+            s.Show();
+            this.Hide();
         }
 
 

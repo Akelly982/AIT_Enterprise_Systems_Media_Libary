@@ -33,3 +33,4 @@ C:\Users\Akell\Desktop\repo\AIT_Enterprise_Systems_Media_Libary\ES_AitLibary_Win
 C:\Users\Akell\Desktop\repo\AIT_Enterprise_Systems_Media_Libary\ES_AitLibary_WindowsForms\ES_AitLibary_WindowsForms\obj\Debug\ES_AitLibary_WindowsForms.csproj.CopyComplete
 C:\Users\Akell\Desktop\repo\AIT_Enterprise_Systems_Media_Libary\ES_AitLibary_WindowsForms\ES_AitLibary_WindowsForms\obj\Debug\ES_AitLibary_WindowsForms.exe
 C:\Users\Akell\Desktop\repo\AIT_Enterprise_Systems_Media_Libary\ES_AitLibary_WindowsForms\ES_AitLibary_WindowsForms\obj\Debug\ES_AitLibary_WindowsForms.pdb
+C:\Users\Akell\Desktop\repo\AIT_Enterprise_Systems_Media_Libary\ES_AitLibary_WindowsForms\ES_AitLibary_WindowsForms\obj\Debug\ES_AitLibary_WindowsForms.SignUp.resources

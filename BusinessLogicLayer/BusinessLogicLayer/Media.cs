@@ -102,11 +102,21 @@ namespace BusinessLogicLayer
             this.languageId = languageId;
         }
 
+        public Media(int id, string title, string genreName, string directorName, string languageName, int publishYear)
+        {
+            this.id = id;
+            this.title = title;
+            this.genreName = genreName;
+            this.directorName = directorName;
+            this.languageName = languageName;
+            this.publishYear = publishYear;
+        }
 
 
 
-        
-        
+
+
+
 
 
 

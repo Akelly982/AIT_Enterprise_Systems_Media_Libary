@@ -107,7 +107,7 @@ namespace BusinessLogicLayer
                 else
                 {
                     Media mItem = new Media(row.MediaID, row.Title, row.GenreName, row.DirectorName, row.LanguageName, row.PublishYear, row.Budget, row.Genre, row.Director, row.Language);
-
+                    //Media mItemNoFk = new Media(row.MediaID, row.Title, row.GenreName, row.DirectorName, row.LanguageName, row.PublishYear);
                     mediaList.Add(mItem);
                 }
 
