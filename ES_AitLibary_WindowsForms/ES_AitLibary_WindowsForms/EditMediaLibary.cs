@@ -115,6 +115,7 @@ namespace ES_AitLibary_WindowsForms
             string language = TextBoxLanguage.Text;
             string genre = TextBoxGenre.Text;
 
+
             //check data 
             // if anything is left empty inform user (basics)
             if(title.Length <= 0 || budget.Length <= 0 || publishYear.Length <= 0 || 
@@ -125,9 +126,8 @@ namespace ES_AitLibary_WindowsForms
             }
 
 
-
             //update selected media
-
+            mediaLogic.update
 
 
         }
