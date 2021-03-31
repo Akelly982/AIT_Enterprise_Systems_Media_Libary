@@ -76,7 +76,17 @@ namespace BusinessLogicLayer
 
         }
 
+        public bool deleteMediabyId(int id)
+        {
+            bool checker = mediaDAO.deleteMediaById(id);
+            return checker;
+        }
 
+
+        public bool updateMediaWithId(int id, string title, string genreName, string directorName, string languageName,int publishYear, int budget)
+        {
+            //mediaDAO.updateMedia(id, title, genreId, directorId, languageId, publishYear, budget);
+        }
 
 
 
