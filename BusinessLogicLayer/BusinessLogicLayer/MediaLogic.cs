@@ -82,11 +82,170 @@ namespace BusinessLogicLayer
             return checker;
         }
 
-
-        public bool updateMediaWithId(int id, string title, string genreName, string directorName, string languageName,int publishYear, int budget)
+        public string[] insertNewMedia(string title, string genre, string director, string language, int publishYear, int budget)
         {
-            //mediaDAO.updateMedia(id, title, genreId, directorId, languageId, publishYear, budget);
+            //going to return an string array 
+            //   index 0 == "boolean on if was successfull"
+            //   index 1 == "error message"
+            string[] resultArr= new string[] {"false","error message"};
+
+            //given director, language and genre are their own tables check to see if the given value
+            // alerady exists for each table
+
+            // How below method works
+            // method return -1 if result in rows is null and id if given value already exists (should only ever be one of each row)
+
+
+            //check director and convert to id
+            int dirId = getDirectorIdByName(director);
+            if (dirId == -1)
+            {
+                //director is new could not find in db
+                if (insertNewDirector(director)) //if worked
+                {
+                    dirId = getDirectorIdByName(director);
+                }
+                else
+                {
+                    //could not create a new director field
+                    resultArr[0] = "false";
+                    resultArr[1] = "Error Could not create a new Director field with: " + director;
+                    return resultArr;
+                }
+            }
+
+            //rinse and repeat for language and genre (check/convert)
+            int langId = getLanguageIdByName(language);
+            if (langId == -1)
+            {
+                if (insertNewLanguage(language))
+                {
+                    langId = getLanguageIdByName(language);
+                }
+                else
+                {
+                    resultArr[0] = "false";
+                    resultArr[1] = "Error Could not create a new Language field with: " + language;
+                    return resultArr;
+                }
+            }
+
+            //rinse and repeat for language and genre (check/convert)
+            int genId = getGenreIdByName(genre);
+            if (genId == -1)
+            {
+                if (insertNewGenre(genre))
+                {
+                    genId = getGenreIdByName(genre);
+                }
+                else
+                {
+                    resultArr[0] = "false";
+                    resultArr[1] = "Error Could not create a new Genre field with: " + genre;
+                    return resultArr;
+                }
+            }
+
+
+
+
+            // add new media item 
+            bool insertResult = mediaDAO.insertNewMedia(title, genId, dirId, langId, publishYear, budget);
+
+            if (insertResult)
+            {
+                resultArr[0] = "true";
+                return resultArr;
+            }
+            else
+            {
+                resultArr[0] = "false";
+                resultArr[1] = "Error on insert of new media";
+                return resultArr;
+            }
+
+
+
         }
+
+
+        public string[] updateMedia(int id, string title, string genre, string director, string language, int publishYear, int budget)
+        {
+
+            // same setup as insertNewMedia method but now has id for media item aswell
+            // NOTE: i better document what happens here in the insertNewMedia method 
+         
+            string[] resultArr = new string[] { "false", "error message" };
+
+           
+            //check director and convert to id
+            int dirId = getDirectorIdByName(director);
+            if (dirId == -1)
+            {
+                //director is new could not find in db
+                if (insertNewDirector(director)) //if worked
+                {
+                    dirId = getDirectorIdByName(director);
+                }
+                else
+                {
+                    //could not create a new director field
+                    resultArr[0] = "false";
+                    resultArr[1] = "Error Could not create a new Director field with: " + director;
+                    return resultArr;
+                }
+            }
+
+            //rinse and repeat for language and genre (check/convert)
+            int langId = getLanguageIdByName(language);
+            if (langId == -1)
+            {
+                if (insertNewLanguage(language))
+                {
+                    langId = getLanguageIdByName(language);
+                }
+                else
+                {
+                    resultArr[0] = "false";
+                    resultArr[1] = "Error Could not create a new Language field with: " + language;
+                    return resultArr;
+                }
+            }
+
+            //rinse and repeat for language and genre (check/convert)
+            int genId = getGenreIdByName(genre);
+            if (genId == -1)
+            {
+                if (insertNewGenre(genre))
+                {
+                    genId = getGenreIdByName(genre);
+                }
+                else
+                {
+                    resultArr[0] = "false";
+                    resultArr[1] = "Error Could not create a new Genre field with: " + genre;
+                    return resultArr;
+                }
+            }
+
+            // update media item 
+            bool insertResult = mediaDAO.updateMedia(id, title, genId, dirId, langId, publishYear, budget);
+
+            if (insertResult)
+            {
+                resultArr[0] = "true";
+                return resultArr;
+            }
+            else
+            {
+                resultArr[0] = "false";
+                resultArr[1] = "Error on insert of new media";
+                return resultArr;
+            }
+
+        }
+
+
 
 
 

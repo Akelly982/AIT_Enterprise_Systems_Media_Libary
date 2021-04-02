@@ -15,8 +15,8 @@ namespace ES_AitLibary_WindowsForms
     {
 
         private MediaLogic mediaLogic;
-        
-        // on dataGridView Row click set row active
+
+        // on dataGridView Row click set row active for given DGView
         private DataGridViewRow activeMediaRow = null;
         private DataGridViewRow activeDirectorRow = null;
         private DataGridViewRow activeLanguageRow = null;
@@ -76,6 +76,7 @@ namespace ES_AitLibary_WindowsForms
 
         }
 
+
         private void addMedia()
         {
             //get data 
@@ -86,15 +87,53 @@ namespace ES_AitLibary_WindowsForms
             string language = TextBoxLanguage.Text;
             string genre = TextBoxGenre.Text;
 
-            //check data 
+            //check data (ensure no empty strigs)
+            if (title.Length <= 0 || budget.Length <= 0 || publishYear.Length <= 0 ||
+                director.Length <= 0 || language.Length <= 0 || genre.Length <= 0)
+            {
+                MessageBox.Show("please fill in all fields");
+                return;
+            }
 
-            //add new media to table
+            //convert publish year and budget string to int
+            bool result = int.TryParse(publishYear, out int publishYearNum);
+            if (!result)
+            {
+                MessageBox.Show("Media: error converting publishYear string to id int");
+                return;
+            }
+
+            result = int.TryParse(budget, out int budgetNum);
+            if (!result)
+            {
+                MessageBox.Show("Media: error converting budget string to id int");
+                return;
+            }
+
+
+
+
+            //add new media item to table
+            string[] resultStrArr = mediaLogic.insertNewMedia(title, genre, director, language, publishYearNum, budgetNum);
+
+            if(resultStrArr[0] == "true") //isSuccessfull
+            {
+                getAndShowDataGridViews();  //refresh DataGridViews
+            }
+            else
+            {
+                //show error 
+                MessageBox.Show(resultStrArr[1]);
+            }
+
             
         }
+
         private void updateMedia()
         {
 
-            //get selection 
+            //get selection and retieve the ID for the UPDATE
+
             // cell[0] is the id index
             string idAsStr = activeMediaRow.Cells[0].Value.ToString();
             bool result = int.TryParse(idAsStr, out int id);  //try parse idAsStr to int id
@@ -105,9 +144,9 @@ namespace ES_AitLibary_WindowsForms
                 MessageBox.Show("Media: error converting id string to id int");
                 return; //should end method here 
             }
-            
 
-            //get data 
+
+            //get rest of the data 
             string title = TextBoxTitle.Text;
             string budget = TextBoxBudget.Text;
             string publishYear = TextBoxPublishYear.Text;
@@ -118,21 +157,48 @@ namespace ES_AitLibary_WindowsForms
 
             //check data 
             // if anything is left empty inform user (basics)
-            if(title.Length <= 0 || budget.Length <= 0 || publishYear.Length <= 0 || 
+            if (title.Length <= 0 || budget.Length <= 0 || publishYear.Length <= 0 ||
                 director.Length <= 0 || language.Length <= 0 || genre.Length <= 0)
             {
                 MessageBox.Show("please fill in all fields");
                 return;
             }
 
+            //convert publish year and budget string to int
+            result = int.TryParse(publishYear, out int publishYearNum);
+            if (!result)
+            {
+                MessageBox.Show("Media: error converting publishYear string to id int");
+                return;
+            }
+
+            result = int.TryParse(budget, out int budgetNum);
+            if (!result)
+            {
+                MessageBox.Show("Media: error converting budget string to id int");
+                return;
+            }
 
             //update selected media
-            mediaLogic.update
+            string[] resultStrArr = mediaLogic.updateMedia(id, title, genre, director, language, publishYearNum, budgetNum);
 
+            if (resultStrArr[0] == "true") //isSuccessfull
+            {
+                getAndShowDataGridViews();  //refresh DataGridViews
+            }
+            else
+            {
+                //show error 
+                MessageBox.Show(resultStrArr[1]);
+            }
 
         }
 
-        private void deleteMedia()
+
+    
+
+
+    private void deleteMedia()
         {
             //get selection
             // cell[0] is the id index
@@ -167,7 +233,9 @@ namespace ES_AitLibary_WindowsForms
 
 
 
-        // data grid working with
+        // data grid view  ------------------
+
+        //main DGV in this case it is tabMedia
         private void DataGridViewMedia_CellClick(object sender, DataGridViewCellEventArgs e)
         {
 
@@ -204,6 +272,77 @@ namespace ES_AitLibary_WindowsForms
             }
 
         }
+
+
+
+
+
+        // Genre DGV 
+        private void DataGridViewGenre_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                // cells / columns by index
+                // 0 == ID
+                // 1 == Value
+
+
+                //get row by its self
+                DataGridViewRow row = DataGridViewGenre.Rows[e.RowIndex];
+
+
+                //set mediaRow as active 
+                activeGenreRow = row;
+
+            }
+        }
+
+        // Language DGV
+        private void DataGridViewLanguage_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                // cells / columns by index
+                // 0 == ID
+                // 1 == Value
+
+
+                //get row by its self
+                DataGridViewRow row = DataGridViewLanguage.Rows[e.RowIndex];
+
+
+                //set mediaRow as active 
+                activeLanguageRow = row;
+
+            }
+        }
+
+        //director DGV
+        private void DataGridViewDirector_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+
+            if (e.RowIndex >= 0)
+            {
+                // cells / columns by index
+                // 0 == ID
+                // 1 == Value
+
+
+                //get row by its self
+                DataGridViewRow row = DataGridViewDirector.Rows[e.RowIndex];
+
+
+                //set mediaRow as active 
+                activeDirectorRow = row;
+
+            }
+
+
+        }
+
+        // -------------------------------------------------
+
 
 
 
@@ -262,71 +401,9 @@ namespace ES_AitLibary_WindowsForms
             }
         }
 
+        
 
-
-
-
-        // data grid view cell click
-        private void DataGridViewDirector_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-
-            if (e.RowIndex >= 0)
-            {
-                // cells / columns by index
-                // 0 == ID
-                // 1 == Value
-
-
-                //get row by its self
-                DataGridViewRow row = DataGridViewDirector.Rows[e.RowIndex];
-
-               
-                //set mediaRow as active 
-                activeDirectorRow = row;
-
-            }
-
-
-        }
-
-        private void DataGridViewGenre_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            if (e.RowIndex >= 0)
-            {
-                // cells / columns by index
-                // 0 == ID
-                // 1 == Value
-
-
-                //get row by its self
-                DataGridViewRow row = DataGridViewGenre.Rows[e.RowIndex];
-
-
-                //set mediaRow as active 
-                activeGenreRow = row;
-
-            }
-        }
-
-        private void DataGridViewLanguage_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            if (e.RowIndex >= 0)
-            {
-                // cells / columns by index
-                // 0 == ID
-                // 1 == Value
-
-
-                //get row by its self
-                DataGridViewRow row = DataGridViewLanguage.Rows[e.RowIndex];
-
-
-                //set mediaRow as active 
-                activeLanguageRow = row;
-
-            }
-        }
+        
 
 
         // media return active radio btn function
