@@ -41,6 +41,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BorrowDAO.cs" />
+    <Compile Include="BorrowDS.cs">
+      <DependentUpon>BorrowDS.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="BorrowDS.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BorrowDS.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Class1.cs" />
     <Compile Include="MediaDAO.cs" />
     <Compile Include="MediaDS.cs">
@@ -57,6 +66,12 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
+    <Compile Include="ReservedDAO.cs" />
+    <Compile Include="ReservedDS.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ReservedDS.xsd</DependentUpon>
+    </Compile>
     <Compile Include="UserDAO.cs" />
     <Compile Include="UserDS.cs">
       <DependentUpon>UserDS.xsd</DependentUpon>
@@ -69,6 +84,17 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
+    <None Include="BorrowDS.xsc">
+      <DependentUpon>BorrowDS.xsd</DependentUpon>
+    </None>
+    <None Include="BorrowDS.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>BorrowDS.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="BorrowDS.xss">
+      <DependentUpon>BorrowDS.xsd</DependentUpon>
+    </None>
     <None Include="MediaDS.xsc">
       <DependentUpon>MediaDS.xsd</DependentUpon>
     </None>
@@ -83,6 +109,17 @@
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="ReservedDS.xsc">
+      <DependentUpon>ReservedDS.xsd</DependentUpon>
+    </None>
+    <None Include="ReservedDS.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ReservedDS.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="ReservedDS.xss">
+      <DependentUpon>ReservedDS.xsd</DependentUpon>
     </None>
     <None Include="UserDS.xsc">
       <DependentUpon>UserDS.xsd</DependentUpon>

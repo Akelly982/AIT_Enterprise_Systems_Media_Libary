@@ -63,8 +63,8 @@ namespace ES_AitLibary_WindowsForms
             this.RadioBtnGenre = new System.Windows.Forms.RadioButton();
             this.RadioBtnYear = new System.Windows.Forms.RadioButton();
             this.RadioBtnTitle = new System.Windows.Forms.RadioButton();
-            this.PanelSpacer1 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
+            this.PanelSpacer1 = new System.Windows.Forms.Panel();
             this.panelNav.SuspendLayout();
             this.panelStudentDataRow.SuspendLayout();
             this.PanelStudentBtnsHolder.SuspendLayout();
@@ -428,15 +428,6 @@ namespace ES_AitLibary_WindowsForms
             this.RadioBtnTitle.Text = "Title";
             this.RadioBtnTitle.UseVisualStyleBackColor = true;
             // 
-            // PanelSpacer1
-            // 
-            this.PanelSpacer1.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.PanelSpacer1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.PanelSpacer1.Location = new System.Drawing.Point(0, 1889);
-            this.PanelSpacer1.Name = "PanelSpacer1";
-            this.PanelSpacer1.Size = new System.Drawing.Size(1934, 150);
-            this.PanelSpacer1.TabIndex = 4;
-            // 
             // label2
             // 
             this.label2.AutoSize = true;
@@ -446,6 +437,15 @@ namespace ES_AitLibary_WindowsForms
             this.label2.Size = new System.Drawing.Size(199, 37);
             this.label2.TabIndex = 2;
             this.label2.Text = "Media Libary";
+            // 
+            // PanelSpacer1
+            // 
+            this.PanelSpacer1.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.PanelSpacer1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.PanelSpacer1.Location = new System.Drawing.Point(0, 1889);
+            this.PanelSpacer1.Name = "PanelSpacer1";
+            this.PanelSpacer1.Size = new System.Drawing.Size(1934, 150);
+            this.PanelSpacer1.TabIndex = 4;
             // 
             // MainMenu
             // 

@@ -282,8 +282,59 @@ namespace ES_AitLibary_WindowsForms
         //media menu student
         private void BtnCheckOut_Click(object sender, EventArgs e)
         {
+            //get active student or admin defined student
+            if (isAdmin)
+            {
+                string idStr = TextBoxAdminStudentNumber.Text;
+                bool parseResult = int.TryParse(idStr, out int stuId);
+                if (parseResult)
+                {
+                    checkOutBookToUser(stuId);
+                }
+                else
+                {
+                    MessageBox.Show("could not convert student id to string");
+                    return;
+                }
+
+            }
+            else
+            {
+                string idStr = LabelStudentId.Text;
+                bool parseResult = int.TryParse(idStr, out int stuId);
+                if (parseResult)
+                {
+                    checkOutBookToUser(stuId);
+                }
+                else
+                {
+                    MessageBox.Show("could not convert student id to string");
+                    return;
+                }
+            }
 
         }
+
+      
+        private void checkOutBookToUser( int userId)
+        {
+            //check if user exists
+            User curUser = userLogic.getUserById(userId); //sets user id to -1 if error
+            if(curUser.Id == -1)
+            {
+                //ERROR couldent get user by their id
+                MessageBox.Show("unable to find current user in list");
+                return;
+            }
+
+
+            //checkOut to user
+
+
+            
+        }
+
+
 
         private void BtnReserve_Click(object sender, EventArgs e)
         {

@@ -291,6 +291,7 @@ namespace BusinessLogicLayer
 
         public bool deleteDirectorbyId(int id)
         {
+            //TODO check if id exist in mediaItems, if so show error (dont delete items being used elseware) 
             bool checker = mediaDAO.deleteDirectorById(id);
             return checker;
         }
@@ -340,6 +341,7 @@ namespace BusinessLogicLayer
 
         public bool deleteGenrebyId(int id)
         {
+            //TODO check if id exist in mediaItems, if so show error (dont delete items being used elseware) 
             bool checker = mediaDAO.deleteGenreById(id);
             return checker;
         }
@@ -389,6 +391,7 @@ namespace BusinessLogicLayer
 
         public bool deleteLanguagebyId(int id)
         {
+            //TODO check if id exist in mediaItems, if so show error (dont delete items being used elseware) 
             bool checker = mediaDAO.deleteLanguageById(id);
             return checker;
         }
