@@ -109,6 +109,53 @@ namespace DataAccessLayer
         }
 
 
+        //tabMedia if fk from external table exists
+        public MediaDS.TabMediaDataTable getDirectorExists(int directorId)
+        {
+            try
+            {
+                tabMediaAdapter.FillByDirectorIdForIfDirectorExists(mediaDataSet.TabMedia,directorId);
+                return mediaDataSet.TabMedia;
+            }
+            catch (Exception e)
+            {
+                throw e;
+
+            }
+        }
+
+        public MediaDS.TabMediaDataTable getLanguageExists(int languageId)
+        {
+            try
+            {
+                tabMediaAdapter.FillByLanguageIdForIfLanguageExists(mediaDataSet.TabMedia, languageId);
+                return mediaDataSet.TabMedia;
+            }
+            catch (Exception e)
+            {
+                throw e;
+
+            }
+        }
+
+        public MediaDS.TabMediaDataTable getGenreExists(int genreId)
+        {
+            try
+            {
+                tabMediaAdapter.FillByGenreIdForIfGenreExists(mediaDataSet.TabMedia, genreId);
+                return mediaDataSet.TabMedia;
+            }
+            catch (Exception e)
+            {
+                throw e;
+
+            }
+        }
+
+
+
+
+
 
 
         // Note this is media View not media Table
@@ -210,7 +257,6 @@ namespace DataAccessLayer
             catch (Exception e)
             {
                 throw e;
-
             }
         }
 
@@ -228,6 +274,7 @@ namespace DataAccessLayer
             }
         }
 
+       
         public MediaDS.TabDirectorDataTable getAllDirectors()
         {
             try

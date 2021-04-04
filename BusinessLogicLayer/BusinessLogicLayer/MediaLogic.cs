@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using BusinessLogicLayer;
 
 namespace BusinessLogicLayer
 {
@@ -12,11 +13,14 @@ namespace BusinessLogicLayer
 
 
         private MediaDAO mediaDAO;
-
+        private BorrowLogic borrowLogic;
+        private ReservedLogic reservedLogic;
 
         public MediaLogic()
         {
             mediaDAO = new MediaDAO();
+            borrowLogic = new BorrowLogic();
+            reservedLogic = new ReservedLogic();
         }
 
 
@@ -76,10 +80,44 @@ namespace BusinessLogicLayer
 
         }
 
-        public bool deleteMediabyId(int id)
+        public string[] deleteMediabyId(int id)
         {
-            bool checker = mediaDAO.deleteMediaById(id);
-            return checker;
+            string[] strArr = new string[] { "false", "error message" };
+
+            //check if id exist in borrow
+            bool result = borrowLogic.getMediaExists(id);
+            if(result)
+            {
+                strArr[0] = "false";
+                strArr[1] = "item exists in the Borrow DB Table as historic/current data.";
+                return strArr;
+            }
+
+            //check if id exists in reserve
+            result = reservedLogic.getMediaExists(id);
+            if(result)
+            {
+                strArr[0] = "false";
+                strArr[1] = "item exists in the Reserved DB Table table as historic/current data.";
+
+                return strArr;
+            }
+
+            //try delete 
+            result = mediaDAO.deleteMediaById(id);
+            if (result)
+            {
+                strArr[0] = "true";
+                strArr[1] = "successfully deleted media item";
+            }
+            else
+            {
+                strArr[0] = "false";
+                strArr[1] = "error deleting from media table.";
+            }
+
+            return strArr;
+
         }
 
         public string[] insertNewMedia(string title, string genre, string director, string language, int publishYear, int budget)
@@ -289,14 +327,107 @@ namespace BusinessLogicLayer
             return checker;
         }
 
-        public bool deleteDirectorbyId(int id)
+        public string[] deleteDirectorbyId(int id)
         {
-            //TODO check if id exist in mediaItems, if so show error (dont delete items being used elseware) 
-            bool checker = mediaDAO.deleteDirectorById(id);
-            return checker;
+
+            string[] strArr = new string[] { "false", "error message" };
+
+            //check if id exist in media table
+            bool result = getDirectorExists(id);
+            if (result)
+            {
+                strArr[0] = "false";
+                strArr[1] = "Director ID exists in the Media DB Table as historic/current data.";
+                return strArr;
+            }
+
+
+            //try delete 
+            result = mediaDAO.deleteDirectorById(id);
+            if (result)
+            {
+                strArr[0] = "true";
+                strArr[1] = "successfully deleted Director item";
+            }
+            else
+            {
+                strArr[0] = "false";
+                strArr[1] = "error deleting from Director table.";
+            }
+
+            return strArr;
+
         }
 
-        
+
+
+        //checking if fields exists within tab media
+        public bool getLanguageExists(int languageId)
+        {
+            List<TabMedia> myList = new List<TabMedia>();
+
+            MediaDS.TabMediaDataTable myData = mediaDAO.getLanguageExists(languageId);
+
+            //parse data from datatable rows to list elements
+            myList = parseTabMediaDataTolistAll(myData);
+
+            // results list count == 0
+            if (myList.Count > 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+
+        }
+
+       
+
+        public bool getGenreExists(int genreId)
+        {
+            List<TabMedia> myList = new List<TabMedia>();
+
+            MediaDS.TabMediaDataTable myData = mediaDAO.getGenreExists(genreId);
+
+            //parse data from datatable rows to list elements
+            myList = parseTabMediaDataTolistAll(myData);
+
+            // results list count == 0
+            if (myList.Count > 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+
+        }
+
+        public bool getDirectorExists(int directorId)
+        {
+            List<TabMedia> myList = new List<TabMedia>();
+
+            MediaDS.TabMediaDataTable myData = mediaDAO.getDirectorExists(directorId);
+
+            //parse data from datatable rows to list elements
+            myList = parseTabMediaDataTolistAll(myData);
+
+            // results list count == 0
+            if (myList.Count > 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+
+        }
+
+
 
 
 
@@ -312,6 +443,10 @@ namespace BusinessLogicLayer
 
             return myList;
         }
+
+
+        
+
 
         public int getGenreIdByName(string genreName)
         {
@@ -339,11 +474,34 @@ namespace BusinessLogicLayer
             return checker;
         }
 
-        public bool deleteGenrebyId(int id)
+        public string[] deleteGenrebyId(int id)
         {
-            //TODO check if id exist in mediaItems, if so show error (dont delete items being used elseware) 
-            bool checker = mediaDAO.deleteGenreById(id);
-            return checker;
+            string[] strArr = new string[] { "false", "error message" };
+
+            //check if id exist in media table
+            bool result = getGenreExists(id);
+            if (result)
+            {
+                strArr[0] = "false";
+                strArr[1] = "Genre ID exists in the Media DB Table as historic/current data.";
+                return strArr;
+            }
+
+
+            //try delete 
+            result = mediaDAO.deleteGenreById(id);
+            if (result)
+            {
+                strArr[0] = "true";
+                strArr[1] = "successfully deleted Genre item";
+            }
+            else
+            {
+                strArr[0] = "false";
+                strArr[1] = "error deleting from Genre table.";
+            }
+
+            return strArr;
         }
 
 
@@ -389,11 +547,34 @@ namespace BusinessLogicLayer
             return checker;
         }
 
-        public bool deleteLanguagebyId(int id)
+        public string[] deleteLanguagebyId(int id)
         {
-            //TODO check if id exist in mediaItems, if so show error (dont delete items being used elseware) 
-            bool checker = mediaDAO.deleteLanguageById(id);
-            return checker;
+            string[] strArr = new string[] { "false", "error message" };
+
+            //check if id exist in media table
+            bool result = getLanguageExists(id);
+            if (result)
+            {
+                strArr[0] = "false";
+                strArr[1] = "language id exists in the media DB Table as historic/current data.";
+                return strArr;
+            }
+
+
+            //try delete 
+            result = mediaDAO.deleteLanguageById(id);
+            if (result)
+            {
+                strArr[0] = "true";
+                strArr[1] = "successfully deleted language item";
+            }
+            else
+            {
+                strArr[0] = "false";
+                strArr[1] = "error deleting from Language table.";
+            }
+
+            return strArr;
         }
 
 
@@ -406,6 +587,29 @@ namespace BusinessLogicLayer
 
 
         //functions ---------
+
+        private List<TabMedia> parseTabMediaDataTolistAll(MediaDS.TabMediaDataTable myData)
+        {
+
+            List<TabMedia> mediaList = new List<TabMedia>();
+
+            foreach (MediaDS.TabMediaRow row in myData.Rows)
+            {
+
+                if (row == null)
+                {
+                    return null;
+                }
+                else
+                {
+                    TabMedia mTabItem = new TabMedia(row.MediaID,row.Title,row.PublishYear,row.Budget,row.Genre,row.Director,row.Language);
+                    mediaList.Add(mTabItem);
+                }
+
+            }
+
+            return mediaList;
+        }
 
         public List<Media> parseMediaDataTolistAll(MediaDS.ViewMediaDataTable myDataTable)
         {

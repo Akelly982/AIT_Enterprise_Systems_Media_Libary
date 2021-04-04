@@ -41,6 +41,20 @@ namespace DataAccessLayer
 
         }
 
+        public BorrowDS.TabBorrowDataTable getMediaExists(int mediaId)
+        {
+            try
+            {
+                tabBorrowTableAdapter.FillByMediaIdForIfMediaExists(borrowDataSet.TabBorrow, mediaId);
+                return borrowDataSet.TabBorrow;
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+
+        }
+
         public BorrowDS.TabBorrowDataTable getForActiveLateFees(int userId)
         {
             try

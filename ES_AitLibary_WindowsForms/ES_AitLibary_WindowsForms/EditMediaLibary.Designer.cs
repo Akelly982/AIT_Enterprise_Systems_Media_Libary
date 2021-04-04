@@ -88,7 +88,7 @@ namespace ES_AitLibary_WindowsForms
             this.panelNav.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelNav.Location = new System.Drawing.Point(0, 0);
             this.panelNav.Name = "panelNav";
-            this.panelNav.Size = new System.Drawing.Size(1960, 164);
+            this.panelNav.Size = new System.Drawing.Size(1994, 164);
             this.panelNav.TabIndex = 2;
             // 
             // LabelUserId
@@ -151,7 +151,7 @@ namespace ES_AitLibary_WindowsForms
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 164);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1960, 834);
+            this.panel1.Size = new System.Drawing.Size(1994, 834);
             this.panel1.TabIndex = 4;
             // 
             // panel2
@@ -335,7 +335,7 @@ namespace ES_AitLibary_WindowsForms
             this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel3.Location = new System.Drawing.Point(0, 998);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1960, 412);
+            this.panel3.Size = new System.Drawing.Size(1994, 412);
             this.panel3.TabIndex = 5;
             // 
             // label9
@@ -377,7 +377,7 @@ namespace ES_AitLibary_WindowsForms
             this.panel4.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel4.Location = new System.Drawing.Point(0, 1410);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(1960, 412);
+            this.panel4.Size = new System.Drawing.Size(1994, 412);
             this.panel4.TabIndex = 6;
             // 
             // label10
@@ -419,7 +419,7 @@ namespace ES_AitLibary_WindowsForms
             this.panel5.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel5.Location = new System.Drawing.Point(0, 1822);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(1960, 412);
+            this.panel5.Size = new System.Drawing.Size(1994, 412);
             this.panel5.TabIndex = 7;
             // 
             // label11
@@ -458,7 +458,7 @@ namespace ES_AitLibary_WindowsForms
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
-            this.ClientSize = new System.Drawing.Size(1994, 1308);
+            this.ClientSize = new System.Drawing.Size(2028, 1308);
             this.Controls.Add(this.panel5);
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.panel3);

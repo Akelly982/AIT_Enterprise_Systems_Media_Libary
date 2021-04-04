@@ -98,6 +98,27 @@ namespace BusinessLogicLayer
         }
 
 
+        public bool getMediaExists(int mediaId)
+        {
+            List<Borrow> myList = new List<Borrow>();
+
+            BorrowDS.TabBorrowDataTable myData = borrowDAO.getMediaExists(mediaId);
+
+            //parse data from datatable rows to list elements
+            myList = parseBorrowDataTolistAll(myData);
+
+            // results list count == 0
+            if (myList.Count > 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+
 
 
 

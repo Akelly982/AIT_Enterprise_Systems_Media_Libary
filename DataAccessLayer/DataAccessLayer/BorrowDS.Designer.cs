@@ -936,7 +936,7 @@ SELECT BID, UID, MediaID, BorrowDate, ReturnDate, ActualReturnDate, LateFee FROM
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[9];
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[10];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT BID, UID, MediaID, BorrowDate, ReturnDate, ActualReturnDate, LateFee FROM " +
@@ -950,49 +950,55 @@ SELECT BID, UID, MediaID, BorrowDate, ReturnDate, ActualReturnDate, LateFee FROM
             this._commandCollection[2] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[2].Connection = this.Connection;
             this._commandCollection[2].CommandText = "SELECT BID, UID, MediaID, BorrowDate, ReturnDate, ActualReturnDate, LateFee\r\nFROM" +
-                "  TabBorrow\r\nWHERE (MediaID = @mediaId) AND (ActualReturnDate = \'1111-11-11\')";
+                "  TabBorrow\r\nWHERE (MediaID = @mediaId)";
             this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@mediaId", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "MediaID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[3] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[3].Connection = this.Connection;
             this._commandCollection[3].CommandText = "SELECT BID, UID, MediaID, BorrowDate, ReturnDate, ActualReturnDate, LateFee\r\nFROM" +
-                "  TabBorrow\r\nWHERE (UID = @userId) AND (LateFee > 0)";
+                "  TabBorrow\r\nWHERE (MediaID = @mediaId) AND (ActualReturnDate = \'1111-11-11\')";
             this._commandCollection[3].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@userId", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "UID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@mediaId", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "MediaID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[4] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[4].Connection = this.Connection;
             this._commandCollection[4].CommandText = "SELECT BID, UID, MediaID, BorrowDate, ReturnDate, ActualReturnDate, LateFee\r\nFROM" +
-                "  TabBorrow\r\nWHERE (UID = @userId) AND (LateFee = 0) AND (ActualReturnDate <> \'1" +
-                "111-11-11\')";
+                "  TabBorrow\r\nWHERE (UID = @userId) AND (LateFee > 0)";
             this._commandCollection[4].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@userId", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "UID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[5] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[5].Connection = this.Connection;
             this._commandCollection[5].CommandText = "SELECT BID, UID, MediaID, BorrowDate, ReturnDate, ActualReturnDate, LateFee\r\nFROM" +
-                "  TabBorrow\r\nWHERE (UID = @userId) AND (ActualReturnDate = \'1111-11-11\')";
+                "  TabBorrow\r\nWHERE (UID = @userId) AND (LateFee = 0) AND (ActualReturnDate <> \'1" +
+                "111-11-11\')";
             this._commandCollection[5].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[5].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@userId", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "UID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[6] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[6].Connection = this.Connection;
-            this._commandCollection[6].CommandText = "INSERT INTO TabBorrow\r\n         (UID, MediaID, BorrowDate, ReturnDate, ActualRetu" +
+            this._commandCollection[6].CommandText = "SELECT BID, UID, MediaID, BorrowDate, ReturnDate, ActualReturnDate, LateFee\r\nFROM" +
+                "  TabBorrow\r\nWHERE (UID = @userId) AND (ActualReturnDate = \'1111-11-11\')";
+            this._commandCollection[6].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[6].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@userId", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "UID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[7] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[7].Connection = this.Connection;
+            this._commandCollection[7].CommandText = "INSERT INTO TabBorrow\r\n         (UID, MediaID, BorrowDate, ReturnDate, ActualRetu" +
                 "rnDate, LateFee)\r\nVALUES (@uId,@mediaID, CONVERT(varchar(10), GETDATE(), 103), C" +
                 "ONVERT(varchar(10), DATEADD(day, 7, GETDATE()), 103), CONVERT(date, \'11/11/1111\'" +
                 ", 103), 0)";
-            this._commandCollection[6].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[6].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@uId", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "UID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[6].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@mediaID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "MediaID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[7] = new global::System.Data.SqlClient.SqlCommand();
-            this._commandCollection[7].Connection = this.Connection;
-            this._commandCollection[7].CommandText = "UPDATE TabBorrow\r\nSET    ActualReturnDate = CONVERT(VARCHAR(10), GETDATE(), 103)," +
-                " LateFee = @lateFee\r\nWHERE (BID = @borrowId)";
             this._commandCollection[7].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[7].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@lateFee", global::System.Data.SqlDbType.Decimal, 5, global::System.Data.ParameterDirection.Input, 5, 2, "LateFee", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[7].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@borrowId", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "BID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._commandCollection[7].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@uId", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "UID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[7].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@mediaID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "MediaID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[8] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[8].Connection = this.Connection;
-            this._commandCollection[8].CommandText = "UPDATE TabBorrow\r\nSET    LateFee = 0\r\nWHERE (BID = @borrowId)";
+            this._commandCollection[8].CommandText = "UPDATE TabBorrow\r\nSET    ActualReturnDate = CONVERT(VARCHAR(10), GETDATE(), 103)," +
+                " LateFee = @lateFee\r\nWHERE (BID = @borrowId)";
             this._commandCollection[8].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[8].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@lateFee", global::System.Data.SqlDbType.Decimal, 5, global::System.Data.ParameterDirection.Input, 5, 2, "LateFee", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[8].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@borrowId", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "BID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._commandCollection[9] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[9].Connection = this.Connection;
+            this._commandCollection[9].CommandText = "UPDATE TabBorrow\r\nSET    LateFee = 0\r\nWHERE (BID = @borrowId)";
+            this._commandCollection[9].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[9].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@borrowId", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "BID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1023,8 +1029,34 @@ SELECT BID, UID, MediaID, BorrowDate, ReturnDate, ActualReturnDate, LateFee FROM
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
-        public virtual int FillByMediaIDForIsMediaAvailable(BorrowDS.TabBorrowDataTable dataTable, int mediaId) {
+        public virtual int FillByMediaIdForIfMediaExists(BorrowDS.TabBorrowDataTable dataTable, int mediaId) {
             this.Adapter.SelectCommand = this.CommandCollection[2];
+            this.Adapter.SelectCommand.Parameters[0].Value = ((int)(mediaId));
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual BorrowDS.TabBorrowDataTable GetDataByMediaIdForIfMediaExists(int mediaId) {
+            this.Adapter.SelectCommand = this.CommandCollection[2];
+            this.Adapter.SelectCommand.Parameters[0].Value = ((int)(mediaId));
+            BorrowDS.TabBorrowDataTable dataTable = new BorrowDS.TabBorrowDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int FillByMediaIDForIsMediaAvailable(BorrowDS.TabBorrowDataTable dataTable, int mediaId) {
+            this.Adapter.SelectCommand = this.CommandCollection[3];
             this.Adapter.SelectCommand.Parameters[0].Value = ((int)(mediaId));
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -1038,7 +1070,7 @@ SELECT BID, UID, MediaID, BorrowDate, ReturnDate, ActualReturnDate, LateFee FROM
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
         public virtual BorrowDS.TabBorrowDataTable GetDataByMediaIDForIsMediaAvailable(int mediaId) {
-            this.Adapter.SelectCommand = this.CommandCollection[2];
+            this.Adapter.SelectCommand = this.CommandCollection[3];
             this.Adapter.SelectCommand.Parameters[0].Value = ((int)(mediaId));
             BorrowDS.TabBorrowDataTable dataTable = new BorrowDS.TabBorrowDataTable();
             this.Adapter.Fill(dataTable);
@@ -1050,7 +1082,7 @@ SELECT BID, UID, MediaID, BorrowDate, ReturnDate, ActualReturnDate, LateFee FROM
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
         public virtual int FillByUserIdForActiveLateFees(BorrowDS.TabBorrowDataTable dataTable, int userId) {
-            this.Adapter.SelectCommand = this.CommandCollection[3];
+            this.Adapter.SelectCommand = this.CommandCollection[4];
             this.Adapter.SelectCommand.Parameters[0].Value = ((int)(userId));
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -1064,7 +1096,7 @@ SELECT BID, UID, MediaID, BorrowDate, ReturnDate, ActualReturnDate, LateFee FROM
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
         public virtual BorrowDS.TabBorrowDataTable GetDataByUserIdForActiveLateFees(int userId) {
-            this.Adapter.SelectCommand = this.CommandCollection[3];
+            this.Adapter.SelectCommand = this.CommandCollection[4];
             this.Adapter.SelectCommand.Parameters[0].Value = ((int)(userId));
             BorrowDS.TabBorrowDataTable dataTable = new BorrowDS.TabBorrowDataTable();
             this.Adapter.Fill(dataTable);
@@ -1076,7 +1108,7 @@ SELECT BID, UID, MediaID, BorrowDate, ReturnDate, ActualReturnDate, LateFee FROM
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
         public virtual int FillByUserIdForUserHistory(BorrowDS.TabBorrowDataTable dataTable, int userId) {
-            this.Adapter.SelectCommand = this.CommandCollection[4];
+            this.Adapter.SelectCommand = this.CommandCollection[5];
             this.Adapter.SelectCommand.Parameters[0].Value = ((int)(userId));
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -1090,7 +1122,7 @@ SELECT BID, UID, MediaID, BorrowDate, ReturnDate, ActualReturnDate, LateFee FROM
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
         public virtual BorrowDS.TabBorrowDataTable GetDataByUserIdForUserHistory(int userId) {
-            this.Adapter.SelectCommand = this.CommandCollection[4];
+            this.Adapter.SelectCommand = this.CommandCollection[5];
             this.Adapter.SelectCommand.Parameters[0].Value = ((int)(userId));
             BorrowDS.TabBorrowDataTable dataTable = new BorrowDS.TabBorrowDataTable();
             this.Adapter.Fill(dataTable);
@@ -1102,7 +1134,7 @@ SELECT BID, UID, MediaID, BorrowDate, ReturnDate, ActualReturnDate, LateFee FROM
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
         public virtual int FillByUserIdGetActiveBookings(BorrowDS.TabBorrowDataTable dataTable, int userId) {
-            this.Adapter.SelectCommand = this.CommandCollection[5];
+            this.Adapter.SelectCommand = this.CommandCollection[6];
             this.Adapter.SelectCommand.Parameters[0].Value = ((int)(userId));
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -1116,7 +1148,7 @@ SELECT BID, UID, MediaID, BorrowDate, ReturnDate, ActualReturnDate, LateFee FROM
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
         public virtual BorrowDS.TabBorrowDataTable GetDataByUserIdGetActiveBookings(int userId) {
-            this.Adapter.SelectCommand = this.CommandCollection[5];
+            this.Adapter.SelectCommand = this.CommandCollection[6];
             this.Adapter.SelectCommand.Parameters[0].Value = ((int)(userId));
             BorrowDS.TabBorrowDataTable dataTable = new BorrowDS.TabBorrowDataTable();
             this.Adapter.Fill(dataTable);
@@ -1279,7 +1311,7 @@ SELECT BID, UID, MediaID, BorrowDate, ReturnDate, ActualReturnDate, LateFee FROM
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, false)]
         public virtual int InsertQueryWithUserIdMediaId(int uId, int mediaID) {
-            global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[6];
+            global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[7];
             command.Parameters[0].Value = ((int)(uId));
             command.Parameters[1].Value = ((int)(mediaID));
             global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
@@ -1304,7 +1336,7 @@ SELECT BID, UID, MediaID, BorrowDate, ReturnDate, ActualReturnDate, LateFee FROM
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, false)]
         public virtual int UpdateForMediaReturn(decimal lateFee, int borrowId) {
-            global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[7];
+            global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[8];
             command.Parameters[0].Value = ((decimal)(lateFee));
             command.Parameters[1].Value = ((int)(borrowId));
             global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
@@ -1329,7 +1361,7 @@ SELECT BID, UID, MediaID, BorrowDate, ReturnDate, ActualReturnDate, LateFee FROM
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, false)]
         public virtual int UpdateForPayUserLateFee(int borrowId) {
-            global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[8];
+            global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[9];
             command.Parameters[0].Value = ((int)(borrowId));
             global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
             if (((command.Connection.State & global::System.Data.ConnectionState.Open) 

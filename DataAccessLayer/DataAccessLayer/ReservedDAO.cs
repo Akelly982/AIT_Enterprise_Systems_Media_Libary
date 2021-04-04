@@ -42,8 +42,22 @@ namespace DataAccessLayer
 
         }
 
+        public ReservedDS.TabReservedDataTable getMediaExist(int mediaId)
+        {
+            try
+            {
+                tabReservedTableAdapter.FillByMediaIdForIfMediaExists(reservedDataSet.TabReserved, mediaId);
+                return reservedDataSet.TabReserved;
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
 
-        
+        }
+
+
+
         public ReservedDS.TabReservedDataTable getReservedActive(int userId)
         {
             try

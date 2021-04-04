@@ -418,11 +418,15 @@ namespace ES_AitLibary_WindowsForms
             }
 
 
-            
-
             //checker bool
             bool result = false;
 
+            if(activeMediaViewRow == null)
+            {
+                MessageBox.Show("Please select the selector row on the left of the data view");
+                return;
+            }
+            
             //get selected media data
             string mIdAsStr = activeMediaViewRow.Cells[0].Value.ToString();
             //if mediaId parse worked correctly
@@ -432,6 +436,7 @@ namespace ES_AitLibary_WindowsForms
                 MessageBox.Show("checkOut Error: could not parse mediaIdStr to mediaIdInt ");
                 return;
             }
+
 
             //get selected dateMonthDayString
             string dateMonthDayYear = TextBoxReserveDate.Text;

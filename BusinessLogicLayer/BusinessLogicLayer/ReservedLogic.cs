@@ -59,6 +59,26 @@ namespace BusinessLogicLayer
 
         }
 
+        public bool getMediaExists(int mediaId)
+        {
+            List<Reserve> myList = new List<Reserve>();
+
+            ReservedDS.TabReservedDataTable myData = reservedDAO.getMediaExist(mediaId);
+
+            //parse data from datatable rows to list elements
+            myList = parseReserveDataTolistAll(myData);
+
+            // results list count == 0
+            if (myList.Count > 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
 
 
 

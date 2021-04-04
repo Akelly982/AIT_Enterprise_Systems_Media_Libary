@@ -201,21 +201,38 @@ namespace ES_AitLibary_WindowsForms
     private void deleteMedia()
         {
             //get selection
-            // cell[0] is the id index
-            string idAsStr = activeMediaRow.Cells[0].Value.ToString();
-            bool result = int.TryParse(idAsStr, out int id);  //try parse idAsStr to int id
-
-            //delete selection
-            if (result) 
+            if(activeMediaRow == null)
             {
-                mediaLogic.deleteMediabyId(id);
+                MessageBox.Show("please select row corrently using the left selector column");
+                return;
             }
             else
             {
-                MessageBox.Show("Media: error converting id string to id int");
+                // cell[0] is the id index
+                string idAsStr = activeMediaRow.Cells[0].Value.ToString();
+                bool result = int.TryParse(idAsStr, out int id);  //try parse idAsStr to int id
+
+                //delete selection
+                if (result) 
+                {
+                    string[] resultArr = mediaLogic.deleteMediabyId(id);
+                    if (resultArr[0] == "true")
+                    {
+                        MessageBox.Show("Media item successfully deleted");
+                        getAndShowDataGridViews();
+                    }
+                    else
+                    {
+                        MessageBox.Show(resultArr[1]);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Media: error converting id string to id int");
+                }
             }
-            
-            
+
+
         }
 
         
@@ -350,54 +367,103 @@ namespace ES_AitLibary_WindowsForms
         private void BtnDeleteDirector_Click(object sender, EventArgs e)
         {
             //get selection
-            // cell[0] is the id index
-            string idAsStr = activeDirectorRow.Cells[0].Value.ToString();
-            bool result = int.TryParse(idAsStr, out int id);  //try parse idAsStr to int id
-
-            //delete selection
-            if (result)
+            if (activeDirectorRow == null)
             {
-                mediaLogic.deleteDirectorbyId(id);
+                MessageBox.Show("please select row corrently using the left selector column");
             }
             else
             {
-                MessageBox.Show("Director: error converting id string to id int");
+                // cell[0] is the id index
+                string idAsStr = activeDirectorRow.Cells[0].Value.ToString();
+                bool result = int.TryParse(idAsStr, out int id);  //try parse idAsStr to int id
+
+                //delete selection
+                if (result)
+                {
+                    string[] resultArr = mediaLogic.deleteDirectorbyId(id);
+                    if (resultArr[0] == "true")
+                    {
+                        MessageBox.Show("Media item successfully deleted");
+                        getAndShowDataGridViews();
+                    }
+                    else
+                    {
+                        MessageBox.Show(resultArr[1]);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Director: error converting id string to id int");
+                }
             }
         }
 
         private void BtnDeleteGenre_Click(object sender, EventArgs e)
         {
             //get selection
-            // cell[0] is the id index
-            string idAsStr = activeGenreRow.Cells[0].Value.ToString();
-            bool result = int.TryParse(idAsStr, out int id);  //try parse idAsStr to int id
-
-            //delete selection
-            if (result)
+            if (activeGenreRow == null)
             {
-                mediaLogic.deleteGenrebyId(id);
+                MessageBox.Show("please select row corrently using the left selector column");
             }
             else
             {
-                MessageBox.Show("genre: error converting id string to id int");
+                // cell[0] is the id index
+                string idAsStr = activeGenreRow.Cells[0].Value.ToString();
+                bool result = int.TryParse(idAsStr, out int id);  //try parse idAsStr to int id
+
+                //delete selection
+                if (result)
+                {
+                    string[] resultArr = mediaLogic.deleteGenrebyId(id);
+                    if (resultArr[0] == "true")
+                    {
+                        MessageBox.Show("Media item successfully deleted");
+                        getAndShowDataGridViews();
+                    }
+                    else
+                    {
+                        MessageBox.Show(resultArr[1]);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("genre: error converting id string to id int");
+                }
             }
         }
 
         private void BtnDeleteLanguage_Click(object sender, EventArgs e)
         {
-            //get selection
-            // cell[0] is the id index
-            string idAsStr = activeLanguageRow.Cells[0].Value.ToString();
-            bool result = int.TryParse(idAsStr, out int id);  //try parse idAsStr to int id
 
-            //delete selection
-            if (result)
+            //get selection
+            if (activeLanguageRow == null)
             {
-                mediaLogic.deleteLanguagebyId(id);
+                MessageBox.Show("please select row corrently using the left selector column");
             }
             else
             {
-                MessageBox.Show("Language: error converting id string to id int");
+                // cell[0] is the id index
+                string idAsStr = activeLanguageRow.Cells[0].Value.ToString();
+                bool result = int.TryParse(idAsStr, out int id);  //try parse idAsStr to int id
+
+                //delete selection
+                if (result)
+                {
+                    string[] resultArr = mediaLogic.deleteLanguagebyId(id);
+                    if (resultArr[0] == "true")
+                    {
+                        MessageBox.Show("Media item successfully deleted");
+                        getAndShowDataGridViews();
+                    }
+                    else
+                    {
+                        MessageBox.Show(resultArr[1]);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Language: error converting id string to id int");
+                }
             }
         }
 
