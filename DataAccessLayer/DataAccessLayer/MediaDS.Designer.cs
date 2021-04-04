@@ -4539,7 +4539,8 @@ WHERE (TabGenre.GID = @genreId)";
             this._commandCollection[2] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[2].Connection = this.Connection;
             this._commandCollection[2].CommandText = "SELECT MediaID, Title, GenreName, DirectorName, LanguageName, PublishYear, Budget" +
-                ", Genre, Director, Language FROM dbo.ViewMedia\r\nWhere (GenreName = @genreName)";
+                ", Genre, Director, Language\r\nFROM  ViewMedia\r\nWHERE (GenreName LIKE \'%\' + @genre" +
+                "Name + \'%\')";
             this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@genreName", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "GenreName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[3] = new global::System.Data.SqlClient.SqlCommand();

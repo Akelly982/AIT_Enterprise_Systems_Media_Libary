@@ -24,8 +24,6 @@ namespace BusinessLogicLayer
 
 
         
-
-
         //getters and setters   
         public int Id
         {

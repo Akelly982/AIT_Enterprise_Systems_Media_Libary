@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace DataAccessLayer
 {
-    class BorrowDAO
+    public class BorrowDAO
     {
 
         private BorrowDS borrowDataSet;
@@ -69,6 +69,20 @@ namespace DataAccessLayer
 
         }
 
+        public BorrowDS.TabBorrowDataTable getByUserIdForActiveBookings(int userId)
+        {
+            try
+            {
+                tabBorrowTableAdapter.FillByUserIdGetActiveBookings(borrowDataSet.TabBorrow,userId);
+                return borrowDataSet.TabBorrow;
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+
+        }
+
 
         public BorrowDS.TabBorrowDataTable getIsMediaAvailable(int mediaId)
         {
@@ -95,16 +109,18 @@ namespace DataAccessLayer
 
         public bool updateForMediaReturn(int borrowId, int lateFee)
         {
+            bool result = true;
             try
             {
-                tabBorrowTableAdapter.UpdateForMediaReturn(borrowId, lateFee);
-                return true;
+                tabBorrowTableAdapter.UpdateForMediaReturn(lateFee,borrowId);
             }
             catch (Exception e)
             {
+                result = false;
                 throw e;
             }
- 
+            return result;
+
         }
 
 
@@ -140,7 +156,19 @@ namespace DataAccessLayer
 
 
         // Delete -----------------------------------------
+        public bool deleteBorrowItem(int borrowId)
+        {
+            try
+            {
+                tabBorrowTableAdapter.DeleteByBID(borrowId);
+                return true;
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
 
+        }
 
 
 

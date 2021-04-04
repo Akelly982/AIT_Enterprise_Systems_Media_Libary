@@ -110,13 +110,13 @@ namespace ES_AitLibary_WindowsForms
             // 
             // PanelBase
             // 
-            this.PanelBase.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.PanelBase.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.PanelBase.Controls.Add(this.PanelAdmin);
             this.PanelBase.Controls.Add(this.PanelStudent);
-            this.PanelBase.Location = new System.Drawing.Point(468, 185);
+            this.PanelBase.Dock = System.Windows.Forms.DockStyle.Top;
+            this.PanelBase.Location = new System.Drawing.Point(0, 164);
             this.PanelBase.Name = "PanelBase";
-            this.PanelBase.Size = new System.Drawing.Size(771, 877);
+            this.PanelBase.Size = new System.Drawing.Size(1674, 911);
             this.PanelBase.TabIndex = 2;
             // 
             // PanelAdmin
@@ -129,12 +129,12 @@ namespace ES_AitLibary_WindowsForms
             this.PanelAdmin.Dock = System.Windows.Forms.DockStyle.Top;
             this.PanelAdmin.Location = new System.Drawing.Point(0, 459);
             this.PanelAdmin.Name = "PanelAdmin";
-            this.PanelAdmin.Size = new System.Drawing.Size(771, 354);
+            this.PanelAdmin.Size = new System.Drawing.Size(1674, 381);
             this.PanelAdmin.TabIndex = 1;
             // 
             // TextBoxAdminPasswordReset
             // 
-            this.TextBoxAdminPasswordReset.Location = new System.Drawing.Point(272, 58);
+            this.TextBoxAdminPasswordReset.Location = new System.Drawing.Point(791, 72);
             this.TextBoxAdminPasswordReset.Name = "TextBoxAdminPasswordReset";
             this.TextBoxAdminPasswordReset.Size = new System.Drawing.Size(226, 31);
             this.TextBoxAdminPasswordReset.TabIndex = 4;
@@ -142,7 +142,7 @@ namespace ES_AitLibary_WindowsForms
             // ChkBoxDelete
             // 
             this.ChkBoxDelete.AutoSize = true;
-            this.ChkBoxDelete.Location = new System.Drawing.Point(545, 268);
+            this.ChkBoxDelete.Location = new System.Drawing.Point(1064, 282);
             this.ChkBoxDelete.Name = "ChkBoxDelete";
             this.ChkBoxDelete.Size = new System.Drawing.Size(103, 29);
             this.ChkBoxDelete.TabIndex = 3;
@@ -151,7 +151,7 @@ namespace ES_AitLibary_WindowsForms
             // 
             // BtnAdminDelete
             // 
-            this.BtnAdminDelete.Location = new System.Drawing.Point(274, 241);
+            this.BtnAdminDelete.Location = new System.Drawing.Point(793, 255);
             this.BtnAdminDelete.Name = "BtnAdminDelete";
             this.BtnAdminDelete.Size = new System.Drawing.Size(227, 76);
             this.BtnAdminDelete.TabIndex = 2;
@@ -161,7 +161,7 @@ namespace ES_AitLibary_WindowsForms
             // 
             // BtnAdminResetPassword
             // 
-            this.BtnAdminResetPassword.Location = new System.Drawing.Point(272, 134);
+            this.BtnAdminResetPassword.Location = new System.Drawing.Point(791, 148);
             this.BtnAdminResetPassword.Name = "BtnAdminResetPassword";
             this.BtnAdminResetPassword.Size = new System.Drawing.Size(231, 76);
             this.BtnAdminResetPassword.TabIndex = 1;
@@ -172,7 +172,7 @@ namespace ES_AitLibary_WindowsForms
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(29, 29);
+            this.label3.Location = new System.Drawing.Point(548, 43);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(72, 25);
             this.label3.TabIndex = 0;
@@ -191,33 +191,33 @@ namespace ES_AitLibary_WindowsForms
             this.PanelStudent.Dock = System.Windows.Forms.DockStyle.Top;
             this.PanelStudent.Location = new System.Drawing.Point(0, 0);
             this.PanelStudent.Name = "PanelStudent";
-            this.PanelStudent.Size = new System.Drawing.Size(771, 459);
+            this.PanelStudent.Size = new System.Drawing.Size(1674, 459);
             this.PanelStudent.TabIndex = 0;
             // 
             // TextBoxEmail
             // 
-            this.TextBoxEmail.Location = new System.Drawing.Point(257, 104);
+            this.TextBoxEmail.Location = new System.Drawing.Point(795, 117);
             this.TextBoxEmail.Name = "TextBoxEmail";
             this.TextBoxEmail.Size = new System.Drawing.Size(261, 31);
             this.TextBoxEmail.TabIndex = 8;
             // 
             // TextBoxPassword
             // 
-            this.TextBoxPassword.Location = new System.Drawing.Point(255, 180);
+            this.TextBoxPassword.Location = new System.Drawing.Point(793, 193);
             this.TextBoxPassword.Name = "TextBoxPassword";
             this.TextBoxPassword.Size = new System.Drawing.Size(261, 31);
             this.TextBoxPassword.TabIndex = 6;
             // 
             // TextBoxPasswordRetype
             // 
-            this.TextBoxPasswordRetype.Location = new System.Drawing.Point(255, 258);
+            this.TextBoxPasswordRetype.Location = new System.Drawing.Point(793, 271);
             this.TextBoxPasswordRetype.Name = "TextBoxPasswordRetype";
             this.TextBoxPasswordRetype.Size = new System.Drawing.Size(261, 31);
             this.TextBoxPasswordRetype.TabIndex = 5;
             // 
             // BtnSaveChanges
             // 
-            this.BtnSaveChanges.Location = new System.Drawing.Point(257, 336);
+            this.BtnSaveChanges.Location = new System.Drawing.Point(795, 349);
             this.BtnSaveChanges.Name = "BtnSaveChanges";
             this.BtnSaveChanges.Size = new System.Drawing.Size(246, 70);
             this.BtnSaveChanges.TabIndex = 5;
@@ -227,7 +227,7 @@ namespace ES_AitLibary_WindowsForms
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(47, 258);
+            this.label7.Location = new System.Drawing.Point(585, 271);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(186, 25);
             this.label7.TabIndex = 4;
@@ -237,7 +237,7 @@ namespace ES_AitLibary_WindowsForms
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(121, 180);
+            this.label6.Location = new System.Drawing.Point(659, 193);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(112, 25);
             this.label6.TabIndex = 3;
@@ -247,7 +247,7 @@ namespace ES_AitLibary_WindowsForms
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(164, 104);
+            this.label4.Location = new System.Drawing.Point(702, 117);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(71, 25);
             this.label4.TabIndex = 1;
@@ -257,7 +257,7 @@ namespace ES_AitLibary_WindowsForms
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(20, 24);
+            this.label2.Location = new System.Drawing.Point(558, 37);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(86, 25);
             this.label2.TabIndex = 0;
@@ -267,6 +267,7 @@ namespace ES_AitLibary_WindowsForms
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScroll = true;
             this.ClientSize = new System.Drawing.Size(1674, 1129);
             this.Controls.Add(this.PanelBase);
             this.Controls.Add(this.panelNav);

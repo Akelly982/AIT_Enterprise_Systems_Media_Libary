@@ -30,28 +30,31 @@ namespace ES_AitLibary_WindowsForms
         private void InitializeComponent()
         {
             this.panelNav = new System.Windows.Forms.Panel();
+            this.LabelUserId = new System.Windows.Forms.Label();
             this.LabelUsername = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.BtnBack = new System.Windows.Forms.Button();
-            this.PanelBase = new System.Windows.Forms.Panel();
-            this.PanelActiveBookings = new System.Windows.Forms.Panel();
-            this.listBox3 = new System.Windows.Forms.ListBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.BtnReturnMedia = new System.Windows.Forms.Button();
-            this.PanelReservations = new System.Windows.Forms.Panel();
-            this.listBox2 = new System.Windows.Forms.ListBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.BtnCancelReservedMedia = new System.Windows.Forms.Button();
             this.PanelFees = new System.Windows.Forms.Panel();
-            this.listBox1 = new System.Windows.Forms.ListBox();
-            this.label2 = new System.Windows.Forms.Label();
             this.BtnPayFees = new System.Windows.Forms.Button();
-            this.LabelUserId = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.DataGridViewFees = new System.Windows.Forms.DataGridView();
+            this.PanelReservations = new System.Windows.Forms.Panel();
+            this.BtnCancelReservedMedia = new System.Windows.Forms.Button();
+            this.label3 = new System.Windows.Forms.Label();
+            this.DataGridViewActiveReservations = new System.Windows.Forms.DataGridView();
+            this.PanelActiveBookings = new System.Windows.Forms.Panel();
+            this.BtnReturnMedia = new System.Windows.Forms.Button();
+            this.label4 = new System.Windows.Forms.Label();
+            this.DataGridViewActiveBookings = new System.Windows.Forms.DataGridView();
+            this.PanelBase = new System.Windows.Forms.Panel();
             this.panelNav.SuspendLayout();
-            this.PanelBase.SuspendLayout();
-            this.PanelActiveBookings.SuspendLayout();
-            this.PanelReservations.SuspendLayout();
             this.PanelFees.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.DataGridViewFees)).BeginInit();
+            this.PanelReservations.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.DataGridViewActiveReservations)).BeginInit();
+            this.PanelActiveBookings.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.DataGridViewActiveBookings)).BeginInit();
+            this.PanelBase.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelNav
@@ -64,8 +67,17 @@ namespace ES_AitLibary_WindowsForms
             this.panelNav.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelNav.Location = new System.Drawing.Point(0, 0);
             this.panelNav.Name = "panelNav";
-            this.panelNav.Size = new System.Drawing.Size(1674, 164);
+            this.panelNav.Size = new System.Drawing.Size(1647, 164);
             this.panelNav.TabIndex = 1;
+            // 
+            // LabelUserId
+            // 
+            this.LabelUserId.AutoSize = true;
+            this.LabelUserId.Location = new System.Drawing.Point(720, 101);
+            this.LabelUserId.Name = "LabelUserId";
+            this.LabelUserId.Size = new System.Drawing.Size(107, 25);
+            this.LabelUserId.TabIndex = 6;
+            this.LabelUserId.Text = "undefined";
             // 
             // LabelUsername
             // 
@@ -97,167 +109,163 @@ namespace ES_AitLibary_WindowsForms
             this.BtnBack.UseVisualStyleBackColor = true;
             this.BtnBack.Click += new System.EventHandler(this.BtnBack_Click);
             // 
-            // PanelBase
-            // 
-            this.PanelBase.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.PanelBase.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.PanelBase.Controls.Add(this.PanelActiveBookings);
-            this.PanelBase.Controls.Add(this.PanelReservations);
-            this.PanelBase.Controls.Add(this.PanelFees);
-            this.PanelBase.Location = new System.Drawing.Point(467, 219);
-            this.PanelBase.Name = "PanelBase";
-            this.PanelBase.Size = new System.Drawing.Size(722, 844);
-            this.PanelBase.TabIndex = 2;
-            // 
-            // PanelActiveBookings
-            // 
-            this.PanelActiveBookings.Controls.Add(this.listBox3);
-            this.PanelActiveBookings.Controls.Add(this.label4);
-            this.PanelActiveBookings.Controls.Add(this.BtnReturnMedia);
-            this.PanelActiveBookings.Dock = System.Windows.Forms.DockStyle.Top;
-            this.PanelActiveBookings.Location = new System.Drawing.Point(0, 544);
-            this.PanelActiveBookings.Name = "PanelActiveBookings";
-            this.PanelActiveBookings.Size = new System.Drawing.Size(722, 272);
-            this.PanelActiveBookings.TabIndex = 4;
-            // 
-            // listBox3
-            // 
-            this.listBox3.FormattingEnabled = true;
-            this.listBox3.ItemHeight = 25;
-            this.listBox3.Items.AddRange(new object[] {
-            "return by: 15/2/2022 - myMediaTitle"});
-            this.listBox3.Location = new System.Drawing.Point(49, 74);
-            this.listBox3.Name = "listBox3";
-            this.listBox3.Size = new System.Drawing.Size(453, 154);
-            this.listBox3.TabIndex = 2;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(19, 21);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(166, 25);
-            this.label4.TabIndex = 1;
-            this.label4.Text = "Active Bookings";
-            // 
-            // BtnReturnMedia
-            // 
-            this.BtnReturnMedia.Location = new System.Drawing.Point(535, 88);
-            this.BtnReturnMedia.Name = "BtnReturnMedia";
-            this.BtnReturnMedia.Size = new System.Drawing.Size(153, 131);
-            this.BtnReturnMedia.TabIndex = 0;
-            this.BtnReturnMedia.Text = "Return";
-            this.BtnReturnMedia.UseVisualStyleBackColor = true;
-            // 
-            // PanelReservations
-            // 
-            this.PanelReservations.Controls.Add(this.listBox2);
-            this.PanelReservations.Controls.Add(this.label3);
-            this.PanelReservations.Controls.Add(this.BtnCancelReservedMedia);
-            this.PanelReservations.Dock = System.Windows.Forms.DockStyle.Top;
-            this.PanelReservations.Location = new System.Drawing.Point(0, 272);
-            this.PanelReservations.Name = "PanelReservations";
-            this.PanelReservations.Size = new System.Drawing.Size(722, 272);
-            this.PanelReservations.TabIndex = 3;
-            // 
-            // listBox2
-            // 
-            this.listBox2.FormattingEnabled = true;
-            this.listBox2.ItemHeight = 25;
-            this.listBox2.Items.AddRange(new object[] {
-            "8/02/2019 - MyGreatSoftware",
-            "9/02/2019 - MyGreatSoftware4"});
-            this.listBox2.Location = new System.Drawing.Point(49, 74);
-            this.listBox2.Name = "listBox2";
-            this.listBox2.Size = new System.Drawing.Size(453, 154);
-            this.listBox2.TabIndex = 2;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(19, 21);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(138, 25);
-            this.label3.TabIndex = 1;
-            this.label3.Text = "Reservations";
-            // 
-            // BtnCancelReservedMedia
-            // 
-            this.BtnCancelReservedMedia.Location = new System.Drawing.Point(535, 88);
-            this.BtnCancelReservedMedia.Name = "BtnCancelReservedMedia";
-            this.BtnCancelReservedMedia.Size = new System.Drawing.Size(153, 131);
-            this.BtnCancelReservedMedia.TabIndex = 0;
-            this.BtnCancelReservedMedia.Text = "Cancel";
-            this.BtnCancelReservedMedia.UseVisualStyleBackColor = true;
-            // 
             // PanelFees
             // 
-            this.PanelFees.Controls.Add(this.listBox1);
+            this.PanelFees.Controls.Add(this.DataGridViewFees);
             this.PanelFees.Controls.Add(this.label2);
             this.PanelFees.Controls.Add(this.BtnPayFees);
             this.PanelFees.Dock = System.Windows.Forms.DockStyle.Top;
             this.PanelFees.Location = new System.Drawing.Point(0, 0);
             this.PanelFees.Name = "PanelFees";
-            this.PanelFees.Size = new System.Drawing.Size(722, 272);
+            this.PanelFees.Size = new System.Drawing.Size(1647, 620);
             this.PanelFees.TabIndex = 0;
-            // 
-            // listBox1
-            // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.ItemHeight = 25;
-            this.listBox1.Items.AddRange(new object[] {
-            "$7 - late - myMediaTitle",
-            "$20 - lost - myMediaTitle2"});
-            this.listBox1.Location = new System.Drawing.Point(49, 74);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(453, 154);
-            this.listBox1.TabIndex = 2;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(19, 21);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(60, 25);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "Fees";
             // 
             // BtnPayFees
             // 
-            this.BtnPayFees.Location = new System.Drawing.Point(535, 88);
+            this.BtnPayFees.Location = new System.Drawing.Point(1408, 81);
             this.BtnPayFees.Name = "BtnPayFees";
             this.BtnPayFees.Size = new System.Drawing.Size(153, 131);
             this.BtnPayFees.TabIndex = 0;
             this.BtnPayFees.Text = "Pay";
             this.BtnPayFees.UseVisualStyleBackColor = true;
+            this.BtnPayFees.Click += new System.EventHandler(this.BtnPayFees_Click);
             // 
-            // LabelUserId
+            // label2
             // 
-            this.LabelUserId.AutoSize = true;
-            this.LabelUserId.Location = new System.Drawing.Point(720, 101);
-            this.LabelUserId.Name = "LabelUserId";
-            this.LabelUserId.Size = new System.Drawing.Size(107, 25);
-            this.LabelUserId.TabIndex = 6;
-            this.LabelUserId.Text = "undefined";
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(123, 18);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(60, 25);
+            this.label2.TabIndex = 1;
+            this.label2.Text = "Fees";
+            // 
+            // DataGridViewFees
+            // 
+            this.DataGridViewFees.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DataGridViewFees.Location = new System.Drawing.Point(129, 56);
+            this.DataGridViewFees.Name = "DataGridViewFees";
+            this.DataGridViewFees.RowHeadersWidth = 82;
+            this.DataGridViewFees.RowTemplate.Height = 33;
+            this.DataGridViewFees.Size = new System.Drawing.Size(1240, 500);
+            this.DataGridViewFees.TabIndex = 2;
+            this.DataGridViewFees.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGridViewFees_CellClick);
+            // 
+            // PanelReservations
+            // 
+            this.PanelReservations.Controls.Add(this.DataGridViewActiveReservations);
+            this.PanelReservations.Controls.Add(this.label3);
+            this.PanelReservations.Controls.Add(this.BtnCancelReservedMedia);
+            this.PanelReservations.Dock = System.Windows.Forms.DockStyle.Top;
+            this.PanelReservations.Location = new System.Drawing.Point(0, 620);
+            this.PanelReservations.Name = "PanelReservations";
+            this.PanelReservations.Size = new System.Drawing.Size(1647, 620);
+            this.PanelReservations.TabIndex = 3;
+            // 
+            // BtnCancelReservedMedia
+            // 
+            this.BtnCancelReservedMedia.Location = new System.Drawing.Point(1408, 70);
+            this.BtnCancelReservedMedia.Name = "BtnCancelReservedMedia";
+            this.BtnCancelReservedMedia.Size = new System.Drawing.Size(153, 131);
+            this.BtnCancelReservedMedia.TabIndex = 0;
+            this.BtnCancelReservedMedia.Text = "Cancel";
+            this.BtnCancelReservedMedia.UseVisualStyleBackColor = true;
+            this.BtnCancelReservedMedia.Click += new System.EventHandler(this.BtnCancelReservedMedia_Click);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(123, 15);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(138, 25);
+            this.label3.TabIndex = 1;
+            this.label3.Text = "Reservations";
+            // 
+            // DataGridViewActiveReservations
+            // 
+            this.DataGridViewActiveReservations.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DataGridViewActiveReservations.Location = new System.Drawing.Point(128, 52);
+            this.DataGridViewActiveReservations.Name = "DataGridViewActiveReservations";
+            this.DataGridViewActiveReservations.RowHeadersWidth = 82;
+            this.DataGridViewActiveReservations.RowTemplate.Height = 33;
+            this.DataGridViewActiveReservations.Size = new System.Drawing.Size(1240, 500);
+            this.DataGridViewActiveReservations.TabIndex = 3;
+            this.DataGridViewActiveReservations.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGridViewActiveReservations_CellClick);
+            // 
+            // PanelActiveBookings
+            // 
+            this.PanelActiveBookings.Controls.Add(this.DataGridViewActiveBookings);
+            this.PanelActiveBookings.Controls.Add(this.label4);
+            this.PanelActiveBookings.Controls.Add(this.BtnReturnMedia);
+            this.PanelActiveBookings.Dock = System.Windows.Forms.DockStyle.Top;
+            this.PanelActiveBookings.Location = new System.Drawing.Point(0, 1240);
+            this.PanelActiveBookings.Name = "PanelActiveBookings";
+            this.PanelActiveBookings.Size = new System.Drawing.Size(1647, 620);
+            this.PanelActiveBookings.TabIndex = 4;
+            // 
+            // BtnReturnMedia
+            // 
+            this.BtnReturnMedia.Location = new System.Drawing.Point(1406, 84);
+            this.BtnReturnMedia.Name = "BtnReturnMedia";
+            this.BtnReturnMedia.Size = new System.Drawing.Size(153, 131);
+            this.BtnReturnMedia.TabIndex = 0;
+            this.BtnReturnMedia.Text = "Return";
+            this.BtnReturnMedia.UseVisualStyleBackColor = true;
+            this.BtnReturnMedia.Click += new System.EventHandler(this.BtnReturnMedia_Click);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(121, 15);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(166, 25);
+            this.label4.TabIndex = 1;
+            this.label4.Text = "Active Bookings";
+            // 
+            // DataGridViewActiveBookings
+            // 
+            this.DataGridViewActiveBookings.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DataGridViewActiveBookings.Location = new System.Drawing.Point(128, 56);
+            this.DataGridViewActiveBookings.Name = "DataGridViewActiveBookings";
+            this.DataGridViewActiveBookings.RowHeadersWidth = 82;
+            this.DataGridViewActiveBookings.RowTemplate.Height = 33;
+            this.DataGridViewActiveBookings.Size = new System.Drawing.Size(1240, 500);
+            this.DataGridViewActiveBookings.TabIndex = 3;
+            this.DataGridViewActiveBookings.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGridViewActiveBookings_CellClick);
+            // 
+            // PanelBase
+            // 
+            this.PanelBase.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.PanelBase.Controls.Add(this.PanelActiveBookings);
+            this.PanelBase.Controls.Add(this.PanelReservations);
+            this.PanelBase.Controls.Add(this.PanelFees);
+            this.PanelBase.Dock = System.Windows.Forms.DockStyle.Top;
+            this.PanelBase.Location = new System.Drawing.Point(0, 164);
+            this.PanelBase.Name = "PanelBase";
+            this.PanelBase.Size = new System.Drawing.Size(1647, 1913);
+            this.PanelBase.TabIndex = 2;
             // 
             // StudentActivity
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1674, 1129);
+            this.AutoScroll = true;
+            this.ClientSize = new System.Drawing.Size(1681, 1500);
             this.Controls.Add(this.PanelBase);
             this.Controls.Add(this.panelNav);
             this.Name = "StudentActivity";
             this.Text = "StudentActivity";
             this.panelNav.ResumeLayout(false);
             this.panelNav.PerformLayout();
-            this.PanelBase.ResumeLayout(false);
-            this.PanelActiveBookings.ResumeLayout(false);
-            this.PanelActiveBookings.PerformLayout();
-            this.PanelReservations.ResumeLayout(false);
-            this.PanelReservations.PerformLayout();
             this.PanelFees.ResumeLayout(false);
             this.PanelFees.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.DataGridViewFees)).EndInit();
+            this.PanelReservations.ResumeLayout(false);
+            this.PanelReservations.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.DataGridViewActiveReservations)).EndInit();
+            this.PanelActiveBookings.ResumeLayout(false);
+            this.PanelActiveBookings.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.DataGridViewActiveBookings)).EndInit();
+            this.PanelBase.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -268,19 +276,19 @@ namespace ES_AitLibary_WindowsForms
         private System.Windows.Forms.Button BtnBack;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label LabelUsername;
-        private System.Windows.Forms.Panel PanelBase;
-        private System.Windows.Forms.Panel PanelActiveBookings;
-        private System.Windows.Forms.ListBox listBox3;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Button BtnReturnMedia;
-        private System.Windows.Forms.Panel PanelReservations;
-        private System.Windows.Forms.ListBox listBox2;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Button BtnCancelReservedMedia;
+        private System.Windows.Forms.Label LabelUserId;
         private System.Windows.Forms.Panel PanelFees;
-        private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.DataGridView DataGridViewFees;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button BtnPayFees;
-        private System.Windows.Forms.Label LabelUserId;
+        private System.Windows.Forms.Panel PanelReservations;
+        private System.Windows.Forms.DataGridView DataGridViewActiveReservations;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Button BtnCancelReservedMedia;
+        private System.Windows.Forms.Panel PanelActiveBookings;
+        private System.Windows.Forms.DataGridView DataGridViewActiveBookings;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Button BtnReturnMedia;
+        private System.Windows.Forms.Panel PanelBase;
     }
 }

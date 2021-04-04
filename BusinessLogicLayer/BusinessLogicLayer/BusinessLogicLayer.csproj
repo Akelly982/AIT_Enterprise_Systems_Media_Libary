@@ -41,10 +41,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Borrow.cs" />
+    <Compile Include="BorrowLogic.cs" />
     <Compile Include="IdAndValue.cs" />
     <Compile Include="Media.cs" />
     <Compile Include="MediaLogic.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Reserve.cs" />
+    <Compile Include="ReservedLogic.cs" />
     <Compile Include="TabUserModel.cs" />
     <Compile Include="User.cs" />
     <Compile Include="UserLogic.cs" />

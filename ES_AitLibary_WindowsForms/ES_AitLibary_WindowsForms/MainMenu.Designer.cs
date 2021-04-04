@@ -65,6 +65,8 @@ namespace ES_AitLibary_WindowsForms
             this.RadioBtnTitle = new System.Windows.Forms.RadioButton();
             this.label2 = new System.Windows.Forms.Label();
             this.PanelSpacer1 = new System.Windows.Forms.Panel();
+            this.TextBoxReserveDate = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
             this.panelNav.SuspendLayout();
             this.panelStudentDataRow.SuspendLayout();
             this.PanelStudentBtnsHolder.SuspendLayout();
@@ -291,20 +293,23 @@ namespace ES_AitLibary_WindowsForms
             this.DataGridViewMediaLibary.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.DataGridViewMediaLibary.Size = new System.Drawing.Size(1050, 1211);
             this.DataGridViewMediaLibary.TabIndex = 5;
+            this.DataGridViewMediaLibary.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGridViewMediaLibary_CellClick);
             // 
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.panel2.Controls.Add(this.label6);
+            this.panel2.Controls.Add(this.TextBoxReserveDate);
             this.panel2.Controls.Add(this.BtnReserve);
             this.panel2.Controls.Add(this.BtnCheckOut);
             this.panel2.Location = new System.Drawing.Point(48, 769);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(420, 211);
+            this.panel2.Size = new System.Drawing.Size(420, 317);
             this.panel2.TabIndex = 4;
             // 
             // BtnReserve
             // 
-            this.BtnReserve.Location = new System.Drawing.Point(225, 45);
+            this.BtnReserve.Location = new System.Drawing.Point(225, 132);
             this.BtnReserve.Name = "BtnReserve";
             this.BtnReserve.Size = new System.Drawing.Size(155, 126);
             this.BtnReserve.TabIndex = 2;
@@ -314,7 +319,7 @@ namespace ES_AitLibary_WindowsForms
             // 
             // BtnCheckOut
             // 
-            this.BtnCheckOut.Location = new System.Drawing.Point(31, 45);
+            this.BtnCheckOut.Location = new System.Drawing.Point(31, 132);
             this.BtnCheckOut.Name = "BtnCheckOut";
             this.BtnCheckOut.Size = new System.Drawing.Size(157, 126);
             this.BtnCheckOut.TabIndex = 1;
@@ -326,9 +331,9 @@ namespace ES_AitLibary_WindowsForms
             // 
             this.PanelMediaLibaryAdminBtns.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.PanelMediaLibaryAdminBtns.Controls.Add(this.BtnEditMedia);
-            this.PanelMediaLibaryAdminBtns.Location = new System.Drawing.Point(48, 1006);
+            this.PanelMediaLibaryAdminBtns.Location = new System.Drawing.Point(48, 1102);
             this.PanelMediaLibaryAdminBtns.Name = "PanelMediaLibaryAdminBtns";
-            this.PanelMediaLibaryAdminBtns.Size = new System.Drawing.Size(420, 354);
+            this.PanelMediaLibaryAdminBtns.Size = new System.Drawing.Size(420, 258);
             this.PanelMediaLibaryAdminBtns.TabIndex = 0;
             // 
             // BtnEditMedia
@@ -447,6 +452,23 @@ namespace ES_AitLibary_WindowsForms
             this.PanelSpacer1.Size = new System.Drawing.Size(1934, 150);
             this.PanelSpacer1.TabIndex = 4;
             // 
+            // TextBoxReserveDate
+            // 
+            this.TextBoxReserveDate.Location = new System.Drawing.Point(181, 62);
+            this.TextBoxReserveDate.Name = "TextBoxReserveDate";
+            this.TextBoxReserveDate.Size = new System.Drawing.Size(199, 31);
+            this.TextBoxReserveDate.TabIndex = 4;
+            this.TextBoxReserveDate.Text = "02-20-1994";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(29, 65);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(146, 25);
+            this.label6.TabIndex = 5;
+            this.label6.Text = "Reserve date:";
+            // 
             // MainMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
@@ -472,6 +494,7 @@ namespace ES_AitLibary_WindowsForms
             this.PanelMediaLibary.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DataGridViewMediaLibary)).EndInit();
             this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
             this.PanelMediaLibaryAdminBtns.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
@@ -517,5 +540,7 @@ namespace ES_AitLibary_WindowsForms
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button BtnAdminAddUser;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.TextBox TextBoxReserveDate;
     }
 }

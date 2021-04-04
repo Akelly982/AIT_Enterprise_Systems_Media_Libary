@@ -7,7 +7,7 @@ using DataAccessLayer.ReservedDSTableAdapters;
 
 namespace DataAccessLayer
 {
-    class ReservedDAO
+    public class ReservedDAO
     {
 
 
@@ -93,7 +93,7 @@ namespace DataAccessLayer
 
 
         //delete ----------------
-        public bool insertNewReserved(int reservedId)  
+        public bool deleteReserved(int reservedId)  
         {
             try
             {
