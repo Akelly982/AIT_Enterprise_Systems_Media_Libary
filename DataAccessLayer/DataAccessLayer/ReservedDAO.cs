@@ -25,6 +25,9 @@ namespace DataAccessLayer
 
 
 
+
+        //FillBy ---------
+
         public ReservedDS.TabReservedDataTable getAllReservedTab()
         {
             try
@@ -38,6 +41,82 @@ namespace DataAccessLayer
             }
 
         }
+
+
+        
+        public ReservedDS.TabReservedDataTable getReservedActive(int userId)
+        {
+            try
+            {
+                tabReservedTableAdapter.FillByUserIdForReservedActive(reservedDataSet.TabReserved, userId);
+                return reservedDataSet.TabReserved;
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+
+        }
+
+
+        public ReservedDS.TabReservedDataTable getReservedHistory(int userId)
+        {
+            try
+            {
+                tabReservedTableAdapter.FillByUserIdForReservedHistory(reservedDataSet.TabReserved, userId);
+                return reservedDataSet.TabReserved;
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+
+        }
+
+
+        // insert ---------------------
+
+        public bool insertNewReserved(int userId, int mediaId, string dateMonthDayYear)   //monthDayYear format == "04-20-2020"
+        {
+            try
+            {
+                tabReservedTableAdapter.InsertNewReservedMedia(userId, mediaId, dateMonthDayYear);
+                return true;
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+
+        }
+
+
+
+        //delete ----------------
+        public bool insertNewReserved(int reservedId)  
+        {
+            try
+            {
+                tabReservedTableAdapter.DeleteWithReservedId(reservedId);
+                return true;
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+
+        }
+
+
+
+
+
+
+
+
+
+
+
 
 
 

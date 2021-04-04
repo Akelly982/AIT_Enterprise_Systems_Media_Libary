@@ -78,7 +78,7 @@ SELECT BID, UID, MediaID, BorrowDate, ReturnDate, ActualReturnDate, LateFee FROM
               <Mapping SourceColumn="LateFee" DataSetColumn="LateFee" />
             </Mappings>
             <Sources>
-              <DbSource ConnectionRef="DB_A6FB60_121ES7884ConnectionString (Settings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="DeleteByBID" Modifier="Public" Name="DeleteByBID" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy3" UserSourceName="DeleteByBID">
+              <DbSource ConnectionRef="DB_A6FB60_121ES7884ConnectionString (Settings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="DeleteByBID" Modifier="Public" Name="DeleteByBID" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="DeleteByBID">
                 <DeleteCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>DELETE FROM TabBorrow
@@ -125,7 +125,7 @@ WHERE (UID = @userId) AND (LateFee = 0) AND (ActualReturnDate &lt;&gt; '1111-11-
                   </DbCommand>
                 </SelectCommand>
               </DbSource>
-              <DbSource ConnectionRef="DB_A6FB60_121ES7884ConnectionString (Settings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="InsertQueryWithUserIdMediaId" Modifier="Public" Name="InsertQueryWithUserIdMediaId" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="InsertQueryWithUserIdMediaId">
+              <DbSource ConnectionRef="DB_A6FB60_121ES7884ConnectionString (Settings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="InsertQueryWithUserIdMediaId" Modifier="Public" Name="InsertQueryWithUserIdMediaId" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy1" UserSourceName="InsertQueryWithUserIdMediaId">
                 <InsertCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>INSERT INTO TabBorrow
@@ -138,7 +138,7 @@ VALUES (@uId,@mediaID, CONVERT(varchar(10), GETDATE(), 103), CONVERT(varchar(10)
                   </DbCommand>
                 </InsertCommand>
               </DbSource>
-              <DbSource ConnectionRef="DB_A6FB60_121ES7884ConnectionString (Settings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="UpdateForMediaReturn" Modifier="Public" Name="UpdateForMediaReturn" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy1" UserSourceName="UpdateForMediaReturn">
+              <DbSource ConnectionRef="DB_A6FB60_121ES7884ConnectionString (Settings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="UpdateForMediaReturn" Modifier="Public" Name="UpdateForMediaReturn" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy2" UserSourceName="UpdateForMediaReturn">
                 <UpdateCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>UPDATE TabBorrow
@@ -151,7 +151,7 @@ WHERE (BID = @borrowId)</CommandText>
                   </DbCommand>
                 </UpdateCommand>
               </DbSource>
-              <DbSource ConnectionRef="DB_A6FB60_121ES7884ConnectionString (Settings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="UpdateForPayUserLateFee" Modifier="Public" Name="UpdateForPayUserLateFee" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy2" UserSourceName="UpdateForPayUserLateFee">
+              <DbSource ConnectionRef="DB_A6FB60_121ES7884ConnectionString (Settings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="UpdateForPayUserLateFee" Modifier="Public" Name="UpdateForPayUserLateFee" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy3" UserSourceName="UpdateForPayUserLateFee">
                 <UpdateCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>UPDATE TabBorrow
@@ -173,7 +173,7 @@ WHERE (BID = @borrowId)</CommandText>
   <xs:element name="BorrowDS" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="BorrowDS" msprop:Generator_UserDSName="BorrowDS">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="TabBorrow" msprop:Generator_TableClassName="TabBorrowDataTable" msprop:Generator_TableVarName="tableTabBorrow" msprop:Generator_RowChangedName="TabBorrowRowChanged" msprop:Generator_TablePropName="TabBorrow" msprop:Generator_RowDeletingName="TabBorrowRowDeleting" msprop:Generator_RowChangingName="TabBorrowRowChanging" msprop:Generator_RowEvHandlerName="TabBorrowRowChangeEventHandler" msprop:Generator_RowDeletedName="TabBorrowRowDeleted" msprop:Generator_RowClassName="TabBorrowRow" msprop:Generator_UserTableName="TabBorrow" msprop:Generator_RowEvArgName="TabBorrowRowChangeEvent">
+        <xs:element name="TabBorrow" msprop:Generator_TableClassName="TabBorrowDataTable" msprop:Generator_TableVarName="tableTabBorrow" msprop:Generator_TablePropName="TabBorrow" msprop:Generator_RowDeletingName="TabBorrowRowDeleting" msprop:Generator_RowChangingName="TabBorrowRowChanging" msprop:Generator_RowEvHandlerName="TabBorrowRowChangeEventHandler" msprop:Generator_RowDeletedName="TabBorrowRowDeleted" msprop:Generator_UserTableName="TabBorrow" msprop:Generator_RowChangedName="TabBorrowRowChanged" msprop:Generator_RowEvArgName="TabBorrowRowChangeEvent" msprop:Generator_RowClassName="TabBorrowRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="BID" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnBID" msprop:Generator_ColumnPropNameInRow="BID" msprop:Generator_ColumnPropNameInTable="BIDColumn" msprop:Generator_UserColumnName="BID" type="xs:int" />
