@@ -103,5 +103,34 @@ namespace ES_AitLibary_WindowsForms
                 }
             }
         }
+
+        private void BtnSaveChanges_Click(object sender, EventArgs e)
+        {
+            //get data 
+            string newEmail = TextBoxEmail.Text;
+            string newPass1 = TextBoxPassword.Text;
+            string newPass2 = TextBoxPasswordRetype.Text;
+
+            //check data 
+            if(newEmail.Length == 0 || newPass1.Length == 0 || newPass2.Length == 0)
+            {
+                MessageBox.Show("one or more of the fields are empty");
+                return;
+            }
+
+            if(newPass1 != newPass2)
+            {
+                MessageBox.Show("passwords do not match.");
+                return;
+            }
+
+            //update user data 
+            // current user is declared on entry to page
+            userLogic.updateUserAll(user.Id,user.Username,newEmail,newPass1,user.Userlevel);
+            MessageBox.Show("user email and password successfully updated.");
+
+
+
+        }
     }
 }

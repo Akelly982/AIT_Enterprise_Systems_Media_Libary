@@ -223,6 +223,7 @@ namespace ES_AitLibary_WindowsForms
             this.BtnSaveChanges.TabIndex = 5;
             this.BtnSaveChanges.Text = "Save Changes";
             this.BtnSaveChanges.UseVisualStyleBackColor = true;
+            this.BtnSaveChanges.Click += new System.EventHandler(this.BtnSaveChanges_Click);
             // 
             // label7
             // 

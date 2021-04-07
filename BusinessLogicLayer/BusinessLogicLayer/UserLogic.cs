@@ -126,9 +126,9 @@ namespace BusinessLogicLayer
         }
 
 
-        public bool updateUserAll(string username, string email, string password, int userLevel)
+        public bool updateUserAll(int userId,string username, string email, string password, int userLevel)
         {
-            bool checker = userDAO.insertNewUser(username, email, password, userLevel);
+            bool checker = userDAO.updateUser(userId,username,password,email,userLevel);
             return checker;
         }
 
